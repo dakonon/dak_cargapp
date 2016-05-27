@@ -1,20 +1,90 @@
 /* Empty. Add your own CSS if you like */
-body{background-image:url("../img/Bg-Patron.jpg")}
-  
+body .pane,
+bode .view {
+  background-image: url("../img/Bg-Patron.jpg");
+}
+
+#register_user {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.logo {
+  margin-top: 100px;
+}
+
+.bar.bar-light .title {
+  margin-left: 20px;
+}
+
+.bar.bar-light .title,
+.bar.bar-light .button {
+  color: #038295;
+  font-weight: bold;
+}
+
+/*****************************************
+ * Inpust                                *
+ *****************************************/
+.form-item .form-field::-moz-placeholder {
+  color: #038295;
+  font-weight: bold;
+}
+
+.form-item .form-field:-moz-placeholder {
+  color: #038295;
+  font-weight: bold;
+}
+
+.form-item .form-field::-webkit-input-placeholder {
+  color: #038295;
+  font-weight: bold;
+}
+
+.form-item .form-field:-ms-input-placeholder {
+  color: #038295;
+  font-weight: bold;
+}
+
+.form-item .item-input,
+.form-item .item-input .form-field {
+  border: 0px;
+  background: #f0f0f0;
+  color: #1a6888;
+}
+
+#recoverPassword .form-item .item-input,
+#recoverPassword .form-item .item-input .form-field,
+#userLogin .form-item .item-input,
+#userLogin .form-item .item-input .form-field {
+  border: 0px;
+  color: #04668B;
+  background: #00425A;
+}
+
+/*****************************************
+ * Buttons                               *
+ *****************************************/
+.button-round { /*available in v.2*/
+  border-radius: 64px;
+  font-weight: bold;
+}
+
+/*****************************************
+ * Buttons                               *
+ *****************************************/
+#op_recuperepass {
+  color: #03DE9A;
+}
 
 #Notieneunacuenta {
-  color: #009689;
+  color: #00698B;
 }
 
 #Registrese {
-  color: #FF0099;
-}
-
-#Inputs {
-  color: #003300;
+  color: #FF357D;
 }
 
 #Recuperarpass {
   color: #FFFF00;
 }
-
