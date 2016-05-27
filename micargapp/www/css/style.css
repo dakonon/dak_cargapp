@@ -17,8 +17,9 @@ bode .view {
   margin-left: 20px;
 }
 
-.bar.bar-light .title,
-.bar.bar-light .button {
+.bar .title,
+.bar.bar-header .title,
+.bar .button {
   color: #038295;
   font-weight: bold;
 }
@@ -51,6 +52,36 @@ bode .view {
   border: 0px;
   background: #f0f0f0;
   color: #1a6888;
+  font-weight: bold;
+}
+
+/*****************************************
+ * sections                              *
+ *****************************************/
+section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#reference-data .form-item .item-input,
+#reference-data .form-item .item-input .form-field {
+  color: #afafaf;
+}
+
+#reference-data .form-item .form-field::-moz-placeholder {
+  color: #afafaf;
+}
+
+#reference-data .form-item .form-field:-moz-placeholder {
+  color: #afafaf;
+}
+
+#reference-data .form-item .form-field::-webkit-input-placeholder {
+  color: #afafaf;
+}
+
+#reference-data .form-item .form-field:-ms-input-placeholder {
+  color: #afafaf;
 }
 
 #recoverPassword .form-item .item-input,
