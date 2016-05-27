@@ -8,12 +8,12 @@
         <div class="list">
           <div class="col list form-item">
             <label class="item item-input">
-              <input type="text" placeholder="Usuario" class="form-field">
+              <input type="text" placeholder="Usuario" class="form-field" ng-model="data.username">
             </label>                   
           </div>
           <div class="col list form-item">
             <label class="item item-input">
-              <input type="password" placeholder="Contraseña" class="form-field">
+              <input type="password" placeholder="Contraseña" class="form-field" ng-model="data.password">
             </label>                    
           </div>
           <div class="col text-right">
@@ -21,7 +21,7 @@
               <h3 id="op_recuperepass">Olvido su contraseña ?</h3>
             </a>
           </div>
-          <button class="button button-block button-calm button-round">INGRESAR</button>
+          <button class="button button-block button-calm button-round" ng-click="login(data)">INGRESAR</button>
         </div>
         <div class="list">
           <div class="col text-center">

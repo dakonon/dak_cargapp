@@ -9,6 +9,7 @@ angular.module('app.routes', [])
   .state('home', {
     url: '/home',
     templateUrl: 'templates/home.html',
+    controller: 'LoginCtrl',
   })
   .state('recover', {
     url: '/recover',

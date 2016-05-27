@@ -21,3 +21,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
 })
+// Constante url REST services
+.constant('ApiLogin', {
+  url: 'http://192.168.18.89/cargapp/rest/v1/user/login'
+})
