@@ -1,60 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-
-    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    
-  </head>
-    
-  <body ng-app="starter">
-
-    <ion-content>
-        <div>
-            <div class="row responsive-sm">             
-                <div class="col col-33 col-offset-33">
-                    <img src="../img/Logo_Mi_Cargapp.png">
-                </div>              
-            </div>
-            
-            <div class="row responsive-sm">
-                <div class="col col-33 col-offset-33">
-                    <div>
-                        <h4 id="Recuperarpass">Escriba el correo con el que se registro, alli le enviaremos informacion</h4>                   
-                    </div>
-                    <div class="list list-inset">
-                        <label class="item item-input">
-                            <input type="text" placeholder="Correo">
-                        </label>
-
-                    </div>
-                    <div>                
-                        <button class="button button-block button-calm">
-                            Recuperar contraseña
-                        </button>
-                    </div>
-                                  
-                </div>    
-            </div>       
+<ion-view style="" class=" " id="password_recover" title="Recuperar Contraseña">
+  <ion-nav-bar class="bar bar-header bar-light">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="col responsive-sm col-80 col-offset-10">
+      <form id="recoverPassword">
+        <div class="list col col-50 col-offset-25 logo">
+          <img src="img/Logo_Mi_Cargapp.png" alt="Mi Cargapp" class="img-responsive img-rounded row logo-img">
+        </div>              
+        <div class="list">
+          <div class="col list text-center col-80 col-offset-10">
+            <h3 id="Recuperarpass">Escriba el correo con el que se registro, alli le enviaremos información</h3>
+          </div>
+          <div class="col list form-item">
+             <label class="item item-input">
+               <input type="text" placeholder="Correo" class="form-field">
+             </label>
+          </div>
+          <div class="col">
+            <button class="button button-block button-calm button-round">Recuperar contraseña</button>
+          </div>
         </div>
- 
+      </form>
+    </div>
   </ion-content>
+</ion-view>
 
-  </body>
-</html>
