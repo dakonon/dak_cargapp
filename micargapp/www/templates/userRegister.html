@@ -5,49 +5,154 @@
   <ion-content class="has-header" padding="true">
     <div class="col responsive-sm col-80 col-offset-10">
       <form class="list " id="userRegister">
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Nombre" type="text" class="form-field">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Correo" type="email" class="form-field">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Contraseña" type="password" class="form-field">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Confirmar Contraseña" type="password" class="form-field">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Telefono Móvil" type="tel" class="form-field">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Telefono Fijo" type="tel" class="form-field">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <textarea placeholder="Dirección" class="form-field"></textarea>
-          </label>
-        </div>
-        <div class="form-item list col-50 col-offset-25">
-          <div style="margin: 0px; line-height: 150px; background-color: rgb(232, 235, 239); text-align: center;">
-            <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
+        <section id="driver-data">
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Nombre" type="text" class="form-field">
+            </label>
           </div>
-          <button class="button button-balanced col">Cambiar Foto</button>
-        </div>
-        <button class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
-      </form>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Correo" type="email" class="form-field">
+            </label>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Contraseña" type="password" class="form-field">
+            </label>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Confirmar Contraseña" type="password" class="form-field">
+            </label>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Telefono Móvil" type="tel" class="form-field">
+            </label>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Telefono Fijo" type="tel" class="form-field">
+            </label>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <textarea placeholder="Dirección" class="form-field"></textarea>
+            </label>
+          </div>
+          <div class="form-item list col-50 col-offset-25">
+            <div style="margin: 0px; line-height: 150px; background-color: rgb(232, 235, 239); text-align: center;">
+              <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
+            </div>
+            <button class="button button-balanced col">Cambiar Foto</button>
+          </div>
+        </section>
+        <section id="reference-data">
+          <section id="vehicle-reference">
+            <div class="form-item list">
+              <label class="item item-input">
+                <select class="form-field col">
+                  <option value="none" disabled selected>Tipo de Vehículo.</option>
+                  <option>Blue</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Capacidad max. de carga" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Placa" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Modelo" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Color" type="text" class="form-field">
+              </label>
+            </div>
+          </section>
+          <section id="business-reference">
+            <div class="list bar bar-header">
+              <h2 class="title">REFERENCIA COMERCIAL</h2>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Nombre Ref. 1" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <textarea placeholder="Dirección" class="form-field"></textarea>
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Teléfono" type="tel" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Nombre Ref. 2" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <textarea placeholder="Dirección" class="form-field"></textarea>
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Teléfono" type="tel" class="form-field">
+              </label>
+            </div>
+          </section>
+          <section id="personal-reference">
+            <div class="list bar bar-header">
+              <h2 class="title">REFERENCIA PERSONAL</h2>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Nombre Ref. 1" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <textarea placeholder="Dirección" class="form-field"></textarea>
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Teléfono" type="tel" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Nombre Ref. 2" type="text" class="form-field">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <textarea placeholder="Dirección" class="form-field"></textarea>
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Teléfono" type="tel" class="form-field">
+              </label>
+            </div>
+          </section>
+          <section id="op-buttons">
+            <button class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
+          </sections>
+        </form>
     </div>
   </ion-content>
 </ion-view>
