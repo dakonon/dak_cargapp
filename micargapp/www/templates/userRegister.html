@@ -7,46 +7,46 @@
       <form class="list " id="userRegister">
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Nombre" type="text" class="form-field">
+            <input placeholder="Nombre" type="text" class="form-field" ng-model="data.name">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Correo" type="email" class="form-field">
+            <input placeholder="Correo" type="email" class="form-field" ng-model="data.email">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Contraseña" type="password" class="form-field">
+            <input placeholder="Contraseña" type="password" class="form-field" ng-model="data.password">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Confirmar Contraseña" type="password" class="form-field">
+            <input placeholder="Confirmar Contraseña" type="password" class="form-field" ng-model="data.password_repeat">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Telefono Móvil" type="tel" class="form-field">
+            <input placeholder="Telefono Móvil" type="tel" class="form-field" ng-model="data.phone">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Telefono Fijo" type="tel" class="form-field">
+            <input placeholder="Telefono Fijo" type="tel" class="form-field" ng-model="data.password_repeat" ng-model="data.phone">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <textarea placeholder="Dirección" class="form-field"></textarea>
+            <textarea placeholder="Dirección" class="form-field" ng-model="data.direccion"></textarea>
           </label>
         </div>
         <div class="form-item list col-50 col-offset-25">
           <div style="margin: 0px; line-height: 150px; background-color: rgb(232, 235, 239); text-align: center;">
             <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
           </div>
-          <button class="button button-balanced col">Cambiar Foto</button>
+          <button class="button button-balanced col" ng-model="data.avtar">Cambiar Foto</button>
         </div>
-        <button class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
+        <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="register(data)">Registrarme</button>
       </form>
     </div>
   </ion-content>

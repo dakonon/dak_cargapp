@@ -19,7 +19,7 @@ angular.module('app.routes', [])
   .state('register', {
     url: '/register',
     templateUrl: 'templates/userRegister.html',
-    controller: 'userRegisterCtrl'
+    controller: 'UserRegisterCtrl'
   })
   .state('notfound', {
     url: '/notfound',

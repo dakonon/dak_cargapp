@@ -30,3 +30,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 .constant('ApiRecover', {
   url: 'http://localhost:1337/localhost/cargapp/rest/v1/account/recover'
 })
+
+.constant('ApiRegister', {
+  url: 'http://localhost:1337/localhost/cargapp/rest/v1/account/create'
+})
