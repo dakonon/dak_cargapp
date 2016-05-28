@@ -14,11 +14,11 @@
           </div>
           <div class="col list form-item">
              <label class="item item-input">
-               <input type="text" placeholder="Correo" class="form-field">
+               <input type="text" placeholder="Correo" class="form-field" ng-model="data.email">
              </label>
           </div>
           <div class="col">
-            <button class="button button-block button-calm button-round">Recuperar contraseña</button>
+            <button class="button button-block button-calm button-round" ng-click="recover(data)">Recuperar contraseña</button>
           </div>
         </div>
       </form>

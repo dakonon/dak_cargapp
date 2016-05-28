@@ -17,5 +17,23 @@ angular.module('app.controllers', [])
             });
         });
     }
-});
+})
+
+.controller('RecoverCtrl', function($scope, RecoverService, $ionicPopup, $state) {
+    $scope.data = {};
  
+    $scope.recover = function() {
+        RecoverService.recoverAccount($scope.data.email).success(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Mensaje Enviado!',
+                template: data.mensaje + '!'
+            });
+            $state.go('home');
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+    }
+});

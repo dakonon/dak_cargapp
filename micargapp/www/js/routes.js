@@ -14,6 +14,7 @@ angular.module('app.routes', [])
   .state('recover', {
     url: '/recover',
     templateUrl: 'templates/recover.html',
+    controller: 'RecoverCtrl',
   })
   .state('register', {
     url: '/register',
