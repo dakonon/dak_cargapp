@@ -3,6 +3,9 @@ body .pane,
 bode .view {
   background-image: url("../img/Bg-Patron.jpg");
 }
+#dashboard-1 {
+  background-image: url("../img/bg-patron-2.png");
+}
 
 #register_user {
   background-color: #ffffff;
@@ -12,7 +15,24 @@ bode .view {
 .logo {
   margin-top: 100px;
 }
-
+.afiliada{
+  background-image: url("../img/icon_empresa_afiliada.png");
+  background-color: transparent;
+  background-position: left-top;
+  background-repeat: no-repeat;
+}
+.gray-text {
+  color: #999;
+}
+.navbar-text-green{
+  background-color: #dff0d8;
+  text-align: center !important;
+}
+.navbar-text-blue{
+  background-color: #4ea4be;
+  color: #FFFFFF !important;
+  text-align: center !important;
+}
 .bar.bar-light .title {
   margin-left: 20px;
 }

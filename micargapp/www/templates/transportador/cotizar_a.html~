@@ -1,0 +1,37 @@
+<ion-view id="page_home">
+  <ion-content>
+    <div class="col responsive-sm col-80 col-offset-10">
+      <form id="userLogin">
+        <div class="list col col-50 col-offset-25 logo">
+          <img src="img/Logo_Mi_Cargapp.png" alt="Mi Cargapp" class="img-responsive img-rounded row logo-img">
+        </div>              
+        <div class="list">
+          <div class="col list form-item">
+            <label class="item item-input">
+              <input type="text" placeholder="Usuario" class="form-field" ng-model="data.username">
+            </label>                   
+          </div>
+          <div class="col list form-item">
+            <label class="item item-input">
+              <input type="password" placeholder="Contraseña" class="form-field" ng-model="data.password">
+            </label>                    
+          </div>
+          <div class="col text-right">
+            <a  ui-sref="recover" class="button button-clear button-assertive">
+              <h3 id="op_recuperepass">Olvido su contraseña ?</h3>
+            </a>
+          </div>
+          <button class="button button-block button-calm button-round" ng-click="login(data)">INGRESAR</button>
+        </div>
+        <div class="list">
+          <div class="col text-center">
+            <h3 id="Notieneunacuenta">No tiene una cuenta ?</h3>
+            <a ui-sref="register" class="button button-clear button-assertive">
+              <h3 id="Registrese">REGISTRESE</h3>
+            </a>   
+          </div>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
