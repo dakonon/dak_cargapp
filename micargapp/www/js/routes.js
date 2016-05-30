@@ -45,6 +45,16 @@ angular.module('app.routes', [])
         }
     
   })
+  .state('tab.cotizar_b', {
+    url: '/transportador-cotizar-b',
+        views: {
+            'cotizar_b' :{
+                templateUrl: 'templates/transportador/cotizar_b.html',
+                controller : 'cotizar_a'
+            }
+        }
+    
+  })
   .state('tab.activa', {
     url: '/activa',
     views: {

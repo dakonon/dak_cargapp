@@ -73,6 +73,8 @@ bode .view {
   color: #1a6888;
 }
 
+#generalFrom .form-item .item-input,
+#generalFrom .form-item .item-input .form-field,
 #recoverPassword .form-item .item-input,
 #recoverPassword .form-item .item-input .form-field,
 #userLogin .form-item .item-input,
@@ -89,7 +91,10 @@ bode .view {
   border-radius: 64px;
   font-weight: bold;
 }
-
+.button-pink{
+  background-color: #FC2B5C;
+  color: #FFF;
+}
 /*****************************************
  * Buttons                               *
  *****************************************/
@@ -158,3 +163,4 @@ img.pequeña{
     background: #03DE9A;
     border-color:green;
 }
+
