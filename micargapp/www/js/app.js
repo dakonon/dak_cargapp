@@ -23,15 +23,15 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 })
 // Constantes url REST services 
 .constant('ApiLogin', {
-  url: 'http://192.168.12.121/cargapp/rest/v1/user/login'
+  url: 'http://localhost/cargapp/rest/v1/user/login'
 })
 
 .constant('ApiRecover', {
 
-  url: 'http://192.168.12.121/cargapp/rest/v1/account/recover'
+  url: 'http://localhost/cargapp/rest/v1/account/recover'
 
 })
 
 .constant('ApiRegister', {
-  url: 'http://192.168.12.121/cargapp/rest/v1/account/create'
+  url: 'http://localhost/cargapp/rest/v1/account/create'
 })
