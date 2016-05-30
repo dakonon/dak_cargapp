@@ -28,7 +28,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
 // Actualmente se usa el corsproxy para consultar el services, esta corriendo en el puerto 1337
 .constant('ApiRecover', {
-  url: 'http://localhost:1337/localhost/cargapp/rest/v1/account/recover'
+  url: 'http://localhost:8000/localhost/cargapp/rest/v1/account/recover'
 })
 
 .constant('ApiRegister', {

@@ -88,3 +88,48 @@ bode .view {
 #Recuperarpass {
   color: #FFFF00;
 }
+
+img.pequeña{
+  width: 40px; height: 40px;
+}
+
+
+.tabs .tab-item .icon.cotizar {
+ background-repeat: no-repeat;
+ width: 30px;
+ height: 30px;
+ background-image: url('../img/icon_cotizar.png');
+ background-size:cover;
+}
+
+.tabs .tab-item .icon.activa {
+ background-repeat: no-repeat;
+ width: 20px;
+ height: 30px;
+ background-image: url('../img/icon_carga_activa.png');
+ background-size:cover;
+}
+
+.tabs .tab-item .icon.finalizada {
+ background-repeat: no-repeat;
+ width: 25px;
+ height: 30px;
+ background-image: url('../img/icon_carga_finalizada.png');
+ background-size:cover;
+}
+
+.tabs .tab-item .icon.noticias {
+ background-repeat: no-repeat;
+ width: 42px;
+ height: 30px;
+ background-image: url('../img/icon_noticias.png');
+ background-size:cover;
+}
+
+.tabs .tab-item .icon.perfil {
+ background-repeat: no-repeat;
+ width: 40px;
+ height: 30px;
+ background-image: url('../img/icon_perfil.png');
+ background-size:cover;
+}

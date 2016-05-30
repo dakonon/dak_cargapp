@@ -21,10 +21,35 @@ angular.module('app.routes', [])
     templateUrl: 'templates/userRegister.html',
     controller: 'UserRegisterCtrl'
   })
+  .state('tab', {
+    url: '/tab',
+    abstract: true,    
+    templateUrl: 'templates/tab.html',
+  })
+  .state('tab.cotizar', {
+    url: '/cotizar',
+    views: {
+        'tab-cotizar' :{
+           templateUrl: 'templates/cotizar.html',
+           controller : 'cotizar'
+            }
+    }    
+  })
+  
+  .state('tab.activa', {
+    url: '/activa',
+    views: {
+        'tab-activa' :{
+           templateUrl: 'templates/activa.html',
+           controller : 'activa'
+            }
+    }    
+  })
   .state('notfound', {
     url: '/notfound',
     templateUrl: 'templates/notfound.html',
   })
+  
   $urlRouterProvider.otherwise('/home')
 });
 
