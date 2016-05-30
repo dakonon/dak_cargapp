@@ -27,7 +27,7 @@ angular.module('app.routes', [])
   })
   .state('transportador_cotizar_a', {
     url: '/transportador-cotizar-a',
-    templateUrl: 'templates/transportador/cotizar_a.html',
+    templateUrl: 'templates/transportador_cotizar_a.html',
   })
   $urlRouterProvider.otherwise('/home')
 });
