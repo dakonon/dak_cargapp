@@ -154,3 +154,7 @@ img.pequeña{
  background-size:cover;
 }
 
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    background: #03DE9A;
+    border-color:green;
+}
