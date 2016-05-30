@@ -29,13 +29,22 @@ angular.module('app.routes', [])
   .state('tab.cotizar', {
     url: '/cotizar',
     views: {
-        'tab-cotizar' :{
+        'cotizar' :{
            templateUrl: 'templates/cotizar.html',
            controller : 'cotizar'
             }
     }    
   })
-  
+  .state('tab.cotizar_a', {
+    url: '/transportador-cotizar-a',
+        views: {
+            'cotizar_a' :{
+                templateUrl: 'templates/transportador/cotizar_a.html',
+                controller : 'cotizar_a'
+            }
+        }
+    
+  })
   .state('tab.activa', {
     url: '/activa',
     views: {
@@ -45,6 +54,16 @@ angular.module('app.routes', [])
             }
     }    
   })
+  .state('tab.transportador_cotizar_b', {
+    url: '/transportador-cotizar-b',
+    views: {
+        'cotizar_b' :{
+           templateUrl: 'templates/transportador/cotizar_b.html',
+           controller : 'cotizar_b'
+            }
+    }    
+  })
+  
   .state('notfound', {
     url: '/notfound',
     templateUrl: 'templates/notfound.html',

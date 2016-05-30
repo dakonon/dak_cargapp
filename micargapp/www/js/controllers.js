@@ -7,12 +7,21 @@ angular.module('app.controllers', [])
                                      $scope.data.phone, $scope.data.password,
                                      $scope.data.password_repeat, $scope.data.avatar,
                                      $scope.data.type).success(function(data){
-                                        var alertPopup = $ionicPopup.alert({
-                                            title: 'Mensaje Enviado!',
-                                            template: data.mensaje + '!'
-                                        });
-                                        $state.go('home'); 
-                                     }).error(function(data){
+                                        if(data.validacion == 'ok')
+                                               {   
+                                                    var alertPopup = $ionicPopup.alert({
+                                                        title: 'Mensaje Enviado!',
+                                                        template: data.mensaje + '!',
+                                                    });
+                                                    $state.go('home');
+                                               }
+                                            else{
+                                                var alertPopup = $ionicPopup.alert({
+                                                    title: 'Error al entrar!',
+                                                    template: data.mensaje + '!'
+                                                });
+                                            }
+                                        }).error(function(data){
                                         var alertPopup = $ionicPopup.alert({
                                             title: 'Error',
                                             template: ''
@@ -26,7 +35,16 @@ angular.module('app.controllers', [])
     $scope.data = {};
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('notfound');
+            if(data.validacion == 'ok')
+               { 
+                    $state.go('notfound');
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al entrar!',
@@ -40,11 +58,20 @@ angular.module('app.controllers', [])
     $scope.data = {};
     $scope.recover = function() {
         RecoverService.recoverAccount($scope.data.email).success(function(data) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Mensaje Enviado!',
-                template: data.mensaje + '!'
-            });
-            $state.go('home');
+            if(data.validacion == 'ok')
+               {   
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Mensaje Enviado!',
+                        template: data.mensaje + '!',
+                    });
+                    $state.go('home');
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',

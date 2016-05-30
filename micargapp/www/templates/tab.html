@@ -1,9 +1,9 @@
 
 
 
-<ion-tabs class = "tabs-icon-top tabs-background-positive tabs-color-light">
+<ion-tabs class = "tabs-icon-top tabs-background-positive tabs-color-black   ">
         <ion-tab   icon-off="cotizar" icon-on="cotizar"  title="Cotizar">
-            <ion-nav-view name="tab-cotizar"></ion-nav-view>                            
+            <ion-nav-view name="cotizar"></ion-nav-view>
         </ion-tab>
         <ion-tab icon-off="activa" icon-on="activa" title="Activa">
             <ion-nav-view name="tab-activa"></ion-nav-view>
@@ -18,6 +18,16 @@
         <ion-tab icon-off="perfil" icon-on="perfil"  title="Perfil">
             <ion-nav-view name="tab-perfil"></ion-nav-view>    
         </ion-tab>
-      
+    
+    
+    
+    
+        <ion-tab hidden="true">
+            <ion-nav-view name="cotizar_a"></ion-nav-view>
+        </ion-tab>
+        <ion-tab hidden="true">
+            <ion-nav-view name="cotizar_b"></ion-nav-view>
+        </ion-tab>
+       
 </ion-tabs> 
 
