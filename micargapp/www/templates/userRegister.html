@@ -4,11 +4,14 @@
   </ion-nav-bar>
   <ion-content class="has-header" padding="true">
     <div class="col responsive-sm col-80 col-offset-10">
-      <form class="list " id="userRegister">
+      <form class="list " id="userRegister" name="registro">
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Nombre" type="text" class="form-field" ng-model="data.name">
+            <input name="name" placeholder="Nombre" type="text" class="form-field" ng-model="data.name" ng-model-options="{ updateOn: 'blur' }" required >
           </label>
+          <span class="messages" ng-show="registro.$submitted || registro.name.$touched">
+        <span ng-show="registro.name.$error.required">El campo es obligatorio.</span>
+       </span>
         </div>
         <div class="form-item list">
           <label class="item item-input">

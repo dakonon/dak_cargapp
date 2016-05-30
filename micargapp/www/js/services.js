@@ -13,13 +13,10 @@ angular.module('app.services', [])
             //ApiLogin.url   : es la constante del rest services
             $http.post(ApiLogin.url, parametros).success(function(data) {
               if(data) {
-                console.log(data)
                 deferred.resolve(data);
-                deferred.resolve('Welcome ' + name + '!');
             } 
               else {
                 deferred.reject(data);
-                deferred.reject('Wrong credentials.');
             }
             }).error(function(data) {
                 deferred.reject(data);
