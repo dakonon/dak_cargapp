@@ -65,6 +65,16 @@ angular.module('app.routes', [])
         }
     
   })
+  .state('tab.mi_perfil', {
+    url: '/transportador-mi-perfil',
+        views: {
+            'editar_empresas' :{
+                templateUrl: 'templates/transportador/mi_perfil.html',
+                controller : 'mi_perfil'
+            }
+        }
+    
+  })
   .state('tab.activa', {
     url: '/activa',
     views: {
