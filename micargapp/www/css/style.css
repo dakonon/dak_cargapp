@@ -6,7 +6,9 @@ bode .view {
 #dashboard-1 {
   background-image: url("../img/bg-patron-2.png");
 }
-
+#dashboard-2 {
+  background: #FFF;
+}
 #register_user {
   background-color: #ffffff;
   background-image: none;

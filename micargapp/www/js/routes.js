@@ -45,12 +45,22 @@ angular.module('app.routes', [])
         }
     
   })
-  .state('tab.cotizar_b', {
-    url: '/transportador-cotizar-b',
+  .state('tab.cotizar_cliente', {
+    url: '/transportador-cotizar-cliente',
         views: {
-            'cotizar_b' :{
-                templateUrl: 'templates/transportador/cotizar_b.html',
-                controller : 'cotizar_a'
+            'cotizar_cliente' :{
+                templateUrl: 'templates/transportador/cotizar_cliente.html',
+                controller : 'cotizar_cliente'
+            }
+        }
+    
+  })
+  .state('tab.editar_empresas', {
+    url: '/transportador-editar-empresas',
+        views: {
+            'editar_empresas' :{
+                templateUrl: 'templates/transportador/editar_empresas.html',
+                controller : 'editar_empresas'
             }
         }
     
