@@ -28,7 +28,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
 .constant('ApiRecover', {
 
-  url: 'http://localhost:8000/localhost/cargapp/rest/v1/account/recover'
+  url: 'http://localhost/cargapp/rest/v1/account/recover'
 
 })
 
