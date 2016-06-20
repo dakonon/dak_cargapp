@@ -45,6 +45,36 @@ angular.module('app.routes', [])
         }
     
   })
+  .state('tab.cotizar_cliente', {
+    url: '/transportador-cotizar-cliente',
+        views: {
+            'cotizar_cliente' :{
+                templateUrl: 'templates/transportador/cotizar_cliente.html',
+                controller : 'cotizar_cliente'
+            }
+        }
+    
+  })
+  .state('tab.editar_empresas', {
+    url: '/transportador-editar-empresas',
+        views: {
+            'editar_empresas' :{
+                templateUrl: 'templates/transportador/editar_empresas.html',
+                controller : 'editar_empresas'
+            }
+        }
+    
+  })
+  .state('tab.mi_perfil', {
+    url: '/transportador-mi-perfil',
+        views: {
+            'editar_empresas' :{
+                templateUrl: 'templates/transportador/mi_perfil.html',
+                controller : 'mi_perfil'
+            }
+        }
+    
+  })
   .state('tab.activa', {
     url: '/activa',
     views: {

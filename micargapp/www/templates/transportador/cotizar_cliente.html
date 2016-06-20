@@ -1,5 +1,5 @@
 
-<ion-view style="" class=" " id="dashboard-1" title="COTIZAR CARGAS">
+<ion-view style="" class=" " id="" title="COTIZAR CARGAS">
   <ion-nav-bar class="bar bar-header bar-light">
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
@@ -42,10 +42,33 @@
               <p class="navbar-text-blue stable"><b>Usuario cliente</b></p>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+                <span class="gray-text">Tipo:</span><br>
+                <span class="positive">Arena comprimida</span>
+                <br><br>
+                <span class="gray-text">Comentarios:</span><br>
+                <span class="positive">Debe mantenerse humeda durante el transporte para no 
+                generar pérdida del material.</span>
+            </div>
+            
+          </div>
         </div>
       </div>
+      
+      <h5 id="op_recuperepass">Enviar cotización por el Transporte de la carga</h5>
+      <form id="generalFrom">
+        <div class="col list form-item">
+          <label class="item item-input">
+            <input type="text"  class="form-field"
+             placeholder="Valor en COP">
+          </label>
+          <span class="calm">No incluir puntos ni comas</span>
+        </div>
+      </form>
+
+      <button class="button button-block button-calm button-round" ng-click="">ACEPTAR OFERTA</button>
       <!-- END CONTENT -->
     </div>
   </ion-content>
 </ion-view>
-cot
