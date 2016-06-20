@@ -7,10 +7,13 @@ angular.module('app.services', [])
 .factory('LoginService', function($q, $http, ApiLogin) {
     return {
         loginUser: function(name, pw) {
+            
             var deferred = $q.defer();
             var promise = deferred.promise;
             var parametros = JSON.stringify({"username": name, "password": pw})
-            //ApiLogin.url   : es la constante del rest services
+            
+            
+            console.log(ApiLogin.url);
             $http.post(ApiLogin.url, parametros).success(function(data) {
               if(data) {
                 deferred.resolve(data);
