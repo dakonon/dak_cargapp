@@ -1,10 +1,10 @@
 
-<ion-view style="" class="" id="dashboard-2" title="COTIZAR CARGAS">
+<ion-view style="" class="" id="dashboard-2" title="COTIZAR CARGAS" ng-controller="InvitacionCtrl" >
   <ion-nav-bar class="bar bar-header bar-light">
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content class="has-header" padding="true">
-    <div class="col responsive-sm col-80 col-offset-10" ng-controller="InvitacionCtrl" >
+    <div class="col responsive-sm col-80 col-offset-10">
       <!-- START CONTENT -->
       <center>
         <h3 class="positive">EDITAR EMPRESAS</h3>

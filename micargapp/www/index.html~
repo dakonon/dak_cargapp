@@ -24,8 +24,7 @@
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
-
-    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="bower_components/js/angular-local-storage.min.js"></script>
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
     <div style="">
