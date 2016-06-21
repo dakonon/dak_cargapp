@@ -5,6 +5,7 @@ angular.module('app.services', [])
 }])
 
 .factory('LoginService', function($q, $http, ApiLogin) {
+
     return {
         loginUser: function(name, pw) {
             
@@ -13,9 +14,10 @@ angular.module('app.services', [])
             var parametros = JSON.stringify({"username": name, "password": pw})
             
             
-            console.log(ApiLogin.url);
+            
             $http.post(ApiLogin.url, parametros).success(function(data) {
               if(data) {
+                console.log(data.auth_token);
                 deferred.resolve(data);
             } 
               else {

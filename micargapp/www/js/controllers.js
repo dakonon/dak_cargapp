@@ -31,13 +31,15 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, LoginService, $ionicPopup,$state) {
+    
     $scope.data = {};
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             if(data.validacion == 'ok')
                { 
-                    $state.go('notfound');
+
+                     $state.go('tab.cotizar_cliente');             
                }
             else{
                 var alertPopup = $ionicPopup.alert({

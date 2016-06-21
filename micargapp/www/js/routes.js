@@ -26,15 +26,6 @@ angular.module('app.routes', [])
     abstract: true,    
     templateUrl: 'templates/tab.html',
   })
-  .state('tab.cotizar', {
-    url: '/cotizar',
-    views: {
-        'cotizar' :{
-           templateUrl: 'templates/cotizar.html',
-           controller : 'cotizar'
-            }
-    }    
-  })
   .state('tab.cotizar_a', {
     url: '/transportador-cotizar-a',
         views: {
@@ -45,22 +36,43 @@ angular.module('app.routes', [])
         }
     
   })
-  .state('tab.cotizar_cliente', {
-    url: '/transportador-cotizar-cliente',
+  .state('tab.mis_cargas_a', {
+    url: '/mis_cargas_a',
         views: {
-            'cotizar_cliente' :{
-                templateUrl: 'templates/transportador/cotizar_cliente.html',
-                controller : 'cotizar_cliente'
+            'mis_cargas_a' :{
+                templateUrl: 'templates/transportador/mis_cargas_a.html',
+                controller : 'mis_cargas_a'
             }
         }
     
   })
+
+  .state('tab.cotizar_cliente', {
+    url: '/transportador-cotizar-cliente',
+        views: {
+            'cotizar_cliente' :{
+                templateUrl: 'templates/transportador/cotizar_cliente.html',                
+            }
+        }
+    
+  })
+
+  .state('tab.cotizar_empresa', {
+    url: '/transportador-cotizar-empresa',
+        views: {
+            'cotizar_empresa' :{
+                templateUrl: 'templates/transportador/cotizar_empresa.html'
+                
+            }
+        }
+    
+  })
+
   .state('tab.editar_empresas', {
     url: '/transportador-editar-empresas',
         views: {
             'editar_empresas' :{
-                templateUrl: 'templates/transportador/editar_empresas.html',
-                controller : 'editar_empresas'
+                templateUrl: 'templates/transportador/editar_empresas.html',                
             }
         }
     
@@ -81,15 +93,6 @@ angular.module('app.routes', [])
         'tab-activa' :{
            templateUrl: 'templates/activa.html',
            controller : 'activa'
-            }
-    }    
-  })
-  .state('tab.transportador_cotizar_b', {
-    url: '/transportador-cotizar-b',
-    views: {
-        'cotizar_b' :{
-           templateUrl: 'templates/transportador/cotizar_b.html',
-           controller : 'cotizar_b'
             }
     }    
   })

@@ -23,7 +23,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 })
 // Constantes url REST services 
 .constant('ApiLogin', {
-  url: 'http://localhost/cargapp/rest/v1/user/login'
+  url: 'http://micargapp.com/rest/v1/user/login'
 })
 
 .constant('ApiRecover', {
