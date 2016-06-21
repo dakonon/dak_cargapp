@@ -4,6 +4,27 @@ angular.module('app.services', [])
 
 }])
 
+
+
+.factory ('StorageService', function ($localStorage) {
+
+
+var _getAll = function () {
+  return $localStorage;
+};
+var _add = function (thing) {
+  $localStorage.things.push(thing);
+}
+var _remove = function (thing) {
+  $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
+}
+return {
+    getAll: _getAll,
+    add: _add,
+    remove: _remove
+  };
+})
+
 .factory('LoginService', function($q, $http, ApiLogin) {
 
     return {
@@ -16,8 +37,7 @@ angular.module('app.services', [])
             
             
             $http.post(ApiLogin.url, parametros).success(function(data) {
-              if(data) {
-                console.log(data.auth_token);
+              if(data) {              
                 deferred.resolve(data);
             } 
               else {
@@ -107,4 +127,55 @@ angular.module('app.services', [])
   return promise;
       }
   }
+})
+
+.factory ('StorageService', function ($localStorage) {
+      var _getAll = function () {
+        return $localStorage.things;
+      };
+      var _add = function (thing) {
+        $localStorage.things.push(thing);
+      }
+      var _remove = function (thing) {
+        $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
+      }
+      return {
+          getAll: _getAll,
+          add: _add,
+          remove: _remove
+        };
+})
+
+
+.factory('InvitacionService', function($q, $http, ApiInvitacion) {
+
+    return {
+        Invitacion: function(token) {
+            
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+            
+            
+            
+            $http.get(ApiLogin.url+token).success(function(data) {
+              if(data) {              
+                deferred.resolve(data);
+            } 
+              else {
+                deferred.reject(data);
+            }
+            }).error(function(data) {
+                deferred.reject(data);
+            });
+            promise.success = function(fn) {
+                          promise.then(fn);
+                          return promise;
+                      }
+            promise.error = function(fn) {
+                          promise.then(null, fn);
+                          return promise;
+                  }
+        return promise;
+        }
+    }
 })

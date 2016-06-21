@@ -31,13 +31,27 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup,$state) {
+.controller('LoginCtrl', function($scope, LoginService, $ionicPopup,$state, StorageService) {
     
+
+   
+
     $scope.data = {};
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             if(data.validacion == 'ok')
                { 
+
+                    var things = data.access_token;
+    
+    
+                     $scope.add = function (things) {
+                        StorageService.add(things);
+                    };
+
+                     
+
+                    
 
                      $state.go('tab.cotizar_cliente');             
                }
@@ -60,6 +74,42 @@ angular.module('app.controllers', [])
     $scope.data = {};
     $scope.recover = function() {
         RecoverService.recoverAccount($scope.data.email).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Mensaje Enviado!',
+                        template: data.mensaje + '!',
+                    });
+                    $state.go('home');
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+    }
+})
+
+.controller('InvitacionCtrl', function($scope, InvitacionService, $ionicPopup, $state,StorageService) {
+    var things="prueba";
+     $scope.add = function (things) {
+                        StorageService.add(things);
+                    };
+     things = StorageService.getAll();
+    
+
+    console.log(things)
+
+    $scope.data = {};
+    $scope.recover = function(){
+        InvitacionService.Invitacion($scope.data.email).success(function(data) {
             if(data.validacion == 'ok')
                {   
                     var alertPopup = $ionicPopup.alert({
