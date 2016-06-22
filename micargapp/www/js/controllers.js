@@ -92,13 +92,14 @@ angular.module('app.controllers', [])
 
 .controller('InvitacionCtrl', function($scope, localStorageService, InvitacionService, $ionicPopup, $state/*, StorageService*/) {
 
-    var things;
+    
     var access_token = localStorageService.get("access_token");
     alert(access_token);
-    console.log("TOKEN::::: ",access_token);
+    
     $scope.data = {};
-    $scope.recover = function(){
-        InvitacionService.Invitacion($scope.data.email).success(function(data) {
+    
+        console.log("TOKEN::::: ",access_token);
+        InvitacionService.Invitacion(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
                     var alertPopup = $ionicPopup.alert({
@@ -119,7 +120,7 @@ angular.module('app.controllers', [])
                 template: 'Por favor verifica tu correo!'
             });
         });
-    }
+    
 
 });
 

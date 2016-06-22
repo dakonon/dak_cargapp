@@ -139,9 +139,9 @@ return {
             var deferred = $q.defer();
             var promise = deferred.promise;
             
+            console.log("servicio");
             
-            
-            $http.get(ApiLogin.url+token).success(function(data) {
+            $http.get(ApiInvitacion.url+token).success(function(data) {
               if(data) {              
                 deferred.resolve(data);
             } 
