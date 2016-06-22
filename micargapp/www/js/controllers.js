@@ -90,22 +90,22 @@ angular.module('app.controllers', [])
 })
 
 
-.controller('InvitacionCtrl', function($scope, localStorageService, InvitacionService, $ionicPopup, $state/*, StorageService*/) {
+.controller('InvitacionCtrl', function($scope, localStorageService, InvitacionService, $ionicPopup, $state) {
 
     var things;
     var access_token = localStorageService.get("access_token");
-    alert(access_token);
     console.log("TOKEN::::: ",access_token);
     $scope.data = {};
-    $scope.recover = function(){
-        InvitacionService.Invitacion($scope.data.email).success(function(data) {
+    // $scope.recover = function(){
+        InvitacionService.Invitacion(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Mensaje Enviado!',
-                        template: data.mensaje + '!',
-                    });
-                    $state.go('home');
+                    // var alertPopup = $ionicPopup.alert({
+                    //     title: 'Mensaje Enviado!',
+                    //     template: data.solicitudes + '!',
+                    // });
+                    console.log("DATA: ", data.solicitudes[0]);
+                    // $state.go('home');
                }
             else{
                 var alertPopup = $ionicPopup.alert({
@@ -119,7 +119,7 @@ angular.module('app.controllers', [])
                 template: 'Por favor verifica tu correo!'
             });
         });
-    }
+    // }
 
 });
 
