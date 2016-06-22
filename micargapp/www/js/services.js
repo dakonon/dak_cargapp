@@ -7,22 +7,20 @@ angular.module('app.services', [])
 
 
 .factory ('StorageService', function ($localStorage) {
-
-
-var _getAll = function () {
-  return $localStorage;
-};
-var _add = function (thing) {
-  $localStorage.things.push(thing);
-}
-var _remove = function (thing) {
-  $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
-}
-return {
-    getAll: _getAll,
-    add: _add,
-    remove: _remove
+  var _getAll = function () {
+    return $localStorage;
   };
+  var _add = function (thing) {
+    $localStorage.things.push(thing);
+  }
+  var _remove = function (thing) {
+    $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
+  }
+  return {
+      getAll: _getAll,
+      add: _add,
+      remove: _remove
+    };
 })
 
 .factory('LoginService', function($q, $http, ApiLogin) {
@@ -131,34 +129,33 @@ return {
 
 
 
-.factory('InvitacionService', function($q, $http, ApiInvitacion) {
+.factory('InvitacionService', function($q, $http, ApiInvitacion, ApiLogin) {
 
     return {
         Invitacion: function(token) {
-            
             var deferred = $q.defer();
             var promise = deferred.promise;
             
-            console.log("servicio");
-            
-            $http.get(ApiInvitacion.url+token).success(function(data) {
-              if(data) {              
-                deferred.resolve(data);
-            } 
-              else {
-                deferred.reject(data);
-            }
-            }).error(function(data) {
-                deferred.reject(data);
+
+            $http.get(ApiInvitacion.url+token)
+              .success(function(data) {
+                if(data) {
+                  deferred.resolve(data);
+                }
+                else {
+                  deferred.reject(data);
+                }
+              }).error(function(data) {
+                  deferred.reject(data);
             });
             promise.success = function(fn) {
-                          promise.then(fn);
-                          return promise;
-                      }
+              promise.then(fn);
+              return promise;
+            }
             promise.error = function(fn) {
-                          promise.then(null, fn);
-                          return promise;
-                  }
+              promise.then(null, fn);
+              return promise;
+            }
         return promise;
         }
     }
