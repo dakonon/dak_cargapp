@@ -47,3 +47,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   url: 'http://micargapp.com/rest/v1/friendship/friend?access-token='
 
 })
+
+.constant('ApiCompany', {
+
+  url: 'http://micargapp.com/rest/v1/company/list?access-token='
+
+})

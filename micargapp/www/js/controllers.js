@@ -42,8 +42,7 @@ angular.module('app.controllers', [])
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             if(data.validacion == 'ok')
                {
-                   localStorageService.set('access_token', data.access_token);
-                   console.log("agregated access_token: ", data.access_token);
+                   localStorageService.set('access_token', data.access_token);                 
                    $state.go('tab.cotizar_cliente');             
 
                }
@@ -120,11 +119,7 @@ angular.module('app.controllers', [])
                 template: 'Por favor verifica tu correo!'
             });
         });
-<<<<<<< HEAD
-    
-=======
-    // }
->>>>>>> 60b11de73338dba91c4cbb626d7ad642ca78f00c
+
 
 });
 

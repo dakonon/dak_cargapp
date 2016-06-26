@@ -129,7 +129,7 @@ angular.module('app.services', [])
 
 
 
-.factory('InvitacionService', function($q, $http, ApiInvitacion, ApiLogin) {
+.factory('InvitacionService', function($q, $http, ApiInvitacion) {
 
     return {
         Invitacion: function(token) {
@@ -138,6 +138,38 @@ angular.module('app.services', [])
             
 
             $http.get(ApiInvitacion.url+token)
+              .success(function(data) {
+                if(data) {
+                  deferred.resolve(data);
+                }
+                else {
+                  deferred.reject(data);
+                }
+              }).error(function(data) {
+                  deferred.reject(data);
+            });
+            promise.success = function(fn) {
+              promise.then(fn);
+              return promise;
+            }
+            promise.error = function(fn) {
+              promise.then(null, fn);
+              return promise;
+            }
+        return promise;
+        }
+    }
+})
+
+.factory('CompanyService', function($q, $http, ApiCompany) {
+
+    return {
+        List: function(token) {
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+            
+
+            $http.get(ApiCompany.url+token)
               .success(function(data) {
                 if(data) {
                   deferred.resolve(data);
