@@ -4,30 +4,30 @@ angular.module('app.controllers', [])
     $scope.data = {};
     $scope.register = function(){
         RegisterService.registerUser($scope.data.name, $scope.data.email, 
-                                     $scope.data.phone, $scope.data.password,
-                                     $scope.data.password_repeat, $scope.data.avatar,
-                                     $scope.data.type).success(function(data){
-                                        if(data.validacion == 'ok')
-                                               {   
-                                                    var alertPopup = $ionicPopup.alert({
-                                                        title: 'Mensaje Enviado!',
-                                                        template: data.mensaje + '!',
-                                                    });
-                                                    $state.go('home');
-                                               }
-                                            else{
-                                                var alertPopup = $ionicPopup.alert({
-                                                    title: 'Error al entrar!',
-                                                    template: data.mensaje + '!'
-                                                });
-                                            }
-                                        }).error(function(data){
-                                        var alertPopup = $ionicPopup.alert({
-                                            title: 'Error',
-                                            template: ''
-                                        });
-                                     });
-                                 }
+             $scope.data.phone, $scope.data.password,
+             $scope.data.password_repeat, $scope.data.avatar,
+             $scope.data.type).success(function(data){
+                if(data.validacion == 'ok')
+                       {   
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Mensaje Enviado!',
+                                template: data.mensaje + '!',
+                            });
+                            $state.go('home');
+                       }
+                    else{
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Error al entrar!',
+                            template: data.mensaje + '!'
+                        });
+                    }
+                }).error(function(data){
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error',
+                    template: ''
+                });
+             });
+         }
 
 })
 
@@ -94,32 +94,50 @@ angular.module('app.controllers', [])
 
     var things;
     var access_token = localStorageService.get("access_token");
-    console.log("TOKEN::::: ",access_token);
     $scope.data = {};
-    // $scope.recover = function(){
-        InvitacionService.Invitacion(access_token).success(function(data) {
-            if(data.validacion == 'ok')
-               {   
-                    // var alertPopup = $ionicPopup.alert({
-                    //     title: 'Mensaje Enviado!',
-                    //     template: data.solicitudes + '!',
-                    // });
-                    console.log("DATA: ", data.solicitudes[0]);
-                    // $state.go('home');
-               }
-            else{
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Error al entrar!',
-                    template: data.mensaje + '!'
-                });
-            }
-        }).error(function(data) {
+    InvitacionService.Invitacion(access_token).success(function(data) {
+        if(data.validacion == 'ok')
+           {
+                console.log("DATA: ", data.solicitudes[0]);
+           }
+        else{
             var alertPopup = $ionicPopup.alert({
-                title: 'Error al enviar!',
-                template: 'Por favor verifica tu correo!'
+                title: 'Error al entrar!',
+                template: data.mensaje + '!'
             });
+        }
+    }).error(function(data) {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Error al enviar!',
+            template: 'Por favor verifica tu correo!'
         });
-    // }
+    });
 
-});
+})
+
+.controller('Transportador3Inicio', function($scope, localStorageService, InvitacionService, $ionicPopup, $state) {
+
+    var things;
+    var access_token = localStorageService.get("access_token");
+    $scope.data = {};
+    InvitacionService.Invitacion(access_token).success(function(data) {
+        if(data.validacion == 'ok')
+           {
+                console.log("DATA: ", data.solicitudes[0]);
+           }
+        else{
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al entrar!',
+                template: data.mensaje + '!'
+            });
+        }
+    }).error(function(data) {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Error al enviar!',
+            template: 'Por favor verifica tu correo!'
+        });
+    });
+
+})
+;
 
