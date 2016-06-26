@@ -32,7 +32,7 @@ angular.module('app.controllers', [])
 })
 
 
-.controller('LoginCtrl', function($scope, localStorageService, LoginService, $ionicPopup,$state) {
+.controller('Login', function($scope, localStorageService, LoginService, $ionicPopup,$state) {
   /*  var LocalStorage = require('json-localstorage');
     var localStorage = new LocalStorage();
 */
@@ -42,7 +42,7 @@ angular.module('app.controllers', [])
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             if(data.validacion == 'ok')
                {
-                   localStorageService.set('access_token', data.access_token);                 
+                   localStorageService.set('access_token', data.access_token);
                    $state.go('tab.cotizar_cliente');             
 
                }
@@ -91,17 +91,15 @@ angular.module('app.controllers', [])
 
 .controller('InvitacionCtrl', function($scope, localStorageService, InvitacionService, $ionicPopup, $state) {
 
-    
+    var things;
     var access_token = localStorageService.get("access_token");
-
     $scope.data = {};
     InvitacionService.Invitacion(access_token).success(function(data) {
         if(data.validacion == 'ok')
            {
-                console.log("DATA: ", data.solicitudes[0]);
+                
            }
         else{
-
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al entrar!',
                 template: data.mensaje + '!'
@@ -118,14 +116,13 @@ angular.module('app.controllers', [])
 
 .controller('Transportador3Inicio', function($scope, localStorageService, InvitacionService, $ionicPopup, $state) {
 
-
     var things;
     var access_token = localStorageService.get("access_token");
     $scope.data = {};
     InvitacionService.Invitacion(access_token).success(function(data) {
         if(data.validacion == 'ok')
            {
-                console.log("DATA: ", data.solicitudes[0]);
+               
            }
         else{
             var alertPopup = $ionicPopup.alert({
@@ -140,5 +137,65 @@ angular.module('app.controllers', [])
         });
     });
 
-});
+})
 
+
+.controller('CompanyCtrl', function($scope, localStorageService, CompanyService, $ionicPopup, $state) {
+
+    
+    var access_token = localStorageService.get("access_token");
+
+    $scope.datos = {};
+    // $scope.recover = function(){
+
+        CompanyService.List(access_token).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                    
+                    $scope.datos= data.empresas;
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+
+
+})
+
+.controller('EditPerfilCtrl', function($scope, localStorageService, EditPerfilService, $ionicPopup, $state) {
+
+    
+    var access_token = localStorageService.get("access_token");
+
+    $scope.datos = {};
+    // $scope.recover = function(){
+
+        EditPerfilService.List(access_token).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                    
+                    $scope.datos= data.datos;
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+
+
+});

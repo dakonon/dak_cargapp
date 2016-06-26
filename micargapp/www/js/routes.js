@@ -8,8 +8,7 @@ angular.module('app.routes', [])
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: 'templates/home.html',
-    controller: 'LoginCtrl',
+    templateUrl: 'templates/home.html'
   })
   .state('recover', {
     url: '/recover',
@@ -102,6 +101,15 @@ angular.module('app.routes', [])
     templateUrl: 'templates/transportador/transportador_3_inicio.html',
     controller : 'Transportador3Inicio'
   })
+
+  .state('tab.editar_perfil', {
+    url: '/editar_perfil',
+    views: {
+        'tab-editar_perfil' :{
+            templateUrl: 'templates/transportador/editarPerfil.html'          
+        }
+    }    
+  })
   
   .state('notfound', {
     url: '/notfound',
@@ -110,4 +118,3 @@ angular.module('app.routes', [])
   
   $urlRouterProvider.otherwise('/home')
 });
-
