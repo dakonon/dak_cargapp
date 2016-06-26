@@ -13,9 +13,63 @@ bode .view {
   background-color: #ffffff;
   background-image: none;
 }
+.back-blue{
+  background-color: #00698B;
+}
+a:link{
+  text-decoration: none;
+ /* position: relative;
+  right: -13%*/;
+}
+.text-blue{
+  color: #00698B;
+}
 
+.circle {
+  width: 57px;
+  height: 57px;
+  border-radius: 100%;
+  /*align-content: center !important;
+  position: relative;
+  right: -14%;*/
+  /*-webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  behavior: url(PIE.htc);*/
+}
+.circle-content2 {
+    top: 19% !important;
+    position: relative;
+}
+.circle-content{
+  top: 30% !important;
+  position: relative;
+}
 .logo {
   margin-top: 100px;
+}
+.notice-wonder{
+  position: absolute;
+  padding: 6px !important;
+  left: 91%;
+  top: 2%;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #C52148;
+  font-weight: bold;
+}
+.notice-tag{
+  position: absolute;
+  padding: 2px;
+  right: 44%;
+  min-width: 4%;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #FC2B5C;
+  font-weight: bold;
 }
 .afiliada{
   background-image: url("../img/icon_empresa_afiliada.png");
@@ -119,8 +173,6 @@ bode .view {
 img.pequeña{
   width: 40px; height: 40px;
 }
-
-
 .tabs .tab-item .icon.cotizar {
  background-repeat: no-repeat;
  width: 30px;
@@ -165,4 +217,5 @@ img.pequeña{
     background: #03DE9A;
     border-color:green;
 }
+
 

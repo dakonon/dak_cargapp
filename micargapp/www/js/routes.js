@@ -96,6 +96,12 @@ angular.module('app.routes', [])
             }
     }    
   })
+
+  .state('transportador-3-inicio', {
+    url: '/transportador-3-inicio',
+    templateUrl: 'templates/transportador/transportador_3_inicio.html',
+    controller : 'Transportador3Inicio'
+  })
   
   .state('notfound', {
     url: '/notfound',
