@@ -30,7 +30,6 @@ angular.module('app.routes', [])
         views: {
             'cotizar_a' :{
                 templateUrl: 'templates/transportador/cotizar_a.html',
-                controller : 'cotizar_a'
             }
         }
     
@@ -40,7 +39,7 @@ angular.module('app.routes', [])
         views: {
             'mis_cargas_a' :{
                 templateUrl: 'templates/transportador/mis_cargas_a.html',
-                controller : 'mis_cargas_a'
+        
             }
         }
     
@@ -99,14 +98,27 @@ angular.module('app.routes', [])
   .state('transportador-3-inicio', {
     url: '/transportador-3-inicio',
     templateUrl: 'templates/transportador/transportador_3_inicio.html',
-    controller : 'Transportador3Inicio'
+  })
+
+  .state('perfil', {
+    url: '/perfil',
+    templateUrl: 'templates/transportador/perfil.html',
   })
 
   .state('tab.editar_perfil', {
     url: '/editar_perfil',
     views: {
-        'tab-editar_perfil' :{
+        'editar_perfil' :{
             templateUrl: 'templates/transportador/editarPerfil.html'          
+        }
+    }    
+  })
+
+    .state('tab.noticias', {
+    url: '/noticias',
+    views: {
+        'tab-noticias' :{
+            templateUrl: 'templates/transportador/noticias.html'          
         }
     }    
   })

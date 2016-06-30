@@ -43,7 +43,8 @@ angular.module('app.controllers', [])
             if(data.validacion == 'ok')
                {
                    localStorageService.set('access_token', data.access_token);
-                   $state.go('tab.cotizar_cliente');             
+                   $state.go('transportador-3-inicio');
+
 
                }
             else{
@@ -183,6 +184,7 @@ angular.module('app.controllers', [])
                {   
                     
                     $scope.datos= data.datos;
+                    console.log(data.datos)
                }
             else{
                 var alertPopup = $ionicPopup.alert({

@@ -6,8 +6,8 @@ bode .view {
 #dashboard-1 {
   background-image: url("../img/bg-patron-2.png");
 }
-#dashboard-2 {
-  background: #FFF;
+.dashboard-2 {
+  background-image: url("../img/Bg-Patron.jpg");
 }
 #register_user {
   background-color: #ffffff;
@@ -15,6 +15,9 @@ bode .view {
 }
 .back-blue{
   background-color: #00698B;
+}
+.back-pink{
+  background-color: #FC2B5C;
 }
 a:link{
   text-decoration: none;

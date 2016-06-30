@@ -2,21 +2,21 @@
 
 
 <ion-tabs class = "tabs-icon-top tabs-background-positive tabs-color-light tab-item-active ">
-        <ion-tab   icon-off="cotizar" icon-on="cotizar"  title="Cotizar" href="#/tab/transportador-cotizar-cliente">
-            <ion-nav-view name="cotizar_cliente"></ion-nav-view>
+        <ion-tab   icon-off="cotizar" icon-on="cotizar"  title="Cotizar" href="#/tab/transportador-cotizar-empresa">
+            <ion-nav-view name="cotizar_empresa"></ion-nav-view>
         </ion-tab>
-        <ion-tab icon-off="activa" icon-on="activa" title="Activa">
-            <ion-nav-view name="tab-activa"></ion-nav-view>
+        <ion-tab icon-off="activa" icon-on="activa" title="Activa" href="#/tab/mis_cargas_a">
+            <ion-nav-view name="mis_cargas_a"></ion-nav-view>
                 
         </ion-tab>
         <ion-tab icon-off="finalizada" icon-on="finalizada" title="Finalizadas">
                  <ion-nav-view name="tab-finalizar"></ion-nav-view>
         </ion-tab>
-        <ion-tab icon-off="noticias" icon-on="noticias" title="Noticias" href="#/tab/editar_perfil">
-            <ion-nav-view name="tab-editar_perfil"></ion-nav-view>
+        <ion-tab icon-off="noticias" icon-on="noticias" title="Noticias" href="#/tab/noticias">
+            <ion-nav-view name="tab-noticias"></ion-nav-view>
         </ion-tab>
-        <ion-tab icon-off="perfil" icon-on="perfil"  title="Perfil" href="#/tab/transportador-editar-empresas">
-            <ion-nav-view name="editar_empresas"></ion-nav-view>    
+        <ion-tab icon-off="perfil" icon-on="perfil"  title="Perfil" href="#/perfil">
+               
         </ion-tab>
     
     
@@ -28,14 +28,12 @@
         <ion-tab hidden="true">
             <ion-nav-view name="cotizar_cliente" overflow-scroll="true"></ion-nav-view>
         </ion-tab>
-        <ion-tab hidden="true">
-            <ion-nav-view name="cotizar_empresa" overflow-scroll="true"></ion-nav-view>
-        </ion-tab>
-        <ion-tab hidden="true">
-            <ion-nav-view name="mis_cargas_a" overflow-scroll="true"></ion-nav-view>
-        </ion-tab>           
+              
         <ion-tab hidden="true">
             <ion-nav-view name="editar_empresas" overflow-scroll="true"></ion-nav-view>
+        </ion-tab>
+        <ion-tab hidden="true">
+            <ion-nav-view name="editar_perfil" overflow-scroll="true"></ion-nav-view>
         </ion-tab>
     
 </ion-tabs> 

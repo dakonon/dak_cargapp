@@ -1,51 +1,54 @@
 
-<ion-view style="" class=" " id="" title="COTIZAR CARGAS">
-  <ion-nav-bar class="bar bar-header bar-light">
+<ion-view style="" class=" " id="">
+ <ion-nav-bar class="bar bar-header dashboard-2">
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
+ <ion-nav-title>
+        <span style="color:DarkTurquoise">COTIZAR CARGAS</span>
+     </ion-nav-title>
+
   <ion-content class="has-header" padding="true">
+ 
     <div class="col responsive-sm col-80 col-offset-10">
+     
+          
       <!-- START CONTENT -->
-      <div class="card">
+      <div class="card">       
         <div class="item item-text-wrap">
           <div class="row">
-            <div class="col col-50">
-              <center >
-                <img src="img/icon_user.png" align="center" />
-              </center>
-            </div>
-            <div class="col col-50">
+          
+            <div class="form-item list col-50 ">
+          <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
+            <img src="img/icon_user.png" width="100" height="100">
+          </div>
+          <button class="button button-balanced col" ng-model="data.avtar">20 ton</button>
+        </div>
+              <div class="col col-50">
               <div class="row">
                 <div class="col">
-                  <b><span class="positive">Nombre Empresa</span></b>
+                  <b><span class="positive">Cliente</span></b>
                   <br><br>
-                  <span class="gray-text">Ciudad Origen:</span>
+                  <span class="gray-text">Origen:</span>
+                    <br>
+                  <span class="positive">Bogota</span>
                   <br>
-                  <span class="positive">Bogota, Colombia</span>
-                  <br>
-                  <span class="gray-text">Ciudad Destino:</span>
-                  <br>
-                  <span class="positive">Barranquilla, Colombia</span>
+                  <span class="gray-text">Destino:</span>   
+                    <br>        
+                  <span class="positive">Barranquilla</span>
                   <br>
                   <span class="gray-text">Fecha:</span>
-                  <br>
+                    <br>
                   <span class="positive">11/05/2015</span>
+                   <p class="navbar-text-blue stable"><b>Empresa transportadora</b></p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col col-50">
-                <p class="navbar-text-green"><b>10 ton</b></p>
-            </div>
-            <div class="col col-50">
-              <p class="navbar-text-blue stable"><b>Usuario cliente</b></p>
-            </div>
-          </div>
+        
           <div class="row">
             <div class="col">
-                <span class="gray-text">Tipo:</span><br>
-                <span class="positive">Arena comprimida</span>
+                <span class="gray-text">Valor a Pagar:</span><br>
+                <span class="positive">1 $</span>
                 <br><br>
                 <span class="gray-text">Comentarios:</span><br>
                 <span class="positive">Debe mantenerse humeda durante el transporte para no 
@@ -55,21 +58,12 @@
           </div>
         </div>
       </div>
-      
-      <h5 id="op_recuperepass">Enviar cotización por el Transporte de la carga</h5>
-      <form id="generalFrom">
-        <div class="col list form-item">
-          <label class="item item-input">
-            <input type="text"  class="form-field"
-             placeholder="Valor en COP">
-          </label>
-          <span class="calm">No incluir puntos ni comas</span>
-        </div>
-      </form>
+      <br>
 
       <button class="button button-block button-calm button-round" ng-click="">ACEPTAR OFERTA</button><br/>
       <button class="button button-block button-assertive button-round" ng-click="">RECHAZAR OFERTA</button>
       <!-- END CONTENT -->
     </div>
+   
   </ion-content>
 </ion-view>
