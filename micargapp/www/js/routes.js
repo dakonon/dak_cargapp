@@ -45,6 +45,17 @@ angular.module('app.routes', [])
     
   })
 
+    .state('tab.mis_cargas_b', {
+    url: '/mis_cargas_b',
+        views: {
+            'mis_cargas_b' :{
+                templateUrl: 'templates/transportador/mis_cargas_b.html',
+        
+            }
+        }
+    
+  })
+
   .state('tab.cotizar_cliente', {
     url: '/transportador-cotizar-cliente',
         views: {
@@ -121,6 +132,17 @@ angular.module('app.routes', [])
             templateUrl: 'templates/transportador/noticias.html'          
         }
     }    
+  })
+
+  .state('tab.perfil_empresa', {
+    url: '/perfil_empresa',
+        views: {
+            'perfil_empresa' :{
+                templateUrl: 'templates/transportador/perfilEmpresa.html',
+        
+            }
+        }
+    
   })
   
   .state('notfound', {
