@@ -10,18 +10,41 @@
   <ion-content class="has-header" padding="true">
   
 
- <div class="chat-container" ng-controller="Shell as vm">
-    <irontec-simple-chat
-        messages="vm.messages"
-        username="vm.username"
-        input-placeholder-text="You can write here"
-        submit-button-text="Send your message"
-        title="Super Awesome Chat"
-        theme="material"
-        submit-function="vm.sendMessage"
-        visible="true">
-    </irontec-simple-chat>
+<div class="chat_window">
+  <div class="top_menu">
+    <div class="buttons">
+      <div class="button close">        
+      </div>
+      <div class="button minimize">        
+      </div>
+      <div class="button maximize">        
+      </div>
+    </div>
+    <div class="title">Chat</div>
   </div>
+  <ul class="messages">hola</ul>
+  <div class="bottom_wrapper clearfix">
+    <div class="message_input_wrapper">
+      <input class="message_input" placeholder="Type your message here..." />
+    </div>
+    <div class="send_message">
+      <div class="icon">      
+      </div>
+      <div class="text">Send ola</div>
+    </div>
+  </div>
+</div>
+<div class="message_template">
+  <li class="message" >
+    hola
+    <div class="avatar">      
+    </div>
+    <div class="text_wrapper">
+      <div class="text">    
+      </div>
+    </div>
+  </li>
+</div>
     
   </ion-content>
 </ion-view>
