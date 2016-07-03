@@ -154,6 +154,16 @@ angular.module('app.routes', [])
         }
     
   })
+      .state('tab.chat', {
+    url: '/chat',
+        views: {
+            'chat' :{
+                templateUrl: 'templates/transportador/chat.html',
+        
+            }
+        }
+    
+  })
   
   .state('notfound', {
     url: '/notfound',

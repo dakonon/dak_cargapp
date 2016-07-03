@@ -1,0 +1,59 @@
+
+<ion-view style="" class=" " id="dashboard-1">
+
+ <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    <span style="color:DarkTurquoise">CHAT</span>
+  </ion-nav-title>
+  <ion-content class="has-header" padding="true">
+    <div class="col responsive-sm col-80 col-offset-10">
+      <div class="card">
+        <div class="item item-text-wrap">
+          <div class="row">
+             <div class="form-item list col-50 ">
+          <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
+            <img src="img/icon_user.png" width="100" height="100">
+          </div>
+          <button ui-sref="tab.mis_cargas_b" class="button button-balanced col" ng-model="data.avtar">20 ton</button>
+        </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <b><span class="positive">Cliente</span></b>
+                  <br>
+                  <span class="gray-text">Origen:</span>
+                    <br>
+                  <span class="positive">Bogota</span>
+                  <br>
+                  <span class="gray-text">Destino:</span>    
+                    <br>       
+                  <span class="positive">Barranquilla</span>
+                  <br>
+                  <span class="gray-text">Fecha:</span>
+                    <br>
+                  <span class="positive">11/05/2015</span>
+                </div>
+              </div>
+            </div>
+          </div>
+           </div>
+         </div>
+         <div>
+              <div class="chat-container" ng-controller="Shell as vm">
+                <irontec-simple-chat
+                    messages="vm.messages"
+                    username="vm.username"
+                    input-placeholder-text="You can write here"
+                    submit-button-text="Send your message"
+                    title="Super Awesome Chat"
+                    theme="material"
+                    submit-function="vm.sendMessage"
+                    visible="true">
+                </irontec-simple-chat>          
+            </div>
+            </div>
+    </div>
+  </ion-content>
+</ion-view>
