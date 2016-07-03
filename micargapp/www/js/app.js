@@ -59,3 +59,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   url: 'http://micargapp.com/rest/v1/update/update?access-token='
 
 })
+
+.constant('ApiNoticias', {
+
+  url: 'http://micargapp.com/rest/v1/news/list?access-token='
+
+})
+

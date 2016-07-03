@@ -200,4 +200,36 @@ angular.module('app.controllers', [])
         });
 
 
+})
+
+.controller('NoticiasCtrl', function($scope, localStorageService, NoticiasService, $ionicPopup, $state) {
+
+    
+    var access_token = localStorageService.get("access_token");
+
+    $scope.datos = {};
+    // $scope.recover = function(){
+
+        NoticiasService.List(access_token).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                    
+                    $scope.datos= data.noticias;
+                    console.log(data.datos)
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+
+
 });
+

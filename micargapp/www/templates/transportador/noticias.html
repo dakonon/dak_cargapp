@@ -9,11 +9,11 @@
      </ion-nav-title>
   <ion-content class="has-header" padding="true">
   
-    <div class="col responsive-sm col-80 col-offset-10">
+    <div class="col responsive-sm col-80 col-offset-10" ng-controller="NoticiasCtrl">
   
           
       <!-- START CONTENT -->
-      <div class="card">
+      <div class="card" ng-repeat="noticias in datos">
         
         <div class="item item-text-wrap">
           <div class="row">
@@ -24,6 +24,15 @@
                   </center>
               </div>
             </div>
+          
+             
+              <div class="form-item list col-50 ">
+          <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
+            <img src="http://micargapp.com/web{{noticias.new_image}}" width="100" height="100">
+           
+          </div>
+         
+        </div>
           </div>
        
           <div class="row">
@@ -40,6 +49,10 @@
                   Lorem ipsum dolor sit amet, consecteur,
                   Lorem ipsum dolor sit amet, consecteur.
                 </span><br>
+                <span class="gray-text" ng-bind="noticias.new_title"></span><br>
+                <span class="positive" ng-bind="noticias.new_date"></span>
+                <br><br>
+                <span class="gray-text" ng-bind="noticias.new_message"></span><br>
             </div>
             
           </div>
