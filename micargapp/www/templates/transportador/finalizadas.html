@@ -1,0 +1,27 @@
+
+<ion-view style="" class="" id="dashboard-1" >
+
+<ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+        <span style="color:DarkTurquoise">NOTICIAS</span>
+     </ion-nav-title>
+  <ion-content class="has-header" padding="true">
+  
+
+ <div class="chat-container" ng-controller="Shell as vm">
+    <irontec-simple-chat
+        messages="vm.messages"
+        username="vm.username"
+        input-placeholder-text="You can write here"
+        submit-button-text="Send your message"
+        title="Super Awesome Chat"
+        theme="material"
+        submit-function="vm.sendMessage"
+        visible="true">
+    </irontec-simple-chat>
+  </div>
+    
+  </ion-content>
+</ion-view>

@@ -144,6 +144,16 @@ angular.module('app.routes', [])
         }
     
   })
+
+    .state('tab.finalizadas', {
+    url: '/finalizadas',
+        views: {
+            'finalizadas' :{
+                templateUrl: 'templates/transportador/finalizadas.html'        
+            }
+        }
+    
+  })
   
   .state('notfound', {
     url: '/notfound',
