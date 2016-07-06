@@ -1,18 +1,21 @@
-angular.module('app.controllers', [])
-.controller('CompanyCtrl', function($scope, localStorageService, CompanyService, $ionicPopup, $state) {
 
-    
-    var access_token = localStorageService.get("access_token");
+(function () {
+    'use strict'
+angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
 
-    $scope.datos = {};
-    // $scope.recover = function(){
+    CompanyCtrl.$inject = ['$scope','localStorageService','CompanyService','$ionicPopup','$state']
 
-        CompanyService.List(access_token).success(function(data) {
+    function CompanyCtrl($scope,localStorageService,CompanyService,$ionicPopup,$state) {
+        var access_token = localStorageService.get("access_token");
+
+        $scope.datos = {};
+
+      
+          CompanyService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
                     
                     $scope.datos= data.empresas;
-                    
                }
             else{
                 var alertPopup = $ionicPopup.alert({
@@ -28,5 +31,8 @@ angular.module('app.controllers', [])
         });
 
 
-});
+          
+    }
+})()
+
 
