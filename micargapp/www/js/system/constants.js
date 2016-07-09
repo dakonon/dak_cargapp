@@ -13,6 +13,7 @@ function constantsService() {
   	self.company = {};
   	self.perfil = {};
   	self.noticias = {};
+    self.cotizar = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -49,9 +50,15 @@ function constantsService() {
         var url = URL_BASE + 'news/list?access-token=';
         return url;
     };
+
+
+    self.cotizar.getItems = function () {
+        var url = URL_BASE + 'cotizar/cotizar?access-token=';
+        return url;
+    };
 }
 
 })()
 
-/*   basura */
+
 
