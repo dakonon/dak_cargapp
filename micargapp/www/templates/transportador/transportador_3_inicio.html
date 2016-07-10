@@ -4,13 +4,17 @@
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content class="has-header" padding="true">
-    <div class="col col-80 col-offset-10" >
+    <style type="text/css">
+      .row {
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+      }
+    </style>  
       <!-- START CONTENT -->
-        <div class="row">
-          <div class="col text-center" >
+        <div class="text-center" >
             <img src="img/Logo_Mi_Cargapp.png" width="70%" height="70%"> 
-          </div>
         </div>
+
         <div class="row row-center">
           <div class="col col-33 text-center ">
             <center>
@@ -31,7 +35,7 @@
                 <div class="back-blue circle col-center">
                   <div class="circle">
                     <img src="img/icon_carga_activa.png" width="40%" class="circle-content2">
-                    </div>
+                  </div>
                 </div>
                 <span class="text-circle">Activas</span>
               </a>
@@ -41,10 +45,10 @@
             <center>
               <a ui-sref="tab.cotizar_cliente">
                 <div class="back-blue circle col-center">
-                <div class="circle">
-                  <img src="img/icon_carga_finalizada.png" width="40%"
-                  class="circle-content">
-                </div>
+                  <div class="circle">
+                    <img src="img/icon_carga_finalizada.png" width="40%"
+                    class="circle-content">
+                  </div>
                 </div>
                 <span class="text-circle">Finalizadas</span>
               </a>
@@ -61,19 +65,19 @@
                 </div>
                 <span class="text-circle">Noticias</span>
               </a>
-              </center>
-            </div>
+            </center>
+          </div>
           <div class="col col-33 text-center">
             <center>
               <a ui-sref="perfil">
                 <div class="back-blue circle col-center">
-                    <img src="img/icon_perfil.png" width="40%" 
+                  <img src="img/icon_perfil.png" width="40%" 
                     class="circle-content">
                 </div>
                 <span class="text-circle">Editar Perfil</span>
               </a>
-              </center>
-            </div>
+            </center>
+          </div>
         </div>
         <br>
         <div class="row">
@@ -108,6 +112,6 @@
           </div>
         </div>
       <!-- END CONTENT -->
-    </div>
+
   </ion-content>
 </ion-view>

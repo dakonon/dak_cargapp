@@ -7,7 +7,7 @@
 	function SimpleChat($timeout) {
 		var directive = {
 			restrict: 'EA',
-			templateUrl: 'templates/transportador/chatTemplate.html',
+			templateUrl: 'templates/transportador/chat.html',
 			replace: true,
 			scope: {
 				messages: '=',
