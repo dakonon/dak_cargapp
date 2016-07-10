@@ -27,9 +27,12 @@ angular.module('app')
 
 .config(config);
 
- config.$inject = ['$stateProvider', '$urlRouterProvider'];
+ config.$inject = ['$stateProvider', '$urlRouterProvider','$ionicConfigProvider'];
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+      $ionicConfigProvider.tabs.position("bottom");
+      $ionicConfigProvider.navBar.alignTitle("center");
+
      $stateProvider
       .state('home', {
         url: '/home',
@@ -91,7 +94,7 @@ angular.module('app')
       })
 
       .state('tab.cotizar_empresa', {
-        url: '/transportador-cotizar-empresa',
+        url: '/transportador-cotizar-empresa/{id}',
             views: {
                 'cotizar_empresa' :{
                     templateUrl: 'templates/transportador/cotizar_empresa.html'

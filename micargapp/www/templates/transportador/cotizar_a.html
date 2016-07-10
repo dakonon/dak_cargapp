@@ -7,7 +7,7 @@
         <span style="color:DarkTurquoise">COTIZAR CARGAS</span>
      </ion-nav-title>
 
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="true" ng-controller"cotizarCtrl">
     <div class="col responsive-sm col-80 col-offset-10">
       <!-- START CONTENT -->
       
@@ -19,7 +19,7 @@
           <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
             <img src="img/icon_user.png" width="100" height="100">
           </div>
-          <button ui-sref="tab.cotizar_empresa" class="button button-balanced col" ng-model="data.avtar">20 ton</button>
+          <button ui-sref="tab.cotizar_empresa({id: 1})"  class="button button-balanced col" ng-model="data.avtar">20 ton</button>
         </div>
               <div class="col col-50">
               <div class="row">
@@ -55,7 +55,5 @@
       </center>
       -->
       <!-- END CONTENT -->
-      
-    </div>
   </ion-content>
 </ion-view>

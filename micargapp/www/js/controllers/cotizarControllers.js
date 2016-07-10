@@ -1,13 +1,13 @@
 
 (function () {
     'use strict'
-angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
+angular.module('app.Controllers').controller('cotizarCtrl', cotizarCtrl);
 
-    EditPerfilCtrl.$inject = ['$scope','localStorageService','cotizarService','$ionicPopup','$state']
+    cotizarCtrl.$inject = ['$scope','localStorageService','cotizarService','$ionicPopup','$state','$stateParams']
 
-    function EditPerfilCtrl($scope,localStorageService,cotizarService,$ionicPopup,$state) {
+    function cotizarCtrl($scope,localStorageService,cotizarService,$ionicPopup,$state,$stateParams) {
         var access_token = localStorageService.get("access_token");
-
+        console.log($stateParams.id);
         $scope.datos = {};
 
       
