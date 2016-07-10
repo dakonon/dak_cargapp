@@ -31,7 +31,9 @@ a:link{
   color: #FC2B5C;
 }
 
-
+.text-circle { 
+  font-size: 90%;
+}
 
 .circle {
   width: 57px;
