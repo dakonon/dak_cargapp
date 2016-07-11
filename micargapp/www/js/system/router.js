@@ -57,6 +57,7 @@ angular.module('app')
             views: {
                 'cotizar_a' :{
                     templateUrl: 'templates/transportador/cotizar_a.html',
+                    controller: 'cotizarCtrl'
                 }
             }
         

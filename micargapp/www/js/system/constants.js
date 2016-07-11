@@ -53,7 +53,7 @@ function constantsService() {
 
 
     self.cotizar.getItems = function () {
-        var url = URL_BASE + 'cotizar/cotizar?access-token=';
+        var url = URL_BASE + 'cotizar/seecotization?access-token=';
         return url;
     };
 }

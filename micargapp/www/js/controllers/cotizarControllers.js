@@ -7,15 +7,15 @@ angular.module('app.Controllers').controller('cotizarCtrl', cotizarCtrl);
 
     function cotizarCtrl($scope,localStorageService,cotizarService,$ionicPopup,$state,$stateParams) {
         var access_token = localStorageService.get("access_token");
-        console.log($stateParams.id);
+            console.log(access_token)
         $scope.datos = {};
 
       
           cotizarService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    
-                    $scope.datos= data.datos;
+                    console.log(data.cotizacion)
+                    $scope.datos= data.cotizacion;
                    
                }
             else{
