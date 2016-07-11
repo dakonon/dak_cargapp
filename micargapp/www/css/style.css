@@ -6,14 +6,80 @@ bode .view {
 #dashboard-1 {
   background-image: url("../img/bg-patron-2.png");
 }
-
+.dashboard-2 {
+  background-image: url("../img/Bg-Patron.jpg");
+}
 #register_user {
   background-color: #ffffff;
   background-image: none;
 }
+.back-blue{
+  background-color: #00698B;
+}
+.back-pink{
+  background-color: #FC2B5C;
+}
+a:link{
+  text-decoration: none;
+ /* position: relative;
+  right: -13%*/;
+}
+.text-blue{
+  color: #00698B;
+}
+.text-pink{
+  color: #FC2B5C;
+}
 
+.text-circle { 
+  font-size: 90%;
+}
+
+.circle {
+  width: 57px;
+  height: 57px;
+  border-radius: 100%;
+  /*align-content: center !important;
+  position: relative;
+  right: -14%;*/
+  /*-webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  behavior: url(PIE.htc);*/
+}
+.circle-content2 {
+    top: 19% !important;
+    position: relative;
+}
+.circle-content{
+  top: 30% !important;
+  position: relative;
+}
 .logo {
   margin-top: 100px;
+}
+.notice-wonder{
+  position: absolute;
+  padding: 6px !important;
+  left: 91%;
+  top: 2%;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #C52148;
+  font-weight: bold;
+}
+.notice-tag{
+  position: absolute;
+  padding: 2px;
+  right: 44%;
+  min-width: 4%;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #FC2B5C;
+  font-weight: bold;
 }
 .afiliada{
   background-image: url("../img/icon_empresa_afiliada.png");
@@ -104,6 +170,8 @@ section {
   color: #afafaf;
 }
 
+#generalFrom .form-item .item-input,
+#generalFrom .form-item .item-input .form-field,
 #recoverPassword .form-item .item-input,
 #recoverPassword .form-item .item-input .form-field,
 #userLogin .form-item .item-input,
@@ -120,7 +188,10 @@ section {
   border-radius: 64px;
   font-weight: bold;
 }
-
+.button-pink{
+  background-color: #FC2B5C;
+  color: #FFF;
+}
 /*****************************************
  * Buttons                               *
  *****************************************/
@@ -143,8 +214,6 @@ section {
 img.pequeña{
   width: 40px; height: 40px;
 }
-
-
 .tabs .tab-item .icon.cotizar {
  background-repeat: no-repeat;
  width: 30px;

@@ -1,0 +1,69 @@
+
+<ion-view style="" class=" " id="">
+ <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+ <ion-nav-title>
+        <span style="color:DarkTurquoise">COTIZAR CARGAS</span>
+     </ion-nav-title>
+
+  <ion-content class="has-header" padding="true" ng-controller="cotizarCtrl">
+ 
+    <div class="col responsive-sm col-80 col-offset-10">
+     
+          
+      <!-- START CONTENT -->
+      <div class="card">       
+        <div class="item item-text-wrap">
+          <div class="row">
+          
+            <div class="form-item list col-50 ">
+          <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
+            <img src="img/icon_user.png" width="100" height="100">
+          </div>
+          <button class="button button-balanced col" ng-model="data.avtar">20 ton</button>
+        </div>
+              <div class="col col-50">
+              <div class="row">
+                <div class="col">
+                  <b><span class="positive">Cliente</span></b>
+                  <br><br>
+                  <span class="gray-text">Origen:</span>
+                    <br>
+                  <span class="positive">Bogota</span>
+                  <br>
+                  <span class="gray-text">Destino:</span>   
+                    <br>        
+                  <span class="positive">Barranquilla</span>
+                  <br>
+                  <span class="gray-text">Fecha:</span>
+                    <br>
+                  <span class="positive">11/05/2015</span>
+                   <p class="navbar-text-blue stable"><b>Empresa transportadora</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col">
+                <span class="gray-text">Valor a Pagar:</span><br>
+                <span class="positive">1500 $</span>
+                <br><br>
+                <span class="gray-text">Comentarios:</span><br>
+                <span class="positive">Debe mantenerse humeda durante el transporte para no 
+                generar pérdida del material.</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <button class="button button-block button-calm button-round" ng-click="">ACEPTAR OFERTA</button><br/>
+      <button class="button button-block button-assertive button-round" ng-click="">RECHAZAR OFERTA</button>
+      <!-- END CONTENT -->
+    </div>
+   
+  </ion-content>
+</ion-view>

@@ -1,0 +1,96 @@
+
+<ion-view style="" class=" " id="dashboard-1">
+
+ <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    <span style="color:DarkTurquoise">CHAT</span>
+  </ion-nav-title>
+  <ion-content class="has-header" padding="true">
+    <div class="col responsive-sm col-80 col-offset-10">
+      <div class="back-white">
+          <div class="row back-white row-center">
+            <div class="col col-50 col-center">
+                <br>
+                <center>
+                  <img src="img/icon_user.png" width="100" height="100">
+                </center>
+              <button ui-sref="tab.mis_cargas_b" class="button button-balanced col" ng-model="data.avtar">20 ton</button>
+            </div>
+            <div class="col col-50 col-center padding-text">
+              <div class="padding-text">
+              <b><span class="positive">Nombre Cliente</span></b>
+              <br>
+              <b><span class="balanced">COP $ 98.000.000</span></b>
+              <br>
+              <span class="gray-text">Ciudad Origen:</span>
+                <br>
+              <span class="positive">Bogota, Colombia</span>
+              <br>
+              <span class="gray-text">Ciudad Destino:</span>    
+                <br>       
+              <span class="positive">Barranquilla, Colombia</span>
+              <br>
+              <span class="gray-text">Fecha:</span>
+                <br>
+              <span class="positive">11/05/2015</span>
+              </div>
+            </div>
+          </div>
+           </div>
+      </div>
+
+    <!---------CHAT CONTENT -------->
+         
+        <div class="row">
+          <div class="col col-20"></div>
+          <div class="col ">
+            <div class="">
+                <div class="">
+                    <!-- <span class="glyphicon glyphicon-comment"></span> Chat -->
+                    <div class="btn-group pull-right">
+                        
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="panel-footer-gray">12:10 1 de Agosto</div>
+                                <p class="box-gray">
+                                    Hola Buena tarde
+                                </p>
+                            </div>
+                        </li>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                        </span>
+                            <div class="chat-body clearfix">
+                              <div class="panel-footer-blue">12:10 1 de Agosto</div>
+                                <p class="box-blue">
+                                    Hola, ya estoy en camino para entregar tu 
+                                    mercancia.
+                                </p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder=" Escribir...">
+                        <span class="input-group-btn" id="btn-chat">
+                            <button class="btn back-positive" >
+                                Enviar</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col col-20"></div>
+        </div>
+        
+         <!--------CHAT CONTENT END ------>
+  </ion-content>
+</ion-view>
