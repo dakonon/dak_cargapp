@@ -14,6 +14,9 @@ function constantsService() {
   	self.perfil = {};
   	self.noticias = {};
     self.cotizar = {};
+    self.activos = {};
+    self.finalizadas = {};
+    self.ofertar = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -52,10 +55,41 @@ function constantsService() {
     };
 
 
-    self.cotizar.getItems = function () {
+    self.cotizar.getItems1 = function () {
         var url = URL_BASE + 'cotizar/seecotization?access-token=';
         return url;
     };
+
+     self.cotizar.getItems2 = function () {
+        var url = URL_BASE + 'cotizar/seeloadasigned?access-token=';
+        return url;
+    };
+
+    self.activos.getItems = function () {
+        var url = URL_BASE + 'cotizar/loadcontracts?status=1&access-token=';
+        return url;
+    };
+
+      self.finalizadas.getItems = function () {
+        var url = URL_BASE + 'cotizar/loadcontracts?status=3&access-token=';
+        return url;
+    };
+
+    self.ofertar.tload = function () {
+        var url = URL_BASE + 'cotizar/acepttproposal?access-token=';
+        return url;
+    };
+
+    self.ofertar.uload = function () {
+        var url = URL_BASE + 'cotizar/aceptutproposal?access-token=';
+        return url;
+    };
+
+     self.ofertar.send = function () {
+        var url = URL_BASE + 'cotizar/sendcotization?access-token=';
+        return url;
+    };
+
 }
 
 })()

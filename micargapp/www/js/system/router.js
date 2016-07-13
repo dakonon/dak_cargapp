@@ -74,10 +74,21 @@ angular.module('app')
       })
 
         .state('tab.mis_cargas_b', {
-        url: '/mis_cargas_b',
+        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail',
             views: {
                 'mis_cargas_b' :{
                     templateUrl: 'templates/transportador/mis_cargas_b.html',
+            
+                }
+            }
+        
+      })
+
+         .state('tab.entrega', {
+        url: '/entrega',
+            views: {
+                'entrega' :{
+                    templateUrl: 'templates/transportador/entrega.html',
             
                 }
             }
@@ -95,10 +106,11 @@ angular.module('app')
       })
 
       .state('tab.cotizar_empresa', {
-        url: '/transportador-cotizar-empresa/{id}',
+        url: '/transportador-cotizar-empresa/?name&origen&destino&fecha&peso&payment&comment&company_avatar&pkcotizaremp',
             views: {
                 'cotizar_empresa' :{
                     templateUrl: 'templates/transportador/cotizar_empresa.html'
+
                     
                 }
             }
