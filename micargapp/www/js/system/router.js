@@ -27,9 +27,12 @@ angular.module('app')
 
 .config(config);
 
- config.$inject = ['$stateProvider', '$urlRouterProvider'];
+ config.$inject = ['$stateProvider', '$urlRouterProvider','$ionicConfigProvider'];
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+      $ionicConfigProvider.tabs.position("bottom");
+      $ionicConfigProvider.navBar.alignTitle("center");
+
      $stateProvider
       .state('home', {
         url: '/home',
@@ -54,6 +57,7 @@ angular.module('app')
             views: {
                 'cotizar_a' :{
                     templateUrl: 'templates/transportador/cotizar_a.html',
+                    controller: 'cotizarCtrl'
                 }
             }
         
@@ -70,10 +74,21 @@ angular.module('app')
       })
 
         .state('tab.mis_cargas_b', {
-        url: '/mis_cargas_b',
+        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail&id_contract',
             views: {
                 'mis_cargas_b' :{
                     templateUrl: 'templates/transportador/mis_cargas_b.html',
+            
+                }
+            }
+        
+      })
+
+         .state('tab.entrega', {
+        url: '/entrega',
+            views: {
+                'entrega' :{
+                    templateUrl: 'templates/transportador/entrega.html',
             
                 }
             }
@@ -91,10 +106,11 @@ angular.module('app')
       })
 
       .state('tab.cotizar_empresa', {
-        url: '/transportador-cotizar-empresa',
+        url: '/transportador-cotizar-empresa/?name&origen&destino&fecha&peso&payment&comment&company_avatar&pkcotizaremp',
             views: {
                 'cotizar_empresa' :{
                     templateUrl: 'templates/transportador/cotizar_empresa.html'
+
                     
                 }
             }

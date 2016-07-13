@@ -7,50 +7,50 @@
   <ion-nav-title>
     <span style="color:DarkTurquoise">CLIENTE</span>
   </ion-nav-title>
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="true" ng-controller="clientesCtrl">
     <div class="col responsive-sm col-80 col-offset-10">
-      <div class="list card">
+      <div class="list card" >
         <div class="item item-body" style="padding-left: 11%;">
           <div class="row">
              <div class="col-50 col-center">
               <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
-                <img src="img/icon_user.png" style="max-width: 140px;" class="full-image">
+                <img src="http://micargapp.com/web{{datos.company_avatar}}" width="100%">
               </div>
             </div>
             <div class="col col-50">
-              <b><span class="positive">Nombre Cliente</span></b>
+              <b><span class="positive" ng-bind="datos.nombre"></span></b>
               <br>
               <span class="gray-text">Confirmado</span>
                 <br>
-            <h3 id="op_recuperepass">COP $ 98.000.000</h3>
+            <h3 id="op_recuperepass" ng-bind="datos.payment"></h3>
               <br>    
-              <span class="positive">jagr_752@hotmail.com</span>
+              <span class="positive" ng-bind="datos.company_mail"></span>
                 <br>   <br>   
               
-               <button ui-sref="tab.mis_cargas_b" class="button button-balanced col" ng-model="data.avtar">FInalizar carga</button>
+               <button ui-sref="tab.entrega" class="button button-balanced col" ng-model="data.avtar">FInalizar carga</button>
             </div>
           </div>
           <div class="row">
             <div class="col">
                  <span class="gray-text">Ciudad Origen:</span>
                     <br>
-                  <span class="positive">Bogota, Colombia</span>
+                  <span class="positive" ng-bind="datos.origen"></span>
                   <br>
                   <span class="gray-text">Destino Ciudad:</span>    
                     <br>       
-                  <span class="positive">Barranquilla, Colombia</span>
+                  <span class="positive" ng-bind="datos.destino"></span>
                   <br>
                   <span class="gray-text">Tipo:</span>
                     <br>
                   <span class="positive">Arena comprimida</span>
                    <br>
-                   <span class="gray-text">Peso:</span>
+                   <span class="gray-text" >Peso:</span>
                     <br>
-                  <span class="positive">14 ton</span>
+                  <span class="positive" ng-bind="datos.peso"></span>
                    <br>
                   <span class="gray-text">Fecha:</span>
                     <br>
-                  <span class="positive">11/05/2015</span>
+                  <span class="positive" ng-bind="datos.fecha"></span>
             </div>
             
           </div>

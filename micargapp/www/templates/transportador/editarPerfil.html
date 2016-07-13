@@ -20,22 +20,12 @@
         </div>
         <div class="form-item list">
           <label class="item item-input">
-            <input placeholder="Correo" type="email" class="form-field" ng-model="data.email">
+            <input placeholder="Correo" type="email" class="form-field" ng-model="datos.email">
           </label>
         </div>
         <div class="form-item list">
           <label class="item item-input">
             <input placeholder="Telefono Móvil" type="tel" class="form-field" ng-model="datos.user_phone">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Telefono Fijo" type="tel" class="form-field" ng-model="data.phone">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <textarea placeholder="Dirección" class="form-field" ng-model="data.direccion"></textarea>
           </label>
         </div>
         <div class="form-item list col-50 ">
@@ -44,9 +34,10 @@
               <img src="http://micargapp.com/web{{datos.user_avatar}}" width="100%" height="100%">
             
           </div>
-          <button class="button button-balanced col" ng-model="data.avtar">Cambiar Foto</button>
+            <input type="file" name="file" uploader-model="datos.user_avatar" /> <br>
+          <button uploader-model="file" class="button button-balanced col" ng-click="choosePhoto(data.avatar)" >Cambiar Foto</button>
         </div>
-        <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="register(data)">Editar</button>
+        <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="update(datos)">Editar</button>
       </form>
     </div>
     </center>

@@ -7,33 +7,34 @@
   <ion-nav-title>
     <span style="color:DarkTurquoise">PROPUESTAS</span>
   </ion-nav-title>
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="true" ng-controller="activosCtrl">
     <div class="col responsive-sm col-80 col-offset-10">
-      <div class="card">
+      <div class="card" ng-repeat="activos in datos">
         <div class="item item-text-wrap">
           <div class="row">
              <div class="form-item list col-50 ">
           <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
-            <img src="img/icon_user.png" style="max-width:91px !important;" width="100%">
+            <img src="http://micargapp.com/web{{activos.company_avatar}}" width="100%">
+            
           </div>
-          <button ui-sref="tab.mis_cargas_b" class="button button-balanced col" ng-model="data.avtar">20 ton</button>
+          <button ng-click="empresa($index)" class="button button-balanced col"  ng-bind="activos.peso"></button>
         </div>
             <div class="col col-50">
               <div class="row">
                 <div class="col">
-                  <b><span class="positive">Cliente</span></b>
+                  <b><span class="positive" ng-bind="activos.company_name"></span></b>
                   <br><br>
                   <span class="gray-text">Origen:</span>
                     <br>
-                  <span class="positive">Bogota</span>
+                  <span class="positive" ng-bind="activos.origen"></span>
                   <br>
                   <span class="gray-text">Destino:</span>    
                     <br>       
-                  <span class="positive">Barranquilla</span>
+                  <span class="positive" ng-bind="activos.destino"></span>
                   <br>
                   <span class="gray-text">Fecha:</span>
                     <br>
-                  <span class="positive">11/05/2015</span>
+                  <span class="positive" ng-bind="activos.fecha"></span>
                 </div>
               </div>
             </div>
