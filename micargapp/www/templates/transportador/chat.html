@@ -1,5 +1,5 @@
 
-<ion-view style="" class=" " id="dashboard-1">
+<ion-view style="" class=" " id="dashboard-1" ng-controller="chatController">
 
  <ion-nav-bar class="bar bar-header dashboard-2">
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
@@ -45,7 +45,7 @@
          
         <div class="row">
           <div class="col col-20"></div>
-          <div class="col ">
+          <div class="col col-66">
             <div class="">
                 <div class="">
                     <!-- <span class="glyphicon glyphicon-comment"></span> Chat -->
@@ -55,40 +55,41 @@
                 </div>
                 <div class="panel-body">
                     <ul class="chat">
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="panel-footer-gray">12:10 1 de Agosto</div>
-                                <p class="box-gray">
-                                    Hola Buena tarde
+                        <!-- DATOS -->
+                        <div ng-repeat="mensaje in mensajes">
+                          <li class="left clearfix" >
+                              <div class="chat-body clearfix">
+                                <div class=""
+                                  ng-class="mensaje[1] ? 'panel-footer-blue' : 'panel-footer-gray'">
+                                  {{mensaje[0]}} {{ mensaje[3] }}
+                                </div>
+                                <p class=""
+                                  ng-class="mensaje[1] ? 'box-blue' : 'box-gray'">
+                                    {{ mensaje[2] }}
                                 </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                        </span>
-                            <div class="chat-body clearfix">
-                              <div class="panel-footer-blue">12:10 1 de Agosto</div>
-                                <p class="box-blue">
-                                    Hola, ya estoy en camino para entregar tu 
-                                    mercancia.
-                                </p>
-                            </div>
-                        </li>
-                        
+                              </div>
+                          </li>
+                        </div>
                     </ul>
                 </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder=" Escribir...">
-                        <span class="input-group-btn" id="btn-chat">
-                            <button class="btn back-positive" >
-                                Enviar</button>
-                        </span>
+                <form name="form">
+                <div class="">
+                    <div class="list">
+                      <div class="item item-input-inset back-positive">
+                        <label class="item-input-wrapper input-50">
+                          <input type="text" placeholder="Escribir..."
+                           name="textMsj" ng-model="textMsj" id="input_send" focus-me-now>
+                        </label>
+                        <button class="button button-small back-positive"
+                          ng-click="send()" >
+                          Enviar
+                        </button>
+                      </div>
                     </div>
                 </div>
+                </form>
             </div>
           </div>
-          <div class="col col-20"></div>
         </div>
         
          <!--------CHAT CONTENT END ------>

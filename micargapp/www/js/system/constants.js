@@ -14,6 +14,7 @@ function constantsService() {
   	self.perfil = {};
   	self.noticias = {};
     self.cotizar = {};
+    self.chat = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -54,6 +55,11 @@ function constantsService() {
 
     self.cotizar.getItems = function () {
         var url = URL_BASE + 'cotizar/cotizar?access-token=';
+        return url;
+    };
+
+    self.chat.getMsjs = function () {
+        var url = URL_BASE + 'chat/getchattrans?access-token=';
         return url;
     };
 }
