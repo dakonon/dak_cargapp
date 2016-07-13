@@ -74,7 +74,7 @@ angular.module('app')
       })
 
         .state('tab.mis_cargas_b', {
-        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail',
+        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail&id_contract',
             views: {
                 'mis_cargas_b' :{
                     templateUrl: 'templates/transportador/mis_cargas_b.html',

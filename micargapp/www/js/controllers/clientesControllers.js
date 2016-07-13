@@ -14,9 +14,9 @@ angular.module('app.Controllers').controller('clientesCtrl', clientesCtrl);
          $scope.datos.payment = $stateParams.payment;
          $scope.datos.company_avatar = $stateParams.company_avatar;               
          $scope.datos.pkcotizaremp = $stateParams.pkcotizaremp;  
-         $scope.datos.company_mail = $stateParams.company_mail;           
+         $scope.datos.company_mail = $stateParams.company_mail;   
+         $scope.datos.id_contract = $stateParams.id_contract;           
 
-      
 
 
           

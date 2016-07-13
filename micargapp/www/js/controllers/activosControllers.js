@@ -44,8 +44,9 @@ angular.module('app.Controllers').controller('activosCtrl', activosCtrl);
                                                         payment: data.contratos[id].payment,                                                       
                                                         company_avatar: data.contratos[id].company_avatar,
                                                         pkcotizaremp: data.contratos[id].pkcotizaremp,
-                                                        company_mail : data.contratos[id].company_mail
-                        });
+                                                        company_mail : data.contratos[id].company_mail,
+                                                        id_contract : data.contratos[id].id_contract
+                                                                                });
 
 
                    }

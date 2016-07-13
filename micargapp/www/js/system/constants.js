@@ -45,7 +45,12 @@ function constantsService() {
     };
 
     self.perfil.edit = function () {
-        var url = URL_BASE + 'update/update?access-token=';
+        var url = URL_BASE + 'profile/seeprofile?access-token=';
+        return url;
+    };
+
+     self.perfil.update = function () {
+        var url = URL_BASE + 'profile/update?access-token=';
         return url;
     };
 
