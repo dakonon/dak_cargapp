@@ -18,7 +18,7 @@ function geoService($http, $q,constants) {
             var url= constants.geo.send();
            
       
-            $http.post(url+token,params, {headers: {"Content-type": undefined}, transformRequest: angular.indentity})
+            $http.post(url+token,params)
               .success(function(data) {
                 if(data) {
                   deferred.resolve(data);
