@@ -70,6 +70,21 @@ function constantsService() {
         return url;
     };
 
+    self.cotizar.aceptar1 = function () {
+        var url = URL_BASE + 'cotizar/acepttproposal';
+        return url;
+    };
+
+    self.cotizar.aceptar2 = function () {
+        var url = URL_BASE + 'cotizar/aceptutproposal';
+        return url;
+    };
+
+    self.cotizar.aceptar3 = function () {
+        var url = URL_BASE + 'cotizar/sendcotization';
+        return url;
+    };
+
     self.activos.getItems = function () {
         var url = URL_BASE + 'cotizar/loadcontracts?status=1&access-token=';
         return url;
