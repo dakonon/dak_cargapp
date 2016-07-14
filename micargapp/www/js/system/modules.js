@@ -8,6 +8,7 @@
         ,'ionic'
         , 'LocalStorageModule'
         ,'irontec.simpleChat'
+        ,'ngCordova'
    ]
 
     angular.module('app', dependencies);

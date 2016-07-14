@@ -57,6 +57,7 @@ angular.module('app')
             views: {
                 'cotizar_a' :{
                     templateUrl: 'templates/transportador/cotizar_a.html',
+                    controller: 'cotizarCtrl'
                 }
             }
         
@@ -73,10 +74,21 @@ angular.module('app')
       })
 
         .state('tab.mis_cargas_b', {
-        url: '/mis_cargas_b',
+        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail&id_contract',
             views: {
                 'mis_cargas_b' :{
                     templateUrl: 'templates/transportador/mis_cargas_b.html',
+            
+                }
+            }
+        
+      })
+
+         .state('tab.entrega', {
+        url: '/entrega',
+            views: {
+                'entrega' :{
+                    templateUrl: 'templates/transportador/entrega.html',
             
                 }
             }
@@ -94,10 +106,11 @@ angular.module('app')
       })
 
       .state('tab.cotizar_empresa', {
-        url: '/transportador-cotizar-empresa/{id}',
+        url: '/transportador-cotizar-empresa/?type&name&origen&destino&fecha&peso&payment&comment&company_avatar&pkcotizaremp&pk_contract',
             views: {
                 'cotizar_empresa' :{
                     templateUrl: 'templates/transportador/cotizar_empresa.html'
+
                     
                 }
             }
@@ -185,7 +198,7 @@ angular.module('app')
         url: '/chat',
             views: {
                 'chat' :{
-                    templateUrl: 'templates/transportador/chat.html',
+                    templateUrl: 'templates/transportador/chat.html'
             
                 }
             }

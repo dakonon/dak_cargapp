@@ -14,6 +14,10 @@ function constantsService() {
   	self.perfil = {};
   	self.noticias = {};
     self.cotizar = {};
+    self.chat = {};
+    self.activos = {};
+    self.finalizadas = {};
+    self.ofertar = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -42,7 +46,12 @@ function constantsService() {
     };
 
     self.perfil.edit = function () {
-        var url = URL_BASE + 'update/update?access-token=';
+        var url = URL_BASE + 'profile/seeprofile?access-token=';
+        return url;
+    };
+
+     self.perfil.update = function () {
+        var url = URL_BASE + 'profile/update?access-token=';
         return url;
     };
 
@@ -52,10 +61,60 @@ function constantsService() {
     };
 
 
-    self.cotizar.getItems = function () {
-        var url = URL_BASE + 'cotizar/cotizar?access-token=';
+    self.cotizar.getItems1 = function () {
+        var url = URL_BASE + 'cotizar/seecotization?access-token=';
         return url;
     };
+
+     self.cotizar.getItems2 = function () {
+        var url = URL_BASE + 'cotizar/seeloadasigned?access-token=';
+        return url;
+    };
+
+    self.cotizar.aceptar1 = function () {
+        var url = URL_BASE + 'cotizar/acepttproposal';
+        return url;
+    };
+
+    self.cotizar.aceptar2 = function () {
+        var url = URL_BASE + 'cotizar/aceptutproposal';
+        return url;
+    };
+
+    self.cotizar.aceptar3 = function () {
+        var url = URL_BASE + 'cotizar/sendcotization';
+        return url;
+    };
+
+    self.activos.getItems = function () {
+        var url = URL_BASE + 'cotizar/loadcontracts?status=1&access-token=';
+        return url;
+    };
+
+      self.finalizadas.getItems = function () {
+        var url = URL_BASE + 'cotizar/loadcontracts?status=3&access-token=';
+        return url;
+    };
+
+    self.ofertar.tload = function () {
+        var url = URL_BASE + 'cotizar/acepttproposal?access-token=';
+        return url;
+    };
+
+    self.chat.getMsjs = function () {
+        var url = URL_BASE + 'chat/getchattrans?access-token=';
+        return url;
+    };
+    self.ofertar.uload = function () {
+        var url = URL_BASE + 'cotizar/aceptutproposal?access-token=';
+        return url;
+    };
+
+     self.ofertar.send = function () {
+        var url = URL_BASE + 'cotizar/sendcotization?access-token=';
+        return url;
+    };
+
 }
 
 })()

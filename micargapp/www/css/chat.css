@@ -95,3 +95,11 @@
     border-width: 11px;
     margin-top: -10px;
 }
+
+.item {
+    text-overflow: initial;
+    white-space: initial;
+}
+.input-50{
+    width: 50%
+}

@@ -9,6 +9,7 @@ EditPerfilService.$inject = ['$http', '$q', 'constants']
 function EditPerfilService($http, $q,constants) {
 	var self = this;
 	self.list = onList
+  self.update = onUpdate
 
 
     function onList(token){
@@ -37,6 +38,34 @@ function EditPerfilService($http, $q,constants) {
             }
         return promise;
     }
+
+     function onUpdate(token,params){
+      var deferred = $q.defer();
+            var promise = deferred.promise;
+            var url= constants.perfil.update();
+
+            $http.post(url+token,params)
+              .success(function(data) {
+                if(data) {
+                  deferred.resolve(data);
+                }
+                else {
+                  deferred.reject(data);
+                }
+              }).error(function(data) {
+                  deferred.reject(data);
+            });
+            promise.success = function(fn) {
+              promise.then(fn);
+              return promise;
+            }
+            promise.error = function(fn) {
+              promise.then(null, fn);
+              return promise;
+            }
+        return promise;
+    }
+
   
 }
 })()
