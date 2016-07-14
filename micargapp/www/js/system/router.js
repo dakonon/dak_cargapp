@@ -198,7 +198,7 @@ angular.module('app')
         url: '/chat',
             views: {
                 'chat' :{
-                    templateUrl: 'templates/transportador/chat.html',
+                    templateUrl: 'templates/transportador/chat.html'
             
                 }
             }

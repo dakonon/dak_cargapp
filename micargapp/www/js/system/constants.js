@@ -14,6 +14,7 @@ function constantsService() {
   	self.perfil = {};
   	self.noticias = {};
     self.cotizar = {};
+    self.chat = {};
     self.activos = {};
     self.finalizadas = {};
     self.ofertar = {};
@@ -100,6 +101,10 @@ function constantsService() {
         return url;
     };
 
+    self.chat.getMsjs = function () {
+        var url = URL_BASE + 'chat/getchattrans?access-token=';
+        return url;
+    };
     self.ofertar.uload = function () {
         var url = URL_BASE + 'cotizar/aceptutproposal?access-token=';
         return url;
