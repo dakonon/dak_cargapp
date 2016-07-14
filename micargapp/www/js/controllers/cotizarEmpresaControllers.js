@@ -6,7 +6,6 @@ angular.module('app.Controllers').controller('cotizarEmpresaCtrl', cotizarEmpres
 
     function cotizarEmpresaCtrl($scope,cotizarService,localStorageService,$ionicPopup,$state,$stateParams) {
          var access_token = localStorageService.get("access_token");    
-         console.log($stateParams.type)
          $scope.datos = {};
          $scope.datos.origen = $stateParams.origen;
          $scope.datos.destino = $stateParams.destino;
@@ -51,7 +50,7 @@ angular.module('app.Controllers').controller('cotizarEmpresaCtrl', cotizarEmpres
 
 
                     }
-                    if($scope.datos.type=='uload'){
+                    if($scope.datos.type=='uload'){                      
                         cotizarService.aceptar2(access_token,$scope.datos.pk_contract).success(function(data) {
                             if(data.validacion == 'ok')
                                {

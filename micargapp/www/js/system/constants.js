@@ -18,6 +18,8 @@ function constantsService() {
     self.activos = {};
     self.finalizadas = {};
     self.ofertar = {};
+    self.contrato = {};
+    self.geo = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -112,6 +114,16 @@ function constantsService() {
 
      self.ofertar.send = function () {
         var url = URL_BASE + 'cotizar/sendcotization?access-token=';
+        return url;
+    };
+
+      self.contrato.send = function () {
+        var url = URL_BASE + 'cotizar/transporterpayment';
+        return url;
+    };
+
+       self.geo.send = function () {
+        var url = URL_BASE + 'load/reportlocation?access-token=';
         return url;
     };
 

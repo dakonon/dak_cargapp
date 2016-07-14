@@ -17,7 +17,6 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                {   
                     
                     $scope.datos= data.perfil;
-                    console.log(data.perfil)
                    
                }
             else{
@@ -42,8 +41,9 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')
                {
+                    $scope.datos= data.perfil;
                   
-                  $state.go('tab.editar_perfil');
+                  $state.go('perfil');
 
                }
             else{
