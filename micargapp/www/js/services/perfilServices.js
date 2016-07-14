@@ -44,7 +44,7 @@ function EditPerfilService($http, $q,constants) {
             var promise = deferred.promise;
             var url= constants.perfil.update();
 
-            $http.post(url+token,params)
+            $http.post(url+token,params, {headers: {"Content-type": undefined}, transformRequest: angular.indentity})
               .success(function(data) {
                 if(data) {
                   deferred.resolve(data);

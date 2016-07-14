@@ -34,30 +34,24 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
         });
 
          function onUpdate(data){
-            var parametros = {                   
-                   
-                            "user_name": data.user_name,
-                            "user_phone": data.user_phone,
-                            "email": data.email,
-                            "user_avatar": data.user_avatar,                            
-                                          
-                };
-                
-                EditPerfilService.update(access_token,parametros).success(function(data) {
-                if(data.validacion == 'ok')
-                   {
-                      
-                      $state.go('tab.editar_perfil');
-                       
+            var parametros = new FormData();
+            parametros.append("user_name", data.user_name);
+            parametros.append("user_phone", data.user_phone);
+            parametros.append("email", data.email);
+            parametros.append("user_avatar", data.user_avatar);
+            EditPerfilService.update(access_token,parametros).success(function(data) {
+            if(data.validacion == 'ok')
+               {
+                  
+                  $state.go('tab.editar_perfil');
 
-
-                   }
-                else{
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Error al entrar!',
-                        template: data.mensaje + '!'
-                    });
-                }
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
             }).error(function(data) {
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
