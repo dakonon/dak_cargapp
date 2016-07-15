@@ -54,13 +54,10 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
                   var lat  = position.coords.latitude
                   var long = position.coords.longitude                 
                
-                 console.log(long)
-                    var parametros = {
-                        "contract_id": $scope.datos.id_contract,
-                          "latitude": String(lat),     
-                        "longitude": String(long)
-                    }
                  
+                   var parametros = JSON.stringify({"contract_id": $scope.datos.id_contract,
+                                             "latitude": String(lat), "longitude": String(long)})
+
                     
                          geoService.send(access_token,parametros).success(function(data) {
                             if(data.validacion == 'ok')

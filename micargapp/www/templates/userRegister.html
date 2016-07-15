@@ -2,7 +2,7 @@
   <ion-nav-bar class="bar bar-header bar-light">
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="true" ng-controller="UserRegisterCtrl">
     <div class="col responsive-sm col-80 col-offset-10">
       <form class="list " id="userRegister">
         <section id="driver-data">
@@ -150,7 +150,7 @@
             </div>
           </section>
           <section id="op-buttons">
-            <button class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
+            <button ng-click="register()" class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
           </sections>
         </form>
     </div>
