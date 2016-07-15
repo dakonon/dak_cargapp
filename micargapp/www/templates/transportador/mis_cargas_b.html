@@ -59,7 +59,10 @@
                 
                   <div class="form-item list  ">
           <div style="line-height: 100px; background-color: rgb(148, 123, 226);text-align: center;">
-            <img ui-sref="tab.chat" src="img/icon_Chat.png" width="50" height="50">          
+            <img ui-sref="tab.chat({id:datos.id_contract,nombre:datos.nombre,payment: datos.payment,
+            origen:datos.origen, destino:datos.destino,fecha: datos.fecha, avatar:datos.company_avatar,
+            peso: datos.peso
+             })" src="img/icon_Chat.png" width="50" height="50">          
           </div>
 
         </div>

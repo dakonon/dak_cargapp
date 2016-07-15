@@ -194,8 +194,9 @@ angular.module('app')
             }
         
       })
+
           .state('tab.chat', {
-        url: '/chat',
+        url: '/chat/?id&nombre&payment&origen&destino&fecha&avatar&peso',
             views: {
                 'chat' :{
                     templateUrl: 'templates/transportador/chat.html'

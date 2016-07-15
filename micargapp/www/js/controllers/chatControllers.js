@@ -2,14 +2,25 @@
     'use strict'
 angular.module('app.Controllers').controller('chatController', chatController);
 
-    chatController.$inject = ['$scope','localStorageService', 'ChatService','$ionicPopup','$state', '$timeout']
+    chatController.$inject = ['$scope','$stateParams','localStorageService', 'ChatService','$ionicPopup','$state', '$timeout']
 
-    function chatController($scope,localStorageService,ChatService,$ionicPopup,$state, $timeout) {
+    function chatController($scope,$stateParams,localStorageService,ChatService,$ionicPopup,$state, $timeout) {
         var access_token = localStorageService.get("access_token");
+        console.log($stateParams.id)
         $scope.limit = 10;
         $scope.textMsj = "";
         $scope.yo = "";
-        
+        $scope.datos = {};
+        $scope.datos.nombre = $stateParams.nombre; 
+        $scope.datos.destino = $stateParams.destino;
+        $scope.datos.origen = $stateParams.origen;
+        $scope.datos.fecha = $stateParams.fecha;
+        $scope.datos.peso = $stateParams.peso;
+        $scope.datos.payment = $stateParams.payment;
+        $scope.datos.avatar = $stateParams.avatar;               
+        $scope.datos.id_contract = $stateParams.id;  
+
+
         $scope.send = function (){
           if (this.textMsj == "") return false;
           this.sendService();
