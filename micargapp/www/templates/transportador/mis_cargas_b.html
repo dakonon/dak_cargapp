@@ -7,7 +7,7 @@
   <ion-nav-title>
     <span style="color:DarkTurquoise">CLIENTE</span>
   </ion-nav-title>
-  <ion-content class="has-header" padding="true" ng-controller="clientesCtrl">
+  <ion-content class="has-header" padding="true" ng-controller="contratoCtrl">
     <div class="col responsive-sm col-80 col-offset-10">
       <div class="list card" >
         <div class="item item-body" style="padding-left: 11%;">
@@ -85,7 +85,7 @@
           </div>
           <div class="row">
         
-  <button ui-sref="tab.mis_cargas_b" class="button button-calm col" ng-model="data.avtar">Enviar localizacion actual</button>
+  <button ui-sref="tab.mis_cargas_b" class="button button-calm col" ng-model="data.avtar" ng-click="ruta(datos.id_contract)">Enviar localizacion actual</button>
             
           </div>
          

@@ -89,7 +89,8 @@ angular.module('app.Controllers').controller('cotizarCtrl', cotizarCtrl);
                 if(data.validacion == 'ok')
                    {
                       
-                       $state.go('tab.cotizar_empresa',{ name: data.cotizacion[id].company_name,
+                       $state.go('tab.cotizar_empresa',{type: data.cotizacion[id].type, 
+                                                        name: data.cotizacion[id].company_name,
                                                         origen: data.cotizacion[id].origen,
                                                         destino: data.cotizacion[id].destino,
                                                         fecha: data.cotizacion[id].fecha,
@@ -97,7 +98,8 @@ angular.module('app.Controllers').controller('cotizarCtrl', cotizarCtrl);
                                                         payment: data.cotizacion[id].payment,
                                                         comment: data.cotizacion[id].comment,
                                                         company_avatar: data.cotizacion[id].company_avatar,
-                                                        pkcotizaremp: data.cotizacion[id].pkcotizaremp
+                                                        pkcotizaremp: data.cotizacion[id].pkcotizaremp,
+                                                        pk_contract: data.cotizacion[id].pk_contract
                         });
 
 

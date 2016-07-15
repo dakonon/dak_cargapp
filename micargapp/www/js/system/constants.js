@@ -19,6 +19,8 @@ function constantsService() {
     self.finalizadas = {};
     self.ofertar = {};
     self.chat.sendMsjs = {};
+    self.contrato = {};
+    self.geo = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -72,6 +74,21 @@ function constantsService() {
         return url;
     };
 
+    self.cotizar.aceptar1 = function () {
+        var url = URL_BASE + 'cotizar/acepttproposal';
+        return url;
+    };
+
+    self.cotizar.aceptar2 = function () {
+        var url = URL_BASE + 'cotizar/aceptutproposal';
+        return url;
+    };
+
+    self.cotizar.aceptar3 = function () {
+        var url = URL_BASE + 'cotizar/sendcotization';
+        return url;
+    };
+
     self.activos.getItems = function () {
         var url = URL_BASE + 'cotizar/loadcontracts?status=1&access-token=';
         return url;
@@ -103,6 +120,16 @@ function constantsService() {
 
      self.ofertar.send = function () {
         var url = URL_BASE + 'cotizar/sendcotization?access-token=';
+        return url;
+    };
+
+      self.contrato.send = function () {
+        var url = URL_BASE + 'cotizar/transporterpayment';
+        return url;
+    };
+
+       self.geo.send = function () {
+        var url = URL_BASE + 'load/reportlocation?access-token=';
         return url;
     };
 

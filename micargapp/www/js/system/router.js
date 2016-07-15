@@ -106,7 +106,7 @@ angular.module('app')
       })
 
       .state('tab.cotizar_empresa', {
-        url: '/transportador-cotizar-empresa/?name&origen&destino&fecha&peso&payment&comment&company_avatar&pkcotizaremp',
+        url: '/transportador-cotizar-empresa/?type&name&origen&destino&fecha&peso&payment&comment&company_avatar&pkcotizaremp&pk_contract',
             views: {
                 'cotizar_empresa' :{
                     templateUrl: 'templates/transportador/cotizar_empresa.html'
