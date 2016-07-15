@@ -7,6 +7,7 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
     function contratoCtrl($scope,contratoService,localStorageService,$ionicPopup,$state,$stateParams,$cordovaGeolocation,geoService) {         
          var access_token = localStorageService.get("access_token");  
           $scope.ruta = onRuta;
+          $scope.destino = onDestino;
          console.log($stateParams.name)  
          $scope.datos = {};
          $scope.datos.nombre = $stateParams.name; 
@@ -87,6 +88,42 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
                 // error
             });         
          } 
+
+
+          function onDestino(id){             
+               
+                    var status = 12
+                   var parametros = JSON.stringify({"contract_id": id,
+                                             "status": status
+                                         })
+
+                    
+                         contratoService.destino(access_token,parametros).success(function(data) {
+                            if(data.validacion == 'ok')
+                               {   
+                                   console.log(data)
+                                   var alertPopup = $ionicPopup.alert({
+                                        title: 'Perfecto',
+                                        template: data.mensaje
+                                    });
+                               }
+                            else{
+                                var alertPopup = $ionicPopup.alert({
+                                    title: 'Error al entrar!',
+                                    template: data.mensaje + '!'
+                                });
+                            }
+                        }).error(function(data) {
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Error al enviar!',
+                                template: 'Por favor verifica tu correo!'
+                            });
+                        });
+
+         } 
+
+
+
     }
        
 })()

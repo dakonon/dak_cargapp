@@ -85,7 +85,7 @@ angular.module('app')
       })
 
          .state('tab.entrega', {
-        url: '/entrega',
+        url: '/entrega/{id}',
             views: {
                 'entrega' :{
                     templateUrl: 'templates/transportador/entrega.html',
