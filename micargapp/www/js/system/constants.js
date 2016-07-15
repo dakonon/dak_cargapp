@@ -18,6 +18,7 @@ function constantsService() {
     self.activos = {};
     self.finalizadas = {};
     self.ofertar = {};
+    self.chat.sendMsjs = {};
     self.contrato = {};
     self.geo = {};
     /* URL to Login */
@@ -107,6 +108,11 @@ function constantsService() {
         var url = URL_BASE + 'chat/getchattrans?access-token=';
         return url;
     };
+    self.chat.sendMsjs = function () {
+        var url = URL_BASE + 'chat/postmsjtrans?access-token=';
+        return url;
+    };
+    
     self.ofertar.uload = function () {
         var url = URL_BASE + 'cotizar/aceptutproposal?access-token=';
         return url;

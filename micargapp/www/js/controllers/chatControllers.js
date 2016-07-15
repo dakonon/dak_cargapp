@@ -12,16 +12,7 @@ angular.module('app.Controllers').controller('chatController', chatController);
         
         $scope.send = function (){
           if (this.textMsj == "") return false;
-          var mensaje = [
-            $scope.yo,
-            true,
-            this.textMsj,
-            "12:10 1 de Agosto"
-          ];
-          this.textMsj="";
-          $scope.mensajes.push(mensaje);
-
-          this.sendService(mensaje);
+          this.sendService();
         };
 
         $scope.getMsjsService = function getMsjsService(){
@@ -29,7 +20,8 @@ angular.module('app.Controllers').controller('chatController', chatController);
           ChatService.list(access_token, 1, $scope.limit)
             .success(function(data) {
               $scope.mensajes = data.chat;
-              for (var i = data.chat.length - 1; i >= 0; i--) {
+              console.log($scope.mensajes);
+              for (var i = 0; i <= data.chat.length; i++) {
                 if (data.chat[i][1] == true){
                   $scope.yo = data.chat[i][0];
                   break;
@@ -40,11 +32,13 @@ angular.module('app.Controllers').controller('chatController', chatController);
         $scope.getMsjsService();
 
         $scope.sendService = function(mensaje){
-          ChatService.list(access_token, 1, $scope.yo, this.textMsj)
+          ChatService.send(access_token, $stateParams.id, this.textMsj)
             .success(function(data) {
               console.log(data);
+              $scope.getMsjsService();
+              $scope.textMsj="";
           });
-          setTimeout($scope.getMsjsService(), 3000);
+          // setTimeout($scope.getMsjsService(), 3000);
         };
           
     }
