@@ -42,16 +42,15 @@ function ChatService($http, $q,constants) {
         return promise;
     }
 
-    function sendMsj(token, contratcemp, username, mensaje){
+    function sendMsj(token, contratcemp, mensaje){
     	var deferred = $q.defer();
         var promise = deferred.promise;
-        var url= constants.chat.getMsjs();
+        var url= constants.chat.sendMsjs();
         var parametros = {
         	"contratcemp": contratcemp,
-        	"username": username,
-        	"mensaje": mensaje
+        	"message": mensaje
         }
-        $http.get(url+token, parametros)
+        $http.post(url+token, parametros)
           .success(function(data) {
             if(data) {
               deferred.resolve(data);
