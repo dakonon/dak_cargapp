@@ -8,74 +8,68 @@
         <section id="driver-data">
           <div class="form-item list">
             <label class="item item-input">
-              <input placeholder="Nombre" type="text" class="form-field">
+              <input placeholder="Nombre" type="text" class="form-field" ng-model="datos.name">
             </label>
           </div>
           <div class="form-item list">
             <label class="item item-input">
-              <input placeholder="Correo" type="email" class="form-field">
+              <input placeholder="Correo" type="email" class="form-field" ng-model="datos.email">
             </label>
           </div>
           <div class="form-item list">
             <label class="item item-input">
-              <input placeholder="Contraseña" type="password" class="form-field">
+              <input placeholder="Contraseña" type="password" class="form-field" ng-model="datos.password">
             </label>
           </div>
           <div class="form-item list">
             <label class="item item-input">
-              <input placeholder="Confirmar Contraseña" type="password" class="form-field">
+              <input placeholder="Confirmar Contraseña" type="password" class="form-field" ng-model="datos.password_repeat">
             </label>
           </div>
           <div class="form-item list">
             <label class="item item-input">
-              <input placeholder="Telefono Móvil" type="tel" class="form-field">
+              <input placeholder="Telefono Móvil" type="tel" class="form-field" ng-model="datos.phone">
             </label>
           </div>
-          <div class="form-item list">
-            <label class="item item-input">
-              <input placeholder="Telefono Fijo" type="tel" class="form-field">
-            </label>
-          </div>
-          <div class="form-item list">
-            <label class="item item-input">
-              <textarea placeholder="Dirección" class="form-field"></textarea>
-            </label>
-          </div>
-          <div class="form-item list col-50 col-offset-25">
-            <div style="margin: 0px; line-height: 150px; background-color: rgb(232, 235, 239); text-align: center;">
-              <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
+          <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Subir Foto-&hellip; <input type="file" uploader-model="datos.avatar" style="display: none;">
+                </label>
             </div>
-            <button class="button button-balanced col">Cambiar Foto</button>
-          </div>
         </section>
         <section id="reference-data">
           <section id="vehicle-reference">
             <div class="form-item list">
               <label class="item item-input">
                 <select class="form-field col">
-                  <option value="none" disabled selected>Tipo de Vehículo.</option>
+                  <option value="none" disabled selected ng-model="datos.vehicletype">Tipo de Vehículo.</option>
                   <option>Blue</option>
                 </select>
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Capacidad max. de carga" type="text" class="form-field">
+                <input placeholder="Capacidad max. de carga" type="text" class="form-field" ng-model="datos.vehicle_bodywork">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Placa" type="text" class="form-field">
+                <input placeholder="Placa" type="text" class="form-field" ng-model="datos.vehicle_licenceplate">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Modelo" type="text" class="form-field">
+                <input placeholder="Marca" type="text" class="form-field" ng-model="datos.vehicle_brand">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Color" type="text" class="form-field">
+                <input placeholder="Modelo" type="text" class="form-field" ng-model="datos.vehicle_model">
+              </label>
+            </div>
+            <div class="form-item list">
+              <label class="item item-input">
+                <input placeholder="Color" type="text" class="form-field" ng-model="datos.vehicle_color">
               </label>
             </div>
           </section>
@@ -85,32 +79,17 @@
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Nombre Ref. 1" type="text" class="form-field">
+                <input placeholder="Nombre Ref. 1" type="text" class="form-field" ng-model="datos.reference_comertial_name">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <textarea placeholder="Dirección" class="form-field"></textarea>
+                <textarea placeholder="Dirección" class="form-field" ng-model="datos.reference_comertial_address"></textarea>
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Teléfono" type="tel" class="form-field">
-              </label>
-            </div>
-            <div class="form-item list">
-              <label class="item item-input">
-                <input placeholder="Nombre Ref. 2" type="text" class="form-field">
-              </label>
-            </div>
-            <div class="form-item list">
-              <label class="item item-input">
-                <textarea placeholder="Dirección" class="form-field"></textarea>
-              </label>
-            </div>
-            <div class="form-item list">
-              <label class="item item-input">
-                <input placeholder="Teléfono" type="tel" class="form-field">
+                <input placeholder="Teléfono" type="tel" class="form-field" ng-model="datos.reference_comertial_phone">
               </label>
             </div>
           </section>
@@ -120,35 +99,114 @@
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Nombre Ref. 1" type="text" class="form-field">
+                <input placeholder="Nombre Ref. 1" type="text" class="form-field" ng-model="datos.reference_personal1_name">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <textarea placeholder="Dirección" class="form-field"></textarea>
+                <textarea placeholder="Dirección" class="form-field" ng-model="datos.reference_personal1_address"></textarea>
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Teléfono" type="tel" class="form-field">
+                <input placeholder="Teléfono" type="tel" class="form-field" ng-model="datos.reference_personal1_phone">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Nombre Ref. 2" type="text" class="form-field">
+                <input placeholder="Nombre Ref. 2" type="text" class="form-field" ng-model="datos.reference_personal2_name">
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <textarea placeholder="Dirección" class="form-field"></textarea>
+                <textarea placeholder="Dirección" class="form-field" ng-model="datos.reference_personal2_address"></textarea>
               </label>
             </div>
             <div class="form-item list">
               <label class="item item-input">
-                <input placeholder="Teléfono" type="tel" class="form-field">
+                <input placeholder="Teléfono" type="tel" class="form-field" ng-model="datos.reference_personal2_phone">
               </label>
             </div>
           </section>
+           <section id="personal-reference">
+              <div class="list bar bar-header">
+              <h2 class="title">LICENCIAS</h2>
+            </div>
+              <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Cédula -CARA 1-&hellip; <input type="file" uploader-model="datos.cedula1" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Cédula -CARA 2-&hellip; <input type="file" uploader-model="datos.cedula2" style="display: none;">
+                </label>
+            </div>
+            <br>            
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Tarjeta de propiedad -CARA 1-&hellip; <input type="file" uploader-model="datos.tarj_prop1" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Tarjeta de propiedad -CARA 2-&hellip; <input type="file" uploader-model="datos.tarj_prop2" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Licencia de conducción -CARA 1-&hellip; <input type="file" uploader-model="datos.licencia1" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Licencia de conducción -CARA 2-&hellip; <input type="file" uploader-model="datos.licencia2" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Revision Tecnicomecanica -CARA 1-&hellip; <input type="file" uploader-model="datos.revision1" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Revision Tecnicomecanica -CARA 2-&hellip; <input type="file" uploader-model="datos.revision2" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    SOAT -CARA 1-&hellip; <input type="file" uploader-model="datos.soat1" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    SOAT -CARA 2-&hellip; <input type="file" uploader-model="datos.soat2" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Tarjeta empresa -CARA 1-&hellip; <input type="file" uploader-model="datos.tarjetas1" style="display: none;">
+                </label>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <label class="btn btn-block btn-primary">
+                    Tarjeta empresa -CARA 2-&hellip; <input type="file" uploader-model="datos.tarjetas2" style="display: none;">
+                </label>
+            </div>
+
+
+            </section>
+
           <section id="op-buttons">
             <button ng-click="register()" class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
           </sections>

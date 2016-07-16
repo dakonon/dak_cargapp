@@ -10,14 +10,15 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
         var access_token = localStorageService.get("access_token");
 
         $scope.datos = {};
+        $scope.loading = false;
+         $scope.prueba = $scope.datos.user_avatar;
 
-      
           EditPerfilService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    
+                    $scope.loading = true;
                     $scope.datos= data.perfil;
-                   
+                      $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
                }
             else{
                 var alertPopup = $ionicPopup.alert({
@@ -41,9 +42,29 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')
                {
-                    $scope.datos= data.perfil;
-                  
-                  $state.go('perfil');
+                  EditPerfilService.list(access_token).success(function(data) {
+                        if(data.validacion == 'ok')
+                           {   
+        
+                                $scope.datos= data.perfil;
+                                $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
+                                console.log($scope.datos.user_avatar)
+                                
+                           }
+                        else{
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Error al entrar!',
+                                template: data.mensaje + '!'
+                            });
+                        }
+                    }).error(function(data) {
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Error al enviar!',
+                            template: 'Por favor verifica tu correo!'
+                        });
+                    });
+
+
 
                }
             else{

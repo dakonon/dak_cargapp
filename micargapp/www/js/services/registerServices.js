@@ -11,17 +11,14 @@ function RegisterService($http, $q,constants) {
 	self.registerUser = onRegisterUser
   
 
-    function onRegisterUser(name, email, phone, password, password_repeat, avatar, type){
+    function onRegisterUser(parametros){
     	var deferred = $q.defer();
             var deferred = $q.defer();
             var promise = deferred.promise;
-            type = 4;
-            var parametros = JSON.stringify({"name": name, "email": email, "phone": phone,
-                                             "password": password, "password_repeat": password_repeat,
-                                             "avatar": avatar, "type": type})
-            console.log(parametros)
+          
+         
             var url= constants.register.register();
-            $http.post(url, parametros).success(function(data){
+            $http.post(url, parametros, {headers: {"Content-type": undefined}, transformRequest: angular.indentity}).success(function(data){
               if(data) {
                 console.log(data)
                 deferred.resolve(data);
