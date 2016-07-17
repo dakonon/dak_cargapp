@@ -133,6 +133,15 @@ function constantsService() {
         return url;
     };
 
+        self.contrato.destino = function () {
+        var url = URL_BASE + 'load/reportloadstatus?access-token=';
+        return url;
+    };
+
+        self.contrato.finalizar = function () {
+        var url = URL_BASE + 'load/reportloadend?access-token=';
+        return url;
+    };
 }
 
 })()

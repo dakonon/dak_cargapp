@@ -19,7 +19,7 @@ angular.module('app.Controllers').controller('GeolocationCtrl', GeolocationCtrl)
                   var long = position.coords.longitude
                   alert(lat + " --- " + long);
                     var parametros = new FormData();
-                    console.log(lat)
+                    
                     parametros.append("latitude", lat);
                     parametros.append("longitude", long);
                          geoService.send(access_token,parametros).success(function(data) {

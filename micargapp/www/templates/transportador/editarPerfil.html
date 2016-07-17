@@ -5,9 +5,14 @@
     <ion-nav-title>
     <span style="color:DarkTurquoise">EDITAR PERFIL</span>
   </ion-nav-title>
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="true" ng-controller="EditPerfilCtrl">
+    <div class="text-center" ng-if="!loading">
+        <i class="fa fa-refresh fa-spin fa-5x padder-v"> </i>
+
+    </div>
+     <div ng-if="loading">
       <center>
-    <div class="col responsive-sm col-80" ng-controller="EditPerfilCtrl">
+    <div class="col responsive-sm col-80" >
       
       <form class="list " id="userRegister" name="registro">
         <div class="form-item list">
@@ -31,16 +36,36 @@
         <div class="form-item list col-50 ">
           <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
 
-              <img src="http://micargapp.com/web{{datos.user_avatar}}" width="100%" height="100%" class="inputfile inputfile-1">
+              <img src="{{datos.user_avatar}}" width="100%" height="100%">
+            
           </div>
-
-            <input class="file-input" type="file" name="file" uploader-model="datos.user_avatar" /> <br>
-          <button uploader-model="file" class="button button-balanced col" ng-click="choosePhoto(data.avatar)" >Cambiar Foto</button>
+        <div class="col-lg-6 col-sm-6 col-12">
+            <label class="btn btn-block btn-primary">
+                Cambiar foto&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;">
+            </label>
         </div>
+        <br>
+        <div class="col-lg-6 col-sm-6 col-12">
+            <h4>Input Groups</h4>
+            <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" ng-model="datos.user_avatar" readonly>
+            </div>
+            <span class="help-block">
+                Try selecting one or more files and watch the feedback
+            </span>
+        </div>
+
+        <br>
         <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="update(datos)">Editar</button>
       </form>
     </div>
     </center>
+    </div>
  
   </ion-content>
 </ion-view>
