@@ -12,18 +12,21 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-    <script src="https://use.fontawesome.com/6c6f0ba18f.js"></script>
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+ <!-- google api  -->
+    
+    
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9jBmY8pNwixFojEoiXDHG__nWGVI6AVw"></script>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">      
     <link href="css/chat.css" rel="stylesheet">      
     <link href="css/uploader.css" rel="stylesheet">      
     <link rel="stylesheet" href="css/themes.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
    <!-- System -->
     <script src="js/system/modules.js"></script>
     <script src="js/system/ng-cordova.js"></script>
@@ -67,6 +70,7 @@
     <script src="js/controllers/camaraControllers.js"></script>
     <script src="js/controllers/geoControllers.js"></script>
     <script src="js/controllers/entregaControllers.js"></script>
+    <script src="js/controllers/mapaControllers.js"></script>
     
      <!-- Directives -->
     <script src="js/directives/directives.js"></script>
@@ -88,7 +92,7 @@
 
   
   </head>
-  <body ng-app="app" ><!--animation="slide-left-right-ios7"-->
+  <body ng-app="app"><!--animation="slide-left-right-ios7"-->
     <div style="">
       <ion-nav-view></ion-nav-view>
     </div>

@@ -156,6 +156,11 @@ angular.module('app')
         templateUrl: 'templates/transportador/perfil.html',
       })
 
+        .state('mapa', {
+        url: '/mapa',
+        templateUrl: 'templates/transportador/mapa.html',
+      })
+
       .state('tab.editar_perfil', {
         url: '/editar_perfil',
         views: {
