@@ -48,6 +48,16 @@ function constantsService() {
         return url;
     };
 
+    self.company.friend = function () {
+        var url = URL_BASE + 'company/friend?access-token=';
+        return url;
+    };
+
+    self.company.see = function () {
+        var url = URL_BASE + 'company/see';
+        return url;
+    };
+
     self.perfil.edit = function () {
         var url = URL_BASE + 'profile/seeprofile?access-token=';
         return url;

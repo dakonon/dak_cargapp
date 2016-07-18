@@ -4,16 +4,13 @@
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
      <ion-nav-title>
-    <span style="color:DarkTurquoise">EDITAR EMPRESAS</span>
+    <span style="color:DarkTurquoise">BUSCAR EMPRESAS</span>
   </ion-nav-title>
   <ion-content class="has-header" padding="true">
-    <div class="col responsive-sm col-80 col-offset-10" ng-controller="CompanyCtrl" >
+    <div class="col responsive-sm col-80 col-offset-10" ng-controller="buscarCompanyCtrl" >
 
       <!-- START CONTENT -->
-      <center ng-controller="buscarCompanyCtrl">
-    
-        <button ui-sref="tab.buscar_empresas" class="button button-block button-calm button-round icon ion-search" > BUSCAR EMPRESAS DE TRANSPORTE</button>
-        <span class="positive">Añadido a:</span>
+      <center>
 
         <div class="card" ng-repeat="empresa in datos">
           <span class="balanced">{{empresa[0].company_rz}}</span><br>

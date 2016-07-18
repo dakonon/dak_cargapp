@@ -8,19 +8,19 @@
     <span style="color:DarkTurquoise">PERFIL DE EMPRESA</span>
   </ion-nav-title>
   <ion-content class="has-header" padding="true">
-    <div class="col responsive-sm col-80 col-offset-10">
+    <div class="col responsive-sm col-80 col-offset-10" ng-controller="perfilCompanyCtrl">
       <div class="card">
         <div class="item item-text-wrap">
           <div class="row">
              <div class="form-item list col-50 ">
           <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
-            <img src="img/icon_user.png" width="100" height="100">
+            <img src="{{datos.avatar}}" width="100%" style="border-radius: 5px;">
           </div>
         </div>
             <div class="col col-50">
               <div class="row">
                 <div class="col">
-                  <b><h2 id="op_recuperepass">transportadora abc</h2></b>
+                  <b><h2 id="op_recuperepass" ng-bind="datos.company_rz">transportadora abc</h2></b>
                   <br>
                    <button class="button button-calm" >AÑADIR</button>
                     <br>
@@ -37,8 +37,7 @@
                   <div class="col">
               
                 <span class="gray-text">Reseña:</span><br>
-                <span class="positive">Debe mantenerse humeda durante el transporte para no 
-                generar pérdida del material.</span>
+                <span class="positive" ng-bind="datos.company_review"></span>
             </div>
             
           </div>

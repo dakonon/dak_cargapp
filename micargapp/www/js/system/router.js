@@ -180,7 +180,7 @@ angular.module('app')
       })
 
       .state('tab.perfil_empresa', {
-        url: '/perfil_empresa',
+        url: '/perfil_empresa/?company_rz&company_review&company_avatar&company_avg',
             views: {
                 'perfil_empresa' :{
                     templateUrl: 'templates/transportador/perfilEmpresa.html',
@@ -189,6 +189,18 @@ angular.module('app')
             }
         
       })
+
+       .state('tab.buscar_empresas', {
+        url: '/buscar_empresas',
+            views: {
+                'buscar_empresas' :{
+                    templateUrl: 'templates/transportador/buscar_empresas.html',
+            
+                }
+            }
+        
+      })
+
 
         .state('tab.finalizadas', {
         url: '/finalizadas',

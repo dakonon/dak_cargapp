@@ -1,6 +1,3 @@
-
-
-
 angular.module('app.Controllers')
 .controller('mapaCtrl', function($scope, $ionicLoading, $ionicPopup){
     var zocalo = {
@@ -8,22 +5,24 @@ angular.module('app.Controllers')
         lng: -99.13343450000002
     }
 
-    initMap = function(){
+    function initMap(){
         var mapDiv = document.getElementById('map');
 
         var mapOptions={
             center: zocalo,
-            zoom: 10
+            zoom: 18
         }
-
+      
         $scope.map = new google.maps.Map(mapDiv, mapOptions)
-        console.log($scope.map)
     }
-
     if(document.readyState === "complete"){
+      
         initMap()
-    } else {
-        google.maps.event.addDomListener(window, 'load', initMap());
-    }
 
+        
+    } else {
+         
+        google.maps.event.addDomListener(window, 'load', initMap)
+        
+    }
 })

@@ -263,3 +263,13 @@ img.pequeña{
   border-color: transparent;
 }
 
+/* Empty. Add your own CSS if you like */
+#map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  height: 100%;
+}
