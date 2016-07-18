@@ -8,7 +8,6 @@
   <ion-content class="has-header" padding="true" ng-controller="EditPerfilCtrl">
     <div class="text-center" ng-if="!loading">
         <i class="fa fa-refresh fa-spin fa-5x padder-v"> </i>
-
     </div>
      <div ng-if="loading">
       <center>
@@ -44,21 +43,9 @@
                 Cambiar foto&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;">
             </label>
         </div>
+
         <br>
-        <div class="col-lg-6 col-sm-6 col-12">
-            <h4>Input Groups</h4>
-            <div class="input-group">
-                <label class="input-group-btn">
-                    <span class="btn btn-primary">
-                        Browse&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;" multiple>
-                    </span>
-                </label>
-                <input type="text" class="form-control" ng-model="datos.user_avatar" readonly>
-            </div>
-            <span class="help-block">
-                Try selecting one or more files and watch the feedback
-            </span>
-        </div>
+        
 
         <br>
         <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="update(datos)">Editar</button>
