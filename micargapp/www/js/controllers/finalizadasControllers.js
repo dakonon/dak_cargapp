@@ -2,29 +2,33 @@
     'use strict'
 angular.module('app.Controllers').controller('finalizadasCtrl', finalizadasCtrl);
 
-    finalizadasCtrl.$inject = ['$scope','localStorageService','cotizarService','$ionicPopup','$state','$stateParams']
+    finalizadasCtrl.$inject = ['$scope','$ionicLoading','localStorageService','cotizarService','$ionicPopup','$state','$stateParams']
 
-    function finalizadasCtrl($scope,localStorageService,cotizarService,$ionicPopup,$state,$stateParams) {
+    function finalizadasCtrl($scope,$ionicLoading,localStorageService,cotizarService,$ionicPopup,$state,$stateParams) {
         var access_token = localStorageService.get("access_token");    
-
+        $scope.loading = false;  
         $scope.datos = {};
         
         $scope.empresa = onEmpresa
-        
+        $ionicLoading.show({});
           cotizarService.finalizadas(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                   
-                    $scope.datos= data.contratos;
-                   console.log(data)
+                    $ionicLoading.hide();
+                    if(data.mensaje == 'Se encontraron los siguientes contratos'){
+                        $scope.loading = true;                        
+                         $scope.datos= data.contratos;
+                    }                    
                }
             else{
+                $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
+            $ionicLoading.hide();
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
                 template: 'Por favor verifica tu correo!'
@@ -33,10 +37,11 @@ angular.module('app.Controllers').controller('finalizadasCtrl', finalizadasCtrl)
 
 
         function onEmpresa(){
-                console.log("")
+            $ionicLoading.show({});            
                 cotizarService.list(access_token).success(function(data) {
                 if(data.validacion == 'ok')
                    {
+                        $ionicLoading.hide();
                         localStorageService.set('nombre', data.cotizacion[0].company_name);
                         localStorageService.set('origen', data.cotizacion[0].origen);
                         localStorageService.set('destino', data.cotizacion[0].destino);
@@ -51,12 +56,14 @@ angular.module('app.Controllers').controller('finalizadasCtrl', finalizadasCtrl)
 
                    }
                 else{
+                    $ionicLoading.hide();
                     var alertPopup = $ionicPopup.alert({
                         title: 'Error al entrar!',
                         template: data.mensaje + '!'
                     });
                 }
             }).error(function(data) {
+                $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: 'Por favor verifica tus credenciales!'

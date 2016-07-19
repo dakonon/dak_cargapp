@@ -73,8 +73,9 @@ angular.module('app')
         
       })
 
+
         .state('tab.mis_cargas_b', {
-        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail&id_contract',
+        url: '/mis_cargas_b/?name&origen&destino&fecha&peso&payment&company_avatar&pkcotizaremp&company_mail&id_contract&latitude_destination&latitude_origin&longitude_destination&longitude_origin',
             views: {
                 'mis_cargas_b' :{
                     templateUrl: 'templates/transportador/mis_cargas_b.html',
@@ -156,8 +157,9 @@ angular.module('app')
         templateUrl: 'templates/transportador/perfil.html',
       })
 
+   
         .state('mapa', {
-        url: '/mapa',
+        url: '/mapa/?latitude_destination&latitude_origin&longitude_destination&longitude_origin',
         templateUrl: 'templates/transportador/mapa.html',
       })
 

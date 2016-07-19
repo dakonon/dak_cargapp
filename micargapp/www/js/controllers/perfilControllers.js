@@ -3,30 +3,32 @@
     'use strict'
 angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
-    EditPerfilCtrl.$inject = ['$scope','localStorageService','EditPerfilService','$ionicPopup','$state']
+    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state']
 
-    function EditPerfilCtrl($scope,localStorageService,EditPerfilService,$ionicPopup,$state) {
+    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state) {
         $scope.update = onUpdate;
         var access_token = localStorageService.get("access_token");
 
         $scope.datos = {};
         $scope.loading = false;
          $scope.prueba = $scope.datos.user_avatar;
-
+         $ionicLoading.show({});
           EditPerfilService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    $scope.loading = true;
+                    $ionicLoading.hide();
                     $scope.datos= data.perfil;
                       $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
                }
             else{
+                $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
+            $ionicLoading.hide();
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
                 template: 'Por favor verifica tu correo!'
@@ -34,6 +36,7 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
         });
 
          function onUpdate(data){
+            $ionicLoading.show({});
             var parametros = new FormData();
             parametros.append("user_name", data.user_name);
             parametros.append("user_phone", data.user_phone);
@@ -45,19 +48,21 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                   EditPerfilService.list(access_token).success(function(data) {
                         if(data.validacion == 'ok')
                            {   
-        
+                                $ionicLoading.hide();
                                 $scope.datos= data.perfil;
                                 $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
                                 console.log($scope.datos.user_avatar)
                                 
                            }
                         else{
+                             $ionicLoading.hide();
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Error al entrar!',
                                 template: data.mensaje + '!'
                             });
                         }
                     }).error(function(data) {
+                         $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Error al enviar!',
                             template: 'Por favor verifica tu correo!'
@@ -68,12 +73,14 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
                }
             else{
+                 $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
             }).error(function(data) {
+                 $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: 'Por favor verifica tus credenciales!'

@@ -8,35 +8,47 @@
     <span style="color:DarkTurquoise">PROPUESTAS</span>
   </ion-nav-title>
   <ion-content class="has-header" padding="true" ng-controller="activosCtrl">
-    <div class="col responsive-sm col-80 col-offset-10">
-      <div ng-repeat="activos in datos" >
-        <div class="card">
-          <div class="row" >
-            <div class="col col-50" >
-                <div style="margin: 0px; text-align: center;">
-                  <img src="http://micargapp.com/web{{activos.company_avatar}}" width="100%" style="border-radius: 5px;">
+    <div class="text-center" ng-if="!loading">
+      <center>
+        <img src="img/antena.png" />
+        <br>No hay cargas que coincidan con tu vehiculo!<br>
+        <span style="color: rgb(241, 96, 96);">No te desesperes</span>
+        <br><span>Te notificaremos ta pronto se solicite algún tipo de 
+        carga que te pueda interesar</span>
+      </center>
+    </div>
+    <div ng-if="loading">
+      <div class="col responsive-sm col-80 col-offset-10">
+        <div ng-repeat="activos in datos" >
+          <div class="card">
+            <div class="item item-text-wrap">
+              <div class="row" >
+                <div class="col col-50" >
+                    <div style="margin: 0px; text-align: center;">
+                      <img src="http://micargapp.com/web{{activos.company_avatar}}" width="100%" style="border-radius: 5px;">
+                    </div>
+                    <button ng-click="empresa($index)" class="button button-balanced col"  ng-bind="activos.peso"></button>
                 </div>
-                <button ng-click="empresa($index)" class="button button-balanced col"  ng-bind="activos.peso"></button>
-            </div>
-            <div class="col col-50">
-                <b><span class="positive" ng-bind="activos.company_name"></span></b>
-                <br><br>
-                <span class="gray-text">Origen:</span>
-                  <br>
-                <span class="positive" ng-bind="activos.origen"></span>
-                <br>
-                <span class="gray-text">Destino:</span>    
-                  <br>       
-                <span class="positive" ng-bind="activos.destino"></span>
-                <br>
-                <span class="gray-text">Fecha:</span>
-                  <br>
-                <span class="positive" ng-bind="activos.fecha"></span>
+                <div class="col col-50">
+                    <b><span class="positive" ng-bind="activos.company_name"></span></b>
+                    <br><br>
+                    <span class="gray-text">Origen:</span>
+                      <br>
+                    <span class="positive" ng-bind="activos.origen"></span>
+                    <br>
+                    <span class="gray-text">Destino:</span>    
+                      <br>       
+                    <span class="positive" ng-bind="activos.destino"></span>
+                    <br>
+                    <span class="gray-text">Fecha:</span>
+                      <br>
+                    <span class="positive" ng-bind="activos.fecha"></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </ion-content>
 </ion-view>

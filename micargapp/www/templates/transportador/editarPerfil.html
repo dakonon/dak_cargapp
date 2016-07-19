@@ -5,54 +5,47 @@
     <ion-nav-title>
     <span style="color:DarkTurquoise">EDITAR PERFIL</span>
   </ion-nav-title>
-  <ion-content class="has-header" padding="true" ng-controller="EditPerfilCtrl">
-    <div class="text-center" ng-if="!loading">
-        <i class="fa fa-refresh fa-spin fa-5x padder-v"> </i>
-    </div>
-     <div ng-if="loading">
-      <center>
-    <div class="col responsive-sm col-80" >
-      
-      <form class="list " id="userRegister" name="registro">
-        <div class="form-item list">
-          <label class="item item-input">
-            <input name="name" placeholder="Nombre" type="text" class="form-field" ng-model="datos.user_name" ng-model-options="{ updateOn: 'blur' }" required >
-          </label>
-          <span class="messages" ng-show="registro.$submitted || registro.name.$touched">
-        <span ng-show="registro.name.$error.required">El campo es obligatorio.</span>
-       </span>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Correo" type="email" class="form-field" ng-model="datos.email">
-          </label>
-        </div>
-        <div class="form-item list">
-          <label class="item item-input">
-            <input placeholder="Telefono Móvil" type="tel" class="form-field" ng-model="datos.user_phone">
-          </label>
-        </div>
-        <div class="form-item list col-50 ">
-          <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
-
-              <img src="{{datos.user_avatar}}" width="100%" height="100%">
-            
-          </div>
-        <div class="col-lg-6 col-sm-6 col-12">
-            <label class="btn btn-block btn-primary">
-                Cambiar foto&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;" ng-click="choosePhoto()">
+  <ion-content class="has-header" padding="true" ng-controller="EditPerfilCtrl">  
+    <center>
+      <div class="col responsive-sm col-80" >
+        <form class="list " id="userRegister" name="registro">
+          <div class="form-item list">
+            <label class="item item-input">
+              <input name="name" placeholder="Nombre" type="text" class="form-field" ng-model="datos.user_name" ng-model-options="{ updateOn: 'blur' }" required >
             </label>
-        </div>
+            <span class="messages" ng-show="registro.$submitted || registro.name.$touched">
+          <span ng-show="registro.name.$error.required">El campo es obligatorio.</span>
+         </span>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Correo" type="email" class="form-field" ng-model="datos.email">
+            </label>
+          </div>
+          <div class="form-item list">
+            <label class="item item-input">
+              <input placeholder="Telefono Móvil" type="tel" class="form-field" ng-model="datos.user_phone">
+            </label>
+          </div>
+          <div class="form-item list col-50 ">
+            <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
 
-        <br>
-        
+                <img src="{{datos.user_avatar}}" width="100%" height="100%">
+              
+            </div>
+          <div class="col-lg-6 col-sm-6 col-12">
+              <label class="btn btn-block btn-primary">
+                  Cambiar foto&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
+              </label>
+          </div>
 
-        <br>
-        <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="update(datos)">Editar</button>
-      </form>
-    </div>
+          <br>
+          
+
+          <br>
+          <button class="button button-positive  button-block button-round" id="userRegister-button1" ng-click="update(datos)">Editar</button>
+        </form>
+      </div>
     </center>
-    </div>
- 
   </ion-content>
 </ion-view>
