@@ -35,9 +35,14 @@
             </div>
           <div class="col-lg-6 col-sm-6 col-12">
               <label class="btn btn-block btn-primary">
-                  Cambiar foto&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
+                  Cambiar foto&hellip; <input type="file" uploader-model="datos.user_avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">                
               </label>
+              <span ng-bind="datos.user_avatar">
+                  0 Archivos
+                </span> 
           </div>
+          <br>
+
 
           <br>
           

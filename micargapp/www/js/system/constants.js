@@ -38,8 +38,8 @@ function constantsService() {
         return url;
     };
 
-    self.invitacion.getInvitacion = function () {
-        var url = URL_BASE + 'account/friendship/friend?access-token=';
+    self.company.invitacion = function () {
+        var url = URL_BASE + 'friendship/friend';
         return url;
     };
 
@@ -55,6 +55,21 @@ function constantsService() {
 
     self.company.see = function () {
         var url = URL_BASE + 'company/see';
+        return url;
+    };
+
+    self.company.sendsolicitude = function () {
+        var url = URL_BASE + 'friendship/sendsolicitude';
+        return url;
+    };
+
+    self.company.aceptsolicitude = function () {
+        var url = URL_BASE + 'friendship/aceptsolicitude';
+        return url;
+    };
+
+    self.company.deletesolicitude = function () {
+        var url = URL_BASE + 'friendship/deletesolicitude';
         return url;
     };
 

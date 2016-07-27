@@ -8,13 +8,19 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
     function CompanyCtrl($scope,$ionicLoading,localStorageService,CompanyService,$ionicPopup,$state) {
         var access_token = localStorageService.get("access_token");
         $scope.perfil = onPerfil;
+        $scope.eliminar = onEliminar;
+        $scope.agregar = onAgregar
         $scope.datos = {};
+        $scope.datos2 = {};
+        $scope.datos3 = {};
         $ionicLoading.show({});
-      
-          CompanyService.list(access_token).success(function(data) {
+        var params= 0
+        var params2= 2
+          CompanyService.friend(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
                     $ionicLoading.hide();
+
                     $scope.datos= data.empresas;
                }
             else{
@@ -32,6 +38,49 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
             });
         });
 
+        CompanyService.invitacion(access_token,params).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                    $ionicLoading.hide();
+                    $scope.datos2= data.solicitudes;
+               }
+            else{
+                $ionicLoading.hide();
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            $ionicLoading.hide();
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+
+        CompanyService.invitacion(access_token,params2).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                    $ionicLoading.hide();
+                    $scope.datos3= data.solicitudes;
+               }
+            else{
+                $ionicLoading.hide();
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            $ionicLoading.hide();
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+
+
         function onPerfil(id){
             $ionicLoading.show({});
                 CompanyService.see(access_token,id).success(function(data) {
@@ -43,6 +92,60 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
                                                         company_avatar: data.perfil.company_avatar,
                                                         company_avg: data.perfil.company_avg                                                       
                         });
+
+
+                   }
+                else{
+                    $ionicLoading.hide();
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Error al entrar!',
+                        template: data.mensaje + '!'
+                    });
+                }
+            }).error(function(data) {
+                $ionicLoading.hide();
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: 'Por favor verifica tus credenciales!'
+                });
+            });
+          }
+
+          function onEliminar(id){
+            $ionicLoading.show({});
+                CompanyService.deletesolicitude(access_token,id).success(function(data) {
+                if(data.validacion == 'ok')
+                   {   
+                        $ionicLoading.hide();                         
+                         
+
+
+                   }
+                else{
+                    $ionicLoading.hide();
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Error al entrar!',
+                        template: data.mensaje + '!'
+                    });
+                }
+            }).error(function(data) {
+                $ionicLoading.hide();
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: 'Por favor verifica tus credenciales!'
+                });
+            });
+          }
+
+          function onAgregar(id){
+            console.log("prueba");  
+            $ionicLoading.show({});
+                CompanyService.aceptsolicitude(access_token,id).success(function(data) {
+                if(data.validacion == 'ok')
+                   {   
+                        $ionicLoading.hide();                         
+                          console.log(data);                                                 
+                      
 
 
                    }
