@@ -19,43 +19,43 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
           CompanyService.friend(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    $ionicLoading.hide();
+              
 
                     $scope.datos= data.empresas;
                }
             else{
-                $ionicLoading.hide();
+            
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
-            $ionicLoading.hide();
+         
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
-                template: 'Por favor verifica tu correo!'
+                template: 'Por favor verifica tu red!'
             });
         });
 
         CompanyService.invitacion(access_token,params).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    $ionicLoading.hide();
+                   
                     $scope.datos2= data.solicitudes;
                }
             else{
-                $ionicLoading.hide();
+              
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
-            $ionicLoading.hide();
+          
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
-                template: 'Por favor verifica tu correo!'
+                template: 'Por favor verifica tu red!'
             });
         });
 
@@ -76,7 +76,7 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
             $ionicLoading.hide();
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
-                template: 'Por favor verifica tu correo!'
+                template: 'Por favor verifica tu red!'
             });
         });
 
@@ -117,8 +117,11 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
                 if(data.validacion == 'ok')
                    {   
                         $ionicLoading.hide();                         
-                         
-
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Solicitud eliminada!',
+                            template: data.mensaje + '!'
+                        });
+                        $state.go('perfil');
 
                    }
                 else{
@@ -144,8 +147,11 @@ angular.module('app.Controllers').controller('CompanyCtrl', CompanyCtrl);
                 if(data.validacion == 'ok')
                    {   
                         $ionicLoading.hide();                         
-                          console.log(data);                                                 
-                      
+                         var alertPopup = $ionicPopup.alert({
+                            title: 'Solicitud aceptada!',
+                            template: data.mensaje + '!'
+                        });                                               
+                         $state.go('perfil');
 
 
                    }

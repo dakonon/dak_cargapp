@@ -8,27 +8,26 @@ angular.module('app.Controllers').controller('buscarCompanyCtrl', buscarCompanyC
     function buscarCompanyCtrl($scope,$ionicLoading,localStorageService,CompanyService,$ionicPopup,$state) {
         var access_token = localStorageService.get("access_token");
         $scope.perfil = onPerfil;
-        $scope.send = onSend;
-        $scope.eliminar = onEliminar;
         $scope.agregar = onAgregar;
         $scope.datos = {};
         $ionicLoading.show({});
-          
+        var params= 0
+        var params2= 2  
           CompanyService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    $ionicLoading.hide();
+                   
                     $scope.datos= data.empresas;
                }
             else{
-                $ionicLoading.hide();
+             
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
-            $ionicLoading.hide();
+          
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
                 template: 'Por favor verifica tu correo!'
@@ -39,46 +38,28 @@ angular.module('app.Controllers').controller('buscarCompanyCtrl', buscarCompanyC
         CompanyService.friend(access_token).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    $ionicLoading.hide();
-                    
-                    for (var i = 0; i < data.empresas.length; i++) { 
-                        console.log($scope.datos)
-                      $scope.datos.splice(data.empresas[i][0].pkcompany)
+                   
+                    for (var j = 0; j < data.empresas.length; j++) { 
+                        for (var i = 0; i < $scope.datos.length; i++) {
+                            if(data.empresas[j][0].pkcompany==$scope.datos[i][0].pkcompany){                      
+                               
+                                $scope.datos.splice(i,1);
+                                
+                            }                    
+                        }
+                   
                     }
 
                }
             else{
-                $ionicLoading.hide();
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Error al entrar!',
-                    template: data.mensaje + '!'
-                });
-            }
-        }).error(function(data) {
-            $ionicLoading.hide();
-            var alertPopup = $ionicPopup.alert({
-                title: 'Error al enviar!',
-                template: 'Por favor verifica tu correo!'
-            });
-        });
 
-        //datos que voy a eliminar 
-      /*
-          CompanyService.friend(access_token).success(function(data) {
-            if(data.validacion == 'ok')
-               {   
-                    $ionicLoading.hide();
-                    $scope.datos= data.empresas;
-               }
-            else{
-                $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
-            $ionicLoading.hide();
+          
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
                 template: 'Por favor verifica tu correo!'
@@ -88,19 +69,25 @@ angular.module('app.Controllers').controller('buscarCompanyCtrl', buscarCompanyC
         CompanyService.invitacion(access_token,params).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                    $ionicLoading.hide();
-                    console.log(data.solicitudes)
-                    $scope.datos2= data.solicitudes;
+                    for (var j = 0; j < data.solicitudes.length; j++) { 
+                        for (var i = 0; i < $scope.datos.length; i++) {
+                            if(data.solicitudes[j].pkcompany==$scope.datos[i][0].pkcompany){                      
+                                $scope.datos.splice(i,1);
+                                
+                            }                    
+                        }
+                   
+                    }
                }
             else{
-                $ionicLoading.hide();
+             
                 var alertPopup = $ionicPopup.alert({
                     title: 'Error al entrar!',
                     template: data.mensaje + '!'
                 });
             }
         }).error(function(data) {
-            $ionicLoading.hide();
+          
             var alertPopup = $ionicPopup.alert({
                 title: 'Error al enviar!',
                 template: 'Por favor verifica tu correo!'
@@ -111,7 +98,16 @@ angular.module('app.Controllers').controller('buscarCompanyCtrl', buscarCompanyC
             if(data.validacion == 'ok')
                {   
                     $ionicLoading.hide();
-                    $scope.datos3= data.solicitudes;
+                    
+                    for (var j = 0; j < data.solicitudes.length; j++) { 
+                        for (var i = 0; i < $scope.datos.length; i++) {
+                            if(data.solicitudes[j].pkcompany==$scope.datos[i][0].pkcompany){                      
+                                $scope.datos.splice(i,1);
+                                
+                            }                    
+                        }
+                   
+                    }
                }
             else{
                 $ionicLoading.hide();
@@ -129,15 +125,14 @@ angular.module('app.Controllers').controller('buscarCompanyCtrl', buscarCompanyC
         });
 
 
-*/
-
 
         function onPerfil(id){
             $ionicLoading.show({});
                 CompanyService.see(access_token,id).success(function(data) {
                 if(data.validacion == 'ok')
                    {   
-                        $ionicLoading.hide();                         
+                        $ionicLoading.hide();  
+                                               
                           $state.go('tab.perfil_empresa',{ company_rz: data.perfil.company_rz,
                                                         company_review: data.perfil.company_review,
                                                         company_avatar: data.perfil.company_avatar,
@@ -162,77 +157,19 @@ angular.module('app.Controllers').controller('buscarCompanyCtrl', buscarCompanyC
             });
           }
 
-          function onSend(id){
-            $ionicLoading.show({});
-                CompanyService.sendsolicitude(access_token,id).success(function(data) {
-                if(data.validacion == 'ok')
-                   {   
-                        $ionicLoading.hide();                         
-                          $state.go('tab.perfil_empresa',{ company_rz: data.perfil.company_rz,
-                                                        company_review: data.perfil.company_review,
-                                                        company_avatar: data.perfil.company_avatar,
-                                                        company_avg: data.perfil.company_avg                                                       
-                        });
-
-
-                   }
-                else{
-                    $ionicLoading.hide();
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Error al entrar!',
-                        template: data.mensaje + '!'
-                    });
-                }
-            }).error(function(data) {
-                $ionicLoading.hide();
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Error al entrar!',
-                    template: 'Por favor verifica tus credenciales!'
-                });
-            });
-          }
-
-          function onEliminar(id){
-            $ionicLoading.show({});
-                CompanyService.deletesolicitude(access_token,id).success(function(data) {
-                if(data.validacion == 'ok')
-                   {   
-                        $ionicLoading.hide();                         
-                          $state.go('tab.perfil_empresa',{ company_rz: data.perfil.company_rz,
-                                                        company_review: data.perfil.company_review,
-                                                        company_avatar: data.perfil.company_avatar,
-                                                        company_avg: data.perfil.company_avg                                                       
-                        });
-
-
-                   }
-                else{
-                    $ionicLoading.hide();
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Error al entrar!',
-                        template: data.mensaje + '!'
-                    });
-                }
-            }).error(function(data) {
-                $ionicLoading.hide();
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Error al entrar!',
-                    template: 'Por favor verifica tus credenciales!'
-                });
-            });
-          }
+ 
 
           function onAgregar(id){
-            console.log("prueba");  
             $ionicLoading.show({});
                 CompanyService.sendsolicitude(access_token,id).success(function(data) {
                 if(data.validacion == 'ok')
                    {   
-                        $ionicLoading.hide();                         
-                          console.log(data);                                                 
-                      
-
-
+                        $ionicLoading.hide();  
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Solicitud enviada!',
+                            template: data.mensaje + '!'
+                        });                       
+                        $state.go('tab.editar_empresas'); 
                    }
                 else{
                     $ionicLoading.hide();

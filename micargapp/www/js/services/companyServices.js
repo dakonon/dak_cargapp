@@ -130,7 +130,6 @@ function CompanyService($http, $q,constants) {
             var promise = deferred.promise;
             var url= constants.company.sendsolicitude();
             url = url +"?id="+param+ "&access-token="+token;           
-              console.log(url);
             $http.get(url)
               .success(function(data) {
                 if(data) {
@@ -184,8 +183,7 @@ function CompanyService($http, $q,constants) {
       var deferred = $q.defer();
             var promise = deferred.promise;
             var url= constants.company.deletesolicitude();
-            url = url +"?id="+param+ "&access-token="+token; 
-            console.log(url);          
+            url = url +"?id="+param+ "&access-token="+token;     
             $http.get(url)
               .success(function(data) {
                 if(data) {
