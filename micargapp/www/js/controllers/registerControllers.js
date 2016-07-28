@@ -3,9 +3,9 @@
     'use strict'
 angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtrl);
 
-    UserRegisterCtrl.$inject = ['$scope','RegisterService','$ionicPopup','$state']
+    UserRegisterCtrl.$inject = ['$scope', '$ionicLoading', 'RegisterService','$ionicPopup','$state']
 
-    function UserRegisterCtrl($scope,RegisterService,$ionicPopup,$state) {
+    function UserRegisterCtrl($scope, $ionicLoading, RegisterService,$ionicPopup,$state) {
          $scope.datos = {};
 
          $scope.register = onRegister;
