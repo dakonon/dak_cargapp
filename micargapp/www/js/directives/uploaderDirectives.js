@@ -1,7 +1,7 @@
 angular.module('app.Directives')
 
 
-.directive('uploaderModel', ["$parse", function ($parse) {
+.directive('uploaderModel', ["$parse","$ionicPopup", function ($parse,$ionicPopup) {
 	return {
 		restrict: 'A',
 		link: function (scope, iElement, iAttrs) 
@@ -9,6 +9,10 @@ angular.module('app.Directives')
 			iElement.on("change", function(e)
 			{
 				$parse(iAttrs.uploaderModel).assign(scope, iElement[0].files[0]);
+				var alertPopup = $ionicPopup.alert({
+                    title: 'Perfecto',
+                    template: "Imagen cargada"
+                });
 			});
 		}
 	};

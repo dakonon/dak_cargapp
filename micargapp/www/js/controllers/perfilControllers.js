@@ -18,7 +18,7 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                {   
                     $ionicLoading.hide();
                     $scope.datos= data.perfil;
-                      $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
+                    $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
                }
             else{
                 $ionicLoading.hide();
