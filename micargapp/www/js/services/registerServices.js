@@ -8,10 +8,11 @@ RegisterService.$inject = ['$http', '$q', 'constants']
 
 function RegisterService($http, $q,constants) {
 	var self = this;
-	self.registerUser = onRegisterUser
+	self.registerUser = onRegisterUser;
   
 
     function onRegisterUser(parametros){
+
     	var deferred = $q.defer();
             var deferred = $q.defer();
             var promise = deferred.promise;
@@ -20,11 +21,12 @@ function RegisterService($http, $q,constants) {
             var url= constants.register.register();
             $http.post(url, parametros, {headers: {"Content-type": undefined}, transformRequest: angular.indentity}).success(function(data){
               if(data) {
-                console.log(data)
+                console.log("nada")                
                 deferred.resolve(data);
                 deferred.resolve('Welcome ' + name + '!');
               } 
               else {
+
                 deferred.reject(data);
                 deferred.reject('Wrong credentials.');
               }

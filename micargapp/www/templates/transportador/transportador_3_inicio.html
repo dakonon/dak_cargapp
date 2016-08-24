@@ -3,7 +3,7 @@
   <ion-nav-bar class="bar bar-header dashboard-2">
     <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
   </ion-nav-bar>
-  <ion-content class="has-header" padding="true">
+  <ion-content class="has-header" padding="true" ng-controller="notificacionCtrl" >
     <style type="text/css">
       .row {
         margin-right: 0px !important;
@@ -15,67 +15,63 @@
             <img src="img/Logo_Mi_Cargapp.png" width="70%" height="70%"> 
         </div>
 
-        <div class="row row-center">
-          <div class="col col-33 text-center ">
+        <div class="row row-center" ng-controller="readNotificacionCtrl">
+          <div ng-click="notificar(1)" class="col col-33 text-center">
+            <div ng-if="cotizar!=0" class="notice-tag">{{cotizar}}</div>
             <center>
-              <a ui-sref="tab.cotizar_a">
+                           
                 <div class="back-blue circle col-center">
                   <div class="circle">
                     <img src="img/icon_cotizar.png" width="40%" class="circle-content" >
                   </div>
                 </div>
                 <span class="text-circle">Cotizar</span>
-              </a>
+            
             </center>
           </div>
-          <div class="col col-33 text-center">
-            <center>
-              <a ui-sref="tab.mis_cargas_a">
-                <div class="notice-tag">2</div>
+          <div ng-click="notificar(2)" class="col col-33 text-center">
+            <center>             
+                <div ng-if="activa!=0" class="notice-tag2">{{activa}}</div>
                 <div class="back-blue circle col-center">
                   <div class="circle">
                     <img src="img/icon_carga_activa.png" width="40%" class="circle-content2">
                   </div>
                 </div>
-                <span class="text-circle">Activas</span>
-              </a>
+                <span class="text-circle">Activas</span>             
             </center>
           </div>
-          <div class="col col-33 text-center">
+          <div ng-click="notificar(3)" class="col col-33 text-center">
             <center>
-              <a ui-sref="tab.cotizar_cliente">
+                <div ng-if="finalizada!=0" class="notice-tag3">{{finalizada}}</div>
                 <div class="back-blue circle col-center">
                   <div class="circle">
                     <img src="img/icon_carga_finalizada.png" width="40%"
                     class="circle-content">
                   </div>
                 </div>
-                <span class="text-circle">Finalizadas</span>
-              </a>
+                <span class="text-circle">Finalizadas</span>            
             </center>
           </div>
         </div>
-        <div class="row">
-          <div class="col col-33 col-center col-offset-20 text-center">
+        <div class="row" ng-controller="readNotificacionCtrl">
+          <div ng-click="notificar(4)" class="col col-33 col-center col-offset-20 text-center" >
+            <div ng-if="noticias!=0" class="notice-tag4">{{noticias}}</div>
             <center>
-              <a ui-sref="tab.noticias">
                 <div class="back-blue circle col-center">
                     <img src="img/icon_noticias.png" width="40%" 
                     class="circle-content">
                 </div>
-                <span class="text-circle">Noticias</span>
-              </a>
+                <span class="text-circle">Noticias</span>         
             </center>
           </div>
-          <div class="col col-33 text-center">
-            <center>
-              <a ui-sref="perfil">
+          <div ng-click="notificar(5)" class="col col-33 text-center">
+            <center>                          
+                <div ng-if="amistad!=0" class="notice-tag5">{{amistad}}</div>
                 <div class="back-blue circle col-center">
                   <img src="img/icon_perfil.png" width="40%" 
                     class="circle-content">
                 </div>
-                <span class="text-circle">Editar Perfil</span>
-              </a>
+                <span class="text-circle">Editar Perfil</span>              
             </center>
           </div>
         </div>

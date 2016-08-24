@@ -21,6 +21,9 @@ function constantsService() {
     self.chat.sendMsjs = {};
     self.contrato = {};
     self.geo = {};
+    self.notificaciones = {};
+
+    
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -163,8 +166,23 @@ function constantsService() {
         return url;
     };
 
-        self.contrato.finalizar = function () {
+    self.contrato.finalizar = function () {
         var url = URL_BASE + 'load/reportloadend?access-token=';
+        return url;
+    };
+
+    self.notificaciones.get = function () {
+        var url = URL_BASE + 'notificaciones/getnots';
+        return url;
+    };
+
+    self.notificaciones.read = function () {
+        var url = URL_BASE + 'notificaciones/readnots';
+        return url;
+    };
+
+    self.notificaciones.cotization = function () {
+        var url = URL_BASE + 'notificaciones/cotization';
         return url;
     };
 }

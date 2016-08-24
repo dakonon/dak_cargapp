@@ -74,7 +74,49 @@ a:link{
 .notice-tag{
   position: absolute;
   padding: 2px;
+  right: 74%;
+  min-width: 4%;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #FC2B5C;
+  font-weight: bold;
+}
+
+.notice-tag2{
+  position: absolute;
+  padding: 2px;
   right: 44%;
+  min-width: 4%;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #FC2B5C;
+  font-weight: bold;
+}
+
+.notice-tag3{
+  position: absolute;
+  padding: 2px;
+  right: 14%;
+  min-width: 4%;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #FC2B5C;
+  font-weight: bold;
+}
+.notice-tag4{
+  position: absolute;
+  padding: 2px;
+  right: 55%;
+  min-width: 4%;
+  border-radius: 100%;
+  color: #FFF;
+  background-color: #FC2B5C;
+  font-weight: bold;
+}
+.notice-tag5{
+  position: absolute;
+  padding: 2px;
+  right: 24%;
   min-width: 4%;
   border-radius: 100%;
   color: #FFF;

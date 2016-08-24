@@ -34,7 +34,7 @@
 
           <div class="col-lg-6  col-12">
             <label class="btn btn-block btn-primary">
-              Subi Foto&hellip;  <input type="file" uploader-model="datos.user_avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
+              Subi Foto&hellip;  <input type="file" uploader-model="datos.avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
             </label>
             <span id="span-img-route"></span>
             <span ng-bind="datos.user_avatar.name">
@@ -46,9 +46,9 @@
           <section id="vehicle-reference">
             <div class="form-item list">
               <label class="item item-input">
-                <select class="form-field col">
-                  <option value="none" disabled selected ng-model="datos.vehicletype">Tipo de Vehículo.</option>
-                  <option>Blue</option>
+                <select class="form-field col" ng-model="datos.vehicletype">
+                  <option value="none" disabled selected >Tipo de Vehículo.</option>
+                  <option value="camion">Camion</option>
                 </select>
               </label>
             </div>
