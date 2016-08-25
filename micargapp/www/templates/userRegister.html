@@ -33,14 +33,16 @@
           </div>
 
           <div class="col-lg-6  col-12">
-            <label class="btn btn-block btn-primary">
-              Subi Foto&hellip;  <input type="file" uploader-model="datos.avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
-            </label>
-            <span id="span-img-route"></span>
-            <span ng-bind="datos.user_avatar.name">
-                  0 Archivos
-            </span> 
+              <label class="btn btn-block btn-primary">
+                Subi Foto&hellip;  <input type="file" uploader-model="datos.avatar" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
+              </label>
+              <span id="span-img-route"></span>
+              <span ng-bind="datos.user_avatar.name">
+                    0 Archivos
+              </span> 
+
           </div>
+          
         </section>
         <section id="reference-data">
           <section id="vehicle-reference">
@@ -139,87 +141,288 @@
             </div>
 
             <div class="col-lg-6 col-sm-6 col-12">
-              <label class="btn btn-block btn-primary">
+              <!-- <label class="btn btn-block btn-primary">
                   Cédula -CARA 1-&hellip; <input type="file" uploader-model="datos.cedula1" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
               </label>
-              <span ng-bind="datos.cedula1.name"></span>
+              <span ng-bind="datos.cedula1.name"></span> -->
+
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Cédula -CARA 1-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.cedula1"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.cedula1" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
+              <!-- <br /> -->
+                <!-- <button class="button button-block button-assertive boton_redondo"
+                  ng-click="datos.cedula1 = null" ng-show="!!datos.cedula1">Remover  {{datos.images.length}}  imagen</button> -->
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Cédula -CARA 2-&hellip; <input type="file" uploader-model="datos.cedula2" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.cedula2.name"></span>
-            </div>
-            <br>            
+                <span ng-bind="datos.cedula2.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Cédula -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.cedula2"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.cedula2" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
+              <br />
+                <!-- <button class="button button-block button-assertive boton_redondo"
+                  ng-click="datos.cedula2 = null" ng-show="!!datos.cedula2">Remover  {{datos.images.length}}  imagen</button> -->
+            </div>          
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Tarjeta de propiedad -CARA 1-&hellip; <input type="file" uploader-model="datos.tarj_prop1" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.tarj_prop1.name"></span>
+                <span ng-bind="datos.tarj_prop1.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Tarjeta de propiedad -CARA 1-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.tarj_prop1"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.tarj_prop1" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
+              <!-- <br />
+                <button class="button button-block button-assertive boton_redondo"
+                  ng-click="datos.tarj_prop1 = null" ng-show="!!datos.tarj_prop1">Remover {{datos.images.length}} imagen</button> -->
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Tarjeta de propiedad -CARA 2-&hellip; <input type="file" uploader-model="datos.tarj_prop2" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.tarj_prop2.name"></span>
+                <span ng-bind="datos.tarj_prop2.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Tarjeta de propiedad -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.tarj_prop2"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.tarj_prop2" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Licencia de conducción -CARA 1-&hellip; <input type="file" uploader-model="datos.licencia1" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.licencia1.name"></span>
+                <span ng-bind="datos.licencia1.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Licencia de conducción -CARA 1-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.licencia1"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.licencia1" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Licencia de conducción -CARA 2-&hellip; <input type="file" uploader-model="datos.licencia2" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.licencia2.name"></span>
+                <span ng-bind="datos.licencia2.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Licencia de conducción -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.licencia2"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.licencia2" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Revision Tecnicomecanica -CARA 1-&hellip; <input type="file" uploader-model="datos.revision1" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.revision1.name"></span>
+                <span ng-bind="datos.revision1.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Tarjeta de propiedad -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.revision1"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.revision1" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Revision Tecnicomecanica -CARA 2-&hellip; <input type="file" uploader-model="datos.revision2" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.revision2.name"></span>
+                <span ng-bind="datos.revision2.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Revision Tecnicomecanica -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.revision2"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.revision2" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     SOAT -CARA 1-&hellip; <input type="file" uploader-model="datos.soat1" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.soat1.name"></span>
+                <span ng-bind="datos.soat1.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>SOAT -CARA 1-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.soat1"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.soat1" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     SOAT -CARA 2-&hellip; <input type="file" uploader-model="datos.soat2" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.soat2.name"></span>
+                <span ng-bind="datos.soat2.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>SOAT -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.soat2"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.soat2" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Tarjeta empresa -CARA 1-&hellip; <input type="file" uploader-model="datos.tarjetas1" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.tarjetas1.name"></span>
+                <span ng-bind="datos.tarjetas1.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Tarjeta empresa -CARA 1-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.tarjetas1"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.tarjetas1" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-                <label class="btn btn-block btn-primary">
+                <!-- <label class="btn btn-block btn-primary">
                     Tarjeta empresa -CARA 2-&hellip; <input type="file" uploader-model="datos.tarjetas2" style="display: none;" ng-controller="camaraCtrl" ng-click="choosePhoto()">
                 </label>
-                <span ng-bind="datos.tarjetas2.name"></span>
+                <span ng-bind="datos.tarjetas2.name"></span> -->
+              <div class="fileUpload button button-block button-calm boton_redondo">
+                <span>Tarjeta empresa -CARA 2-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.tarjetas2"
+                  accept='image/*' multiple app-filereader />
+              </div>
+              <center>
+                <span ng-repeat="image in datos.tarjetas2" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" 
+                    style="width: 50px; height:50px; border-radius: 7px;" />
+                </span>
+              </center>
             </div>
 
 
