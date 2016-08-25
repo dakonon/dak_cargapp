@@ -29,20 +29,38 @@
           </div>
           <div class="form-item list col-50 ">
             <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
-
+              <div ng-if="isString(datos.user_avatar)">
                 <img src="{{datos.user_avatar}}" width="100%" height="100%">
+              </div>
+              <div ng-if="!isString(datos.user_avatar)">
+                <span ng-repeat="image in datos.user_avatar" 
+                  style=" padding: 1px">
+                  <img ng-src="{{image}}" width="100%" height="100%" />
+                </span>
+              </div>
               
             </div>
-          <button class="button button-block button-balanced" uploader-model="datos.user_avatar" ng-controller="camaraCtrl" ng-click="choosePhoto()">
+          <!-- <button class="button button-block button-balanced" uploader-model="datos.user_avatar" ng-controller="camaraCtrl" ng-click="choosePhoto()">
             Cambiar foto   
-          </button>
-          <div class="col-lg-6 col-sm-6 col-12">              
+          </button> -->
+          <!-- <div class="col-lg-6 col-sm-6 col-12">              
               <span ng-bind="datos.user_avatar">
                   0 Archivos
                 </span> 
-          </div>
+          </div> -->
           <br>
-
+          <div class="fileUpload button button-block button-balanced">
+                <span>Cambiar foto-&hellip;</span>
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                <input 
+                  type="file" 
+                  class="upload" 
+                  ng-model="datos.user_avatar" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
+              </div>
+              
+              <button class="button button-block button-assertive boton_redondo"
+                  ng-click="datos.user_avatar = null" ng-show="!isString(datos.user_avatar)">Remover  {{datos.images.length}}  imagen</button>
 
           <br>
           

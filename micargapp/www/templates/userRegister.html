@@ -150,10 +150,10 @@
                 <span>Cédula -CARA 1-&hellip;</span>
                 <i class="icon ion-ios-arrow-thin-up"></i>
                 <input 
-                  type="file" 
+                  type="file" ng-controller="camaraCtrl" 
                   class="upload" 
                   ng-model="datos.cedula1"
-                  accept='image/*' multiple app-filereader />
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()" />
               </div>
               <center>
                 <span ng-repeat="image in datos.cedula1" 
@@ -177,9 +177,9 @@
                 <i class="icon ion-ios-arrow-thin-up"></i>
                 <input 
                   type="file" 
-                  class="upload" 
+                  class="upload" ng-controller="camaraCtrl" 
                   ng-model="datos.cedula2"
-                  accept='image/*' multiple app-filereader />
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.cedula2" 
@@ -203,8 +203,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.tarj_prop1"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.tarj_prop1" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.tarj_prop1" 
@@ -229,8 +229,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.tarj_prop2"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.tarj_prop2" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()" />
               </div>
               <center>
                 <span ng-repeat="image in datos.tarj_prop2" 
@@ -252,8 +252,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.licencia1"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.licencia1" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()" />
               </div>
               <center>
                 <span ng-repeat="image in datos.licencia1" 
@@ -275,8 +275,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.licencia2"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.licencia2" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.licencia2" 
@@ -298,8 +298,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.revision1"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.revision1" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()" />
               </div>
               <center>
                 <span ng-repeat="image in datos.revision1" 
@@ -321,8 +321,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.revision2"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.revision2" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.revision2" 
@@ -344,8 +344,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.soat1"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.soat1" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()" />
               </div>
               <center>
                 <span ng-repeat="image in datos.soat1" 
@@ -367,8 +367,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.soat2"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.soat2" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.soat2" 
@@ -390,8 +390,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.tarjetas1"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.tarjetas1" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.tarjetas1" 
@@ -413,8 +413,8 @@
                 <input 
                   type="file" 
                   class="upload" 
-                  ng-model="datos.tarjetas2"
-                  accept='image/*' multiple app-filereader />
+                  ng-model="datos.tarjetas2" ng-controller="camaraCtrl" 
+                  accept='image/*' multiple app-filereader on-touch="ChoosePhotp()"/>
               </div>
               <center>
                 <span ng-repeat="image in datos.tarjetas2" 

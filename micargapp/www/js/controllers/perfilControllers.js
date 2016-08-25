@@ -35,6 +35,10 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             });
         });
 
+        $scope.isString = function (data){
+          console.log(typeof data);
+          return  typeof data == "string" ? true : false;
+        }
          function onUpdate(data){
             $ionicLoading.show({});
             var parametros = new FormData();
