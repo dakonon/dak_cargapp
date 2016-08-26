@@ -1,0 +1,28 @@
+<ion-view style="" class=" " id="password_recover" title="Recuperar Contraseña">
+  <ion-nav-bar class="bar bar-header bar-light">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="col responsive-sm col-80 col-offset-10">
+      <form id="recoverPassword">
+        <div class="list col col-50 col-offset-25 logo">
+          <img src="img/Logo_Mi_Cargapp.png" alt="Mi Cargapp" class="img-responsive img-rounded row logo-img">
+        </div>              
+        <div class="list">
+          <div class="col list text-center col-80 col-offset-10">
+            <h3 id="Recuperarpass">Escriba el correo con el que se registro, alli le enviaremos información</h3>
+          </div>
+          <div class="col list form-item">
+             <label class="item item-input">
+               <input type="text" placeholder="Correo" class="form-field" ng-model="data.email">
+             </label>
+          </div>
+          <div class="col">
+            <button class="button button-block button-calm button-round" ng-click="recover(data)">Recuperar contraseña</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
+

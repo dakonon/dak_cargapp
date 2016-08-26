@@ -1,0 +1,91 @@
+
+<ion-view style="" class=" " id="dashboard-1">
+
+ <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    <span style="color:DarkTurquoise">CLIENTE</span>
+  </ion-nav-title>
+  <ion-content class="has-header" padding="true" ng-controller="contratoCtrl">
+    <div class="col responsive-sm col-80 col-offset-10">
+      <div class="card" >
+          <div class="row">
+            <div class="col-50 col-center">  
+                <img src="http://micargapp.com/web{{datos.company_avatar}}" width="100%" style="min-width: 50px;">
+            </div>
+            <div class="col col-50" width="100%">
+              <b><span class="positive" ng-bind="datos.nombre"></span></b>
+              <br>
+              <span class="gray-text">Confirmado</span>
+                <br>
+              <h3 id="op_recuperepass" ng-bind="datos.payment"></h3>
+              <br>    
+              <span class="positive" ng-bind="datos.company_mail"
+                style="font-size: 71%;"></span>
+                <br>   <br>   
+              <button ng-click="destino(datos.id_contract)" class="button button-balanced col" ng-model="data.avtar" style="width: 96%;font-size: 86%;">
+                Carga en destino
+              </button>
+              <button ui-sref="tab.entrega({id: datos.id_contract})" class="button button-balanced col" ng-model="data.avtar" style="width: 96%;font-size: 86%;">
+                Finalizar carga
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                 <span class="gray-text">Ciudad Origen:</span>
+                    <br>
+                  <span class="positive" ng-bind="datos.origen"></span>
+                  <br>
+                  <span class="gray-text">Destino Ciudad:</span>    
+                    <br>       
+                  <span class="positive" ng-bind="datos.destino"></span>
+                  <br>
+                  <span class="gray-text">Tipo:</span>
+                    <br>
+                  <span class="positive">Arena comprimida</span>
+                   <br>
+                   <span class="gray-text" >Peso:</span>
+                    <br>
+                  <span class="positive" ng-bind="datos.peso"></span>
+                   <br>
+                  <span class="gray-text">Fecha:</span>
+                    <br>
+                  <span class="positive" ng-bind="datos.fecha"></span>
+            </div>              
+          </div>
+          <div class="row">
+            <div class="col col-33">                  
+              <div class="form-item list  ">
+                <div style="line-height: 100px; background-color: rgb(148, 123, 226);text-  align: center;">
+                  <img ui-sref="tab.chat({id:datos.id_contract,nombre:datos.nombre,payment: datos.payment,
+                  origen:datos.origen, destino:datos.destino,fecha: datos.fecha, avatar:datos.company_avatar,
+                  peso: datos.peso
+                  })" src="img/icon_Chat.png" width="50" height="50">          
+                </div>
+              </div>
+            </div>
+            <div class="col col-33">                
+              <div class="form-item list  ">
+                <div style=" line-height: 100px; background-color: rgb(255, 209, 125);text-align: center;">
+                  <img src="img/icon_llamar.png" width="50" height="50">
+                </div>
+              </div>
+            </div>
+            <div class="col col-33">                    
+              <div class="form-item list  ">
+                <div ui-sref="mapa({latitude_destination:datos.latitude_destination,latitude_origin:datos.latitude_origin,longitude_destination: datos.longitude_destination,longitude_origin:datos.longitude_origin})" style=" line-height: 100px; background-color: rgb(239, 122, 224);text-align: center;">
+                  <img src="img/icon_ruta.png" width="50" height="50">
+                </div>
+              </div>
+            </div>              
+          </div>
+          <div class="row">            
+            <button ui-sref="tab.mis_cargas_b" class="button button-calm col" ng-model="data.avtar" ng-click="ruta(datos.id_contract)">Enviar localizacion actual</button>                      
+          </div>                     
+        </div>
+      </div>
+      
+  </ion-content>
+</ion-view>
