@@ -1,0 +1,97 @@
+
+<ion-view style="" class=" " id="dashboard-1" ng-controller="chatController">
+
+ <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    <span style="color:DarkTurquoise">CHAT</span>
+  </ion-nav-title>
+  <ion-content class="has-header" padding="true">
+    <div class="col responsive-sm col-80 col-offset-10">
+      <div class="back-white">
+          <div class="row back-white row-center">
+            <div class="col col-50 col-center">
+                <br>
+                <center>
+                  <img src="http://micargapp.com/web{{datos.avatar}}" height="100">
+                </center>
+              <button ui-sref="tab.mis_cargas_b" class="button button-balanced col" ng-model="data.avtar" ng-bind="datos.peso"></button>
+            </div>
+            <div class="col col-50 col-center padding-text">
+              <div class="padding-text">
+              <b><span class="positive" ng-bind="datos.nombre"></span></b>
+              <br>
+              <b><span class="balanced" ng-bind="datos.payment"></span></b>
+              <br>
+              <span class="gray-text" >Ciudad Origen:</span>
+                <br>
+              <span class="positive" ng-bind="datos.origen"></span>
+              <br>
+              <span class="gray-text">Ciudad Destino:</span>    
+                <br>       
+              <span class="positive" ng-bind="datos.destino"></span>
+              <br>
+              <span class="gray-text">Fecha:</span>
+                <br>
+              <span class="positive" ng-bind="datos.fecha"></span>
+              </div>
+            </div>
+          </div>
+           </div>
+      </div>
+
+    <!---------CHAT CONTENT -------->
+         
+        <div class="row">
+          <div class="col col-20"></div>
+          <div class="col col-66">
+            <div class="">
+                <div class="">
+                    <!-- <span class="glyphicon glyphicon-comment"></span> Chat -->
+                    <div class="btn-group pull-right">
+                        
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        <!-- DATOS -->
+                        <div ng-repeat="mensaje in mensajes.slice().reverse()">
+                          <li class="left clearfix" >
+                              <div class="chat-body clearfix">
+                                <div class=""
+                                  ng-class="mensaje[1] ? 'panel-footer-blue' : 'panel-footer-gray'">
+                                  {{mensaje[0]}} {{ mensaje[3] }}
+                                </div>
+                                <p class=""
+                                  ng-class="mensaje[1] ? 'box-blue' : 'box-gray'">
+                                    {{ mensaje[2] }}
+                                </p>
+                              </div>
+                          </li>
+                        </div>
+                    </ul>
+                </div>
+                <form name="form">
+                <div class="">
+                    <div class="list">
+                      <div class="item item-input-inset back-positive">
+                        <label class="item-input-wrapper input-50">
+                          <input type="text" placeholder="Escribir..."
+                           name="textMsj" ng-model="textMsj" id="input_send" focus-me-now>
+                        </label>
+                        <button class="button button-small back-positive"
+                          ng-click="send()" >
+                          Enviar
+                        </button>
+                      </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        
+         <!--------CHAT CONTENT END ------>
+  </ion-content>
+</ion-view>

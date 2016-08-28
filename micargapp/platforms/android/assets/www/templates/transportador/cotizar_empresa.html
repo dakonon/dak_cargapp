@@ -1,0 +1,68 @@
+
+<ion-view style="" class=" " id="">
+ <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+ <ion-nav-title>
+        <span style="color:DarkTurquoise">COTIZAR CARGAS</span>
+     </ion-nav-title>
+
+  <ion-content class="has-header" padding="true" ng-controller="cotizarEmpresaCtrl">
+ 
+    <div class="col responsive-sm col-80 col-offset-10">
+     
+          
+      <!-- START CONTENT -->
+      <div class="card" >       
+        <div class="item item-text-wrap">
+          <div class="row">
+          
+            <div class="form-item list col-50 ">
+          <div style="margin: 0px; line-height: 100px; background-color: rgb(232, 235, 239); text-align: center;">
+            <img src="http://micargapp.com/web/{{datos.company_avatar}}" class="full-image">
+          </div>
+          <button class="button button-balanced col" ng-bind="datos.peso"></button>
+        </div>
+              <div class="col col-50">
+              <div class="row">
+                <div class="col">
+                  <b><span class="positive" ng-bind="datos.nombre"></span></b>
+                  <br><br>
+                  <span class="gray-text">Origen:</span>
+                    <br>
+                  <span class="positive" ng-bind="datos.origen"></span>
+                  <br>
+                  <span class="gray-text">Destino:</span>   
+                    <br>        
+                  <span class="positive" ng-bind="datos.destino">Barranquilla</span>
+                  <br>
+                  <span class="gray-text">Fecha:</span>
+                    <br>
+                  <span class="positive" ng-bind="datos.fecha"></span>
+                   <p class="navbar-text-blue stable"><b>Empresa transportadora</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col">
+                <span class="gray-text">Valor a Pagar:</span><br>
+                <span class="positive" ng-bind="datos.payment"></span>
+                <br><br>
+                <span class="gray-text">Comentarios:</span><br>
+                <span class="positive" ng-bind="datos.comment"></span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <button class="button button-block button-calm button-round" ng-click="aceptar()">ACEPTAR OFERTA</button><br/>
+      <button class="button button-block button-assertive button-round" ng-click="">RECHAZAR OFERTA</button>
+      <!-- END CONTENT -->
+    </div>
+   
+  </ion-content>
+</ion-view>

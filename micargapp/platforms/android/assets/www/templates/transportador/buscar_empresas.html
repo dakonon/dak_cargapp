@@ -1,0 +1,40 @@
+
+<ion-view style="" class="" id="dashboard-1">
+  <ion-nav-bar class="bar bar-header dashboard-2">
+    <ion-nav-back-button class="button-icon icon ion-ios-arrow-back"></ion-nav-back-button>
+  </ion-nav-bar>
+     <ion-nav-title>
+    <span style="color:DarkTurquoise">BUSCAR EMPRESAS</span>
+  </ion-nav-title>
+  <ion-content class="has-header" padding="true">
+    <div class="col responsive-sm col-80 col-offset-10" ng-controller="buscarCompanyCtrl" >
+
+      <!-- START CONTENT -->
+      <center>
+
+        <div class="card" ng-repeat="empresa in datos">
+          <span class="balanced">{{empresa[0].company_rz}}</span><br>
+          <icon class="icon ion-star energized"></icon>
+          <icon class="icon ion-star dark"></icon>
+          <br>
+          <button ng-click="perfil(empresa[0].pkcompany)" class="button button-calm" >VER PERFIL</button>
+          <button ng-click="agregar(empresa[0].pkcompany)" class="button button-balanced">AGREGAR</button>
+        </div>
+
+        <div class="card" ng-repeat="empresa in datos2">
+          <span class="balanced">{{empresa[0].company_rz}}</span><br>
+          <icon class="icon ion-star energized"></icon>
+          <icon class="icon ion-star dark"></icon>
+          <br>
+          <button ng-click="perfil(empresa[0].pkcompany)" class="button button-calm" >VER PERFIL</button>
+          <button class="button button-stable"  ng-click="agregar(empresa[0].pkcompany)">AGREGADO</button>
+          <button class="button button-pink" >RECHAZAR</button>
+        </div>
+        
+
+      </center>
+      <!-- END CONTENT -->
+    </div>
+  </ion-content>
+</ion-view>
+
