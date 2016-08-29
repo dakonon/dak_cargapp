@@ -11,7 +11,8 @@ function ChatService($http, $q,constants) {
 	self.list = onList;
     self.send = sendMsj;
 
-    function onList(token, contratcemp,limit=10){
+    function onList(token, contratcemp, limit){
+      limit = typeof limit !== 'undefined' ? limit : 10;
     	var deferred = $q.defer();
         var promise = deferred.promise;
         var url= constants.chat.getMsjs();

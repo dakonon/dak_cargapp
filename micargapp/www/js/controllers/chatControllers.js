@@ -32,6 +32,7 @@ angular.module('app.Controllers').controller('chatController', chatController);
             .success(function(data) {
               $scope.mensajes = data.chat;
               console.log($scope.mensajes);
+              console.log(data);
               for (var i = 0; i <= data.chat.length; i++) {
                 if (data.chat[i][1] == true){
                   $scope.yo = data.chat[i][0];
