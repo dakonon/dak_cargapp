@@ -32,14 +32,12 @@
             </label>
           </div>
 
-          <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Subir Foto&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input type="file" ng-controller="camaraCtrl" 
-                  class="upload" uploader-model="datos.avatar" on-touch="choosePhoto()">
-
-
-          </div>
+            <button class="button button-full button-calm button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.avatar"
+                    on-touch="choosePhoto()">
+                Subir Foto
+              </button>
           
         </section>
         <section id="reference-data">
@@ -134,152 +132,111 @@
             </div>
           </section>
            <section id="personal-reference">
-              <div class="list bar bar-header">
+            <div class="list bar bar-header">
               <h2 class="title">LICENCIAS</h2>
             </div>
+            <div class="col-lg-6 col-sm-6 col-12">
+              <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.cedula1"
+                    on-touch="choosePhoto()">
+                Cédula -CARA 1
+              </button>
+            </div>
 
+            
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Cédula -CARA 1-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" ng-controller="camaraCtrl" 
-                  class="upload" 
-                  uploader-model="datos.cedula1"
-                  on-touch="choosePhoto()" />
-              </div>
+              <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.cedula2"
+                    on-touch="choosePhoto()">
+                Cédula -CARA 2
+              </button>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Cédula -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" ng-controller="camaraCtrl" 
-                  uploader-model="datos.cedula2"
-                  on-touch="choosePhoto()"/>
-              </div>
-              <br/>
-            </div>          
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.tarj_prop1"
+                    on-touch="choosePhoto()">
+                Tarjeta de propiedad -CARA 
+              </button>
+            </div>
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Tarjeta de propiedad -CARA 1-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  ng-model="datos.tarj_prop1" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()"/>
-              </div>
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.tarj_prop2"
+                    on-touch="choosePhoto()">
+                Tarjeta de propiedad -CARA 2
+              </button>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Tarjeta de propiedad -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.tarj_prop2" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()" />
-              </div>
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.licencia1"
+                    on-touch="choosePhoto()">
+                Licencia de conducción -CARA 1
+              </button>
+            </div>           
+            <div class="col-lg-6 col-sm-6 col-12">
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.licencia2"
+                    on-touch="choosePhoto()">
+                Licencia de conducción -CARA 2
+              </button>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Licencia de conducción -CARA 1-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.licencia1" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()" />
-              </div>
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.revision1"
+                    on-touch="choosePhoto()">
+                Revision Tecnicomecanica -CARA 1
+              </button>
+            </div>            
+            <div class="col-lg-6 col-sm-6 col-12">
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.revision2"
+                    on-touch="choosePhoto()">
+                Revision Tecnicomecanica -CARA 2
+              </button>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Licencia de conducción -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.licencia2" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()"/>
-              </div>
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.soat1"
+                    on-touch="choosePhoto()">
+                SOAT -CARA 1
+              </button>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-12">
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.soat2"
+                    on-touch="choosePhoto()">
+                SOAT -CARA 2
+              </button>
             </div>
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Tarjeta de propiedad -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.revision1" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()" />
-              </div>
-            </div>
-            <br>
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.tarjetas1"
+                    on-touch="choosePhoto()">
+                Tarjeta empresa -CARA 1
+              </button>
+            </div>            
             <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Revision Tecnicomecanica -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.revision2" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()"/>
-              </div>
-            </div>
-            <br>
-            <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>SOAT -CARA 1-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.soat1" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()" />
-              </div>
-            </div>
-            <br>
-            <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>SOAT -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.soat2" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()"/>
-              </div>
-            </div>
-            <br>
-            <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Tarjeta empresa -CARA 1-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.tarjetas1" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()"/>
-              </div>
-            </div>
-            <br>
-            <div class="col-lg-6 col-sm-6 col-12">
-              <div class="fileUpload button button-block button-calm boton_redondo">
-                <span>Tarjeta empresa -CARA 2-&hellip;</span>
-                <i class="icon ion-ios-arrow-thin-up"></i>
-                <input 
-                  type="file" 
-                  class="upload" 
-                  uploader-model="datos.tarjetas2" ng-controller="camaraCtrl" 
-                  on-touch="choosePhoto()"/>
-              </div>
+                <button class="button button-full button-balanced button_borde" ng-controller="camaraCtrl" 
+                    class="upload" 
+                    uploader-model="datos.tarjetas2"
+                    on-touch="choosePhoto()">
+                Tarjeta empresa -CARA 2
+              </button>
             </div>
             </section>
           <section id="op-buttons">
