@@ -22,7 +22,7 @@ function constantsService() {
     self.contrato = {};
     self.geo = {};
     self.notificaciones = {};
-
+    self.pay = {};
     
     /* URL to Login */
 
@@ -183,6 +183,11 @@ function constantsService() {
 
     self.notificaciones.cotization = function () {
         var url = URL_BASE + 'notificaciones/cotization';
+        return url;
+    };
+
+    self.pay.transporte = function () {
+        var url = URL_BASE + 'cotizar/transporterpayment';
         return url;
     };
 }

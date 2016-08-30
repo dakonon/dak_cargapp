@@ -2,9 +2,9 @@
     'use strict'
 angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
 
-    contratoCtrl.$inject = ['$scope','contratoService','localStorageService','$ionicPopup','$ionicLoading','$state','$stateParams','$cordovaGeolocation','geoService']
+    contratoCtrl.$inject = ['$scope','contratoService','PayService','localStorageService','$ionicPopup','$ionicLoading','$state','$stateParams','$cordovaGeolocation','geoService']
 
-    function contratoCtrl($scope,contratoService,localStorageService,$ionicPopup,$ionicLoading,$state,$stateParams,$cordovaGeolocation,geoService) {         
+    function contratoCtrl($scope,contratoService,PayService,localStorageService,$ionicPopup,$ionicLoading,$state,$stateParams,$cordovaGeolocation,geoService) {         
          $ionicLoading.show({});
          var access_token = localStorageService.get("access_token");  
           $scope.ruta = onRuta;
@@ -32,18 +32,36 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
                {   
                    
                }
-                else{
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Error al entrar!',
-                        template: data.mensaje + '!'
-                    });
-                }
-                }).error(function(data) {
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Error al enviar!',
-                        template: 'Por favor verifica tu correo!'
-                    });
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
                 });
+            }
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
+
+        PayService.pay(access_token,$scope.datos.id_contract).success(function(data) {
+            if(data.validacion == 'ok')
+               {   
+                   console.log("todo bien")
+               }
+            else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al entrar!',
+                    template: data.mensaje + '!'
+                });
+            }
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Error al enviar!',
+                template: 'Por favor verifica tu correo!'
+            });
+        });
             
         
 

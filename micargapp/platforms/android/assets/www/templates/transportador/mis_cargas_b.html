@@ -8,26 +8,28 @@
     <span style="color:DarkTurquoise">CLIENTE</span>
   </ion-nav-title>
   <ion-content class="has-header" padding="true" ng-controller="contratoCtrl">
-    <div class="col responsive-sm col-80 col-offset-10">
+    <div class="col col-80 col-offset-10">
       <div class="card" >
-          <div class="row">
+        <div class="item item-body" >
+
+          <div class="row" >
+
             <div class="col-50 col-center">  
                 <img src="http://micargapp.com/web{{datos.company_avatar}}" width="100%" style="min-width: 50px;">
             </div>
-            <div class="col col-50" width="100%">
+            <div class="col col-50" width="">
               <b><span class="positive" ng-bind="datos.nombre"></span></b>
               <br>
               <span class="gray-text">Confirmado</span>
                 <br>
               <h3 id="op_recuperepass" ng-bind="datos.payment"></h3>
               <br>    
-              <span class="positive" ng-bind="datos.company_mail"
-                style="font-size: 71%;"></span>
+              <span class="positive" ng-bind="datos.company_mail"></span>
                 <br>   <br>   
-              <button ng-click="destino(datos.id_contract)" class="button button-balanced col" ng-model="data.avtar" style="width: 96%;font-size: 86%;">
+              <button ng-click="destino(datos.id_contract)" class="button button-balanced col" ng-model="data.avtar" >
                 Carga en destino
-              </button>
-              <button ui-sref="tab.entrega({id: datos.id_contract})" class="button button-balanced col" ng-model="data.avtar" style="width: 96%;font-size: 86%;">
+              </button><br>
+              <button ui-sref="tab.entrega({id: datos.id_contract})" class="button button-balanced col" ng-model="data.avtar" >
                 Finalizar carga
               </button>
             </div>
@@ -84,6 +86,7 @@
           <div class="row">            
             <button ui-sref="tab.mis_cargas_b" class="button button-calm col" ng-model="data.avtar" ng-click="ruta(datos.id_contract)">Enviar localizacion actual</button>                      
           </div>                     
+        </div>
         </div>
       </div>
       

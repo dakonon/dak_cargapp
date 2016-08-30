@@ -383,3 +383,8 @@ img.pequeña{
     }
   }
 }
+
+.button_borde{
+  margin: auto;
+  border-radius: 5px 5px 5px 5px !important;
+}
