@@ -18,11 +18,10 @@
             </label>                   
           </div>
           <br>
-          <button ng-click="empresa($index)" class="button button-balanced col" uploader-model="datos.sello1" ng-controller="camaraCtrl" 
-          on-touch="choosePhoto()">FOTO SELLO 1</button>
+          <button class="button button-balanced col" ng-click="choosePhoto()">FOTO SELLO 1
+          </button>
            <br>
-          <button ng-click="empresa($index)" class="button button-balanced col" uploader-model="datos.sello2" ng-controller="camaraCtrl" 
-          on-touch="choosePhoto()">FOTO SELLO 2</button>
+          <button class="button button-balanced col" ng-click="choosePhoto2()">FOTO SELLO 2</button>
            <br>
           <button class="button button-block button-calm button-round" ng-click="finalizar()">ENVIAR DOCUMENTOS</button>
         </div>

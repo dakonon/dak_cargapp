@@ -35,17 +35,60 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             });
         });
 
-        $scope.isString = function (data){
-          console.log(typeof data);
-          return  typeof data == "string" ? true : false;
+
+        $scope.choosePhoto = function () {
+
+          var options = {
+            quality: 75,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            allowEdit: true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+
+            $cordovaCamera.getPicture(options).then(function (imageData) {
+                $scope.datos.user_avatar = "data:image/jpeg;base64," + imageData;
+                $scope.datos.imagen = $scope.datos.user_avatar
+                $scope.datos.imagen = base64toBlob(imageData, 'image/jpeg')
+              }, function (error) {
+                console.log(error);
+              });
+
         }
+
+
+        function base64toBlob(base64Data, contentType) {
+              contentType = contentType || '';
+              var sliceSize = 1024;
+              var byteCharacters = atob(base64Data);
+              var bytesLength = byteCharacters.length;
+              var slicesCount = Math.ceil(bytesLength / sliceSize);
+              var byteArrays = new Array(slicesCount);
+
+            for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
+                var begin = sliceIndex * sliceSize;
+                var end = Math.min(begin + sliceSize, bytesLength);
+
+                var bytes = new Array(end - begin);
+                for (var offset = begin, i = 0 ; offset < end; ++i, ++offset) {
+                    bytes[i] = byteCharacters[offset].charCodeAt(0);
+                }
+                byteArrays[sliceIndex] = new Uint8Array(bytes);
+            }
+            return new Blob(byteArrays, { type: contentType });
+        }
+
          function onUpdate(data){
             $ionicLoading.show({});
             var parametros = new FormData();
             parametros.append("user_name", data.user_name);
             parametros.append("user_phone", data.user_phone);
             parametros.append("email", data.email);
-            parametros.append("user_avatar", data.avatar);
+            parametros.append("user_avatar", $scope.datos.imagen);
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')
                {

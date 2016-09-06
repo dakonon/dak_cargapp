@@ -8,28 +8,26 @@
     <span style="color:DarkTurquoise">CLIENTE</span>
   </ion-nav-title>
   <ion-content class="has-header" padding="true" ng-controller="contratoCtrl">
-    <div class="col col-80 col-offset-10">
+    <div class="col responsive-sm col-80 col-offset-10">
       <div class="card" >
-        <div class="item item-body" >
-
-          <div class="row" >
-
+          <div class="row">
             <div class="col-50 col-center">  
                 <img src="http://micargapp.com/web{{datos.company_avatar}}" width="100%" style="min-width: 50px;">
             </div>
-            <div class="col col-50" width="">
+            <div class="col col-50" width="100%">
               <b><span class="positive" ng-bind="datos.nombre"></span></b>
               <br>
               <span class="gray-text">Confirmado</span>
                 <br>
               <h3 id="op_recuperepass" ng-bind="datos.payment"></h3>
               <br>    
-              <span class="positive" ng-bind="datos.company_mail"></span>
+              <span class="positive" ng-bind="datos.company_mail"
+                style="font-size: 71%;"></span>
                 <br>   <br>   
-              <button ng-click="destino(datos.id_contract)" class="button button-balanced col" ng-model="data.avtar" >
+              <button ng-click="destino(datos.id_contract)" class="button button-balanced col" ng-model="data.avtar" style="width: 96%;font-size: 86%;">
                 Carga en destino
-              </button><br>
-              <button ui-sref="tab.entrega({id: datos.id_contract})" class="button button-balanced col" ng-model="data.avtar" >
+              </button>
+              <button ui-sref="tab.entrega({id: datos.id_contract})" class="button button-balanced col" ng-model="data.avtar" style="width: 96%;font-size: 86%;">
                 Finalizar carga
               </button>
             </div>
@@ -87,8 +85,6 @@
             <button ui-sref="tab.mis_cargas_b" class="button button-calm col" ng-model="data.avtar" ng-click="ruta(datos.id_contract)">Enviar localizacion actual</button>                      
           </div>                     
         </div>
-        </div>
       </div>
-      
   </ion-content>
 </ion-view>

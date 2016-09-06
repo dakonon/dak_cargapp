@@ -1,11 +1,11 @@
 
 (function () {
     'use strict'
-angular.module('app.Controllers').controller('InvitacionCtrl', InvitacionCtrl);
+angular.module('app.Controllers').controller('payCtrl', payCtrl);
 
-    InvitacionCtrl.$inject = ['$scope','localStorageService','InvitacionService','$ionicPopup','$state']
+    payCtrl.$inject = ['$scope','localStorageService','InvitacionService','$ionicPopup','$state']
 
-    function InvitacionCtrl($scope,localStorageService,InvitacionService,$ionicPopup,$state) {
+    function payCtrl($scope,localStorageService,InvitacionService,$ionicPopup,$state) {
         var access_token = localStorageService.get("access_token");
 
         $scope.datos = {};
