@@ -3,9 +3,9 @@
     'use strict'
 angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
-    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state']
+    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state','$cordovaFileTransfer']
 
-    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state) {
+    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state,$cordovaFileTransfer) {
         $scope.update = onUpdate;
         var access_token = localStorageService.get("access_token");
 
@@ -38,49 +38,57 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
         $scope.choosePhoto = function () {
 
-          var options = {
-            quality: 75,
-            destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-            allowEdit: true,
-            encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 300,
-            targetHeight: 300,
-            popoverOptions: CameraPopoverOptions,
-            saveToPhotoAlbum: false
-        };
+              var options = {
+                quality: 75,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 300,
+                targetHeight: 300,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false
+            };
 
-            $cordovaCamera.getPicture(options).then(function (imageData) {
-                $scope.datos.user_avatar = "data:image/jpeg;base64," + imageData;
-                $scope.datos.imagen = $scope.datos.user_avatar
-                $scope.datos.imagen = base64toBlob(imageData, 'image/jpeg')
-              }, function (error) {
-                console.log(error);
-              });
+                $cordovaCamera.getPicture(options).then(function (imageData) {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'imagen de la camara',
+                        template: imageData
+                    });
 
+                    var options = {
+                      fileKey: "image_file",
+                      fileName: imageData,
+                      chunkedMode: false,
+                      mimeType: "image/jpeg"
+                    };
+
+                    $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
+                     imageData, options).then(function(result) {
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'ruta de la imagen',
+                            template: result
+                        });
+
+                      var datos = {
+                          propiedades_id: $rootScope.propiedadeslist2.id,
+                          imagen: result.response,
+                      }
+
+                
+                    $scope.datos.imagen = result.response
+                
+                  }, function (error) {
+                    var alertPopup = $ionicPopup.alert({
+                            title: 'Error',
+                            template: error
+                        });
+                  });
+
+            })
         }
 
 
-        function base64toBlob(base64Data, contentType) {
-              contentType = contentType || '';
-              var sliceSize = 1024;
-              var byteCharacters = atob(base64Data);
-              var bytesLength = byteCharacters.length;
-              var slicesCount = Math.ceil(bytesLength / sliceSize);
-              var byteArrays = new Array(slicesCount);
-
-            for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
-                var begin = sliceIndex * sliceSize;
-                var end = Math.min(begin + sliceSize, bytesLength);
-
-                var bytes = new Array(end - begin);
-                for (var offset = begin, i = 0 ; offset < end; ++i, ++offset) {
-                    bytes[i] = byteCharacters[offset].charCodeAt(0);
-                }
-                byteArrays[sliceIndex] = new Uint8Array(bytes);
-            }
-            return new Blob(byteArrays, { type: contentType });
-        }
 
          function onUpdate(data){
             $ionicLoading.show({});
