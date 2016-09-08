@@ -2,9 +2,9 @@
     'use strict'
 angular.module('app.Controllers').controller('entregaCtrl', entregaCtrl);
 
-    entregaCtrl.$inject = ['$scope','$ionicLoading','contratoService','localStorageService','$ionicPopup','$state','$stateParams','$cordovaGeolocation','geoService']
+    entregaCtrl.$inject = ['$scope','$ionicLoading','contratoService','localStorageService','$ionicPopup','$state','$stateParams','$cordovaGeolocation','geoService','$cordovaCamera','$cordovaFileTransfer']
 
-    function entregaCtrl($scope,$ionicLoading,contratoService,localStorageService,$ionicPopup,$state,$stateParams,$cordovaGeolocation,geoService) {         
+    function entregaCtrl($scope,$ionicLoading,contratoService,localStorageService,$ionicPopup,$state,$stateParams,$cordovaGeolocation,geoService,$cordovaCamera,$cordovaFileTransfer) {         
         var access_token = localStorageService.get("access_token");  
          
         $scope.finalizar = onFinalizar;
@@ -15,7 +15,7 @@ angular.module('app.Controllers').controller('entregaCtrl', entregaCtrl);
 
           var options = {
             quality: 75,
-            destinationType: Camera.DestinationType.DATA_URL,
+            destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
             allowEdit: true,
             encodingType: Camera.EncodingType.JPEG,
@@ -25,8 +25,31 @@ angular.module('app.Controllers').controller('entregaCtrl', entregaCtrl);
             saveToPhotoAlbum: false
         };
 
-            $cordovaCamera.getPicture(options).then(function (imageData) {
-                $scope.datos.sello1 = base64toBlob(imageData, 'image/jpeg')
+            $cordovaCamera.getPicture(options).then(function (imageData) {            
+                var options = {
+                      fileKey: "sello1",
+                      fileName: imageData,
+                      chunkedMode: false,
+                      mimeType: "image/jpeg"
+                    };
+
+                    $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
+                     imageData, options).then(function(result) {
+                        $scope.datos.sello1 = result.response;
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Perfercto',
+                            template: 'Imagen cargada'
+                        });              
+                
+                    }, function (error) {
+                      var alertPopup = $ionicPopup.alert({
+                              title: 'Error',
+                              template: error
+                          });
+                    });
+
+
               }, function (error) {
                 console.log(error);
               });
@@ -37,7 +60,7 @@ angular.module('app.Controllers').controller('entregaCtrl', entregaCtrl);
 
           var options = {
             quality: 75,
-            destinationType: Camera.DestinationType.DATA_URL,
+            destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
             allowEdit: true,
             encodingType: Camera.EncodingType.JPEG,
@@ -48,7 +71,30 @@ angular.module('app.Controllers').controller('entregaCtrl', entregaCtrl);
         };
 
             $cordovaCamera.getPicture(options).then(function (imageData) {
-                $scope.datos.sello2 = base64toBlob(imageData, 'image/jpeg')
+
+                var options = {
+                      fileKey: "sello2",
+                      fileName: imageData,
+                      chunkedMode: false,
+                      mimeType: "image/jpeg"
+                    };
+
+                 $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
+                     imageData, options).then(function(result) {
+                        $scope.datos.sello2 = result.response;
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Perfercto',
+                            template: 'Imagen cargada'
+                        });              
+                
+                    }, function (error) {
+                      var alertPopup = $ionicPopup.alert({
+                              title: 'Error',
+                              template: error
+                          });
+                    });
+
               }, function (error) {
                 console.log(error);
               });
@@ -56,39 +102,17 @@ angular.module('app.Controllers').controller('entregaCtrl', entregaCtrl);
         }
 
 
-        function base64toBlob(base64Data, contentType) {
-              contentType = contentType || '';
-              var sliceSize = 1024;
-              var byteCharacters = atob(base64Data);
-              var bytesLength = byteCharacters.length;
-              var slicesCount = Math.ceil(bytesLength / sliceSize);
-              var byteArrays = new Array(slicesCount);
 
-            for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
-                var begin = sliceIndex * sliceSize;
-                var end = Math.min(begin + sliceSize, bytesLength);
-
-                var bytes = new Array(end - begin);
-                for (var offset = begin, i = 0 ; offset < end; ++i, ++offset) {
-                    bytes[i] = byteCharacters[offset].charCodeAt(0);
-                }
-                byteArrays[sliceIndex] = new Uint8Array(bytes);
-            }
-            return new Blob(byteArrays, { type: contentType });
-        }
 
 
          function onFinalizar(){  
-            $ionicLoading.show({});   
-            var parametros = new FormData();
-            parametros.append("contract_id", $scope.datos.id_contract);
-            parametros.append("codigo", $scope.datos.codigo);
-            parametros.append("sello1", $scope.datos.sello1);
-            parametros.append("sello2", $scope.datos.sello2);
-            console.log($scope.datos.sello2)
-            console.log($scope.datos.id_contract)
-            console.log($scope.datos.sello1)
-            console.log($scope.datos.codigo)
+            $ionicLoading.show({});  
+            var parametros = {
+              "contract_id": $scope.datos.id_contract,
+              "codigo": $scope.datos.codigo,
+              "sello1": $scope.datos.sello1,
+              "sello2": $scope.datos.sello2
+            }; 
                     
                          contratoService.finalizar(access_token,parametros).success(function(data) {
                             if(data.validacion == 'ok')

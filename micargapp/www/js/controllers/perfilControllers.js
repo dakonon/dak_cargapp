@@ -40,7 +40,7 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
               var options = {
                   quality: 50,
                   destinationType: Camera.DestinationType.FILE_URI,
-                  sourceType: Camera.PictureSourceType.CAMERA,
+                  sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
                   allowEdit: true,
                   encodingType: Camera.EncodingType.JPEG,
                   targetWidth: 100,
