@@ -11,7 +11,6 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
         $scope.datos = {};
         $scope.loading = false;
-         $scope.prueba = $scope.datos.user_avatar;
          $ionicLoading.show({});
           EditPerfilService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
@@ -39,22 +38,19 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
         $scope.choosePhoto = function () {
 
               var options = {
-                quality: 75,
-                destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-                allowEdit: true,
-                encodingType: Camera.EncodingType.JPEG,
-                targetWidth: 300,
-                targetHeight: 300,
-                popoverOptions: CameraPopoverOptions,
-                saveToPhotoAlbum: false
-            };
+                  quality: 50,
+                  destinationType: Camera.DestinationType.FILE_URI,
+                  sourceType: Camera.PictureSourceType.CAMERA,
+                  allowEdit: true,
+                  encodingType: Camera.EncodingType.JPEG,
+                  targetWidth: 100,
+                  targetHeight: 100,
+                  popoverOptions: CameraPopoverOptions,
+                  saveToPhotoAlbum: false,
+                correctOrientation:true
+                };
 
-                $cordovaCamera.getPicture(options).then(function (imageData) {
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'imagen de la camara',
-                        template: imageData
-                    });
+                $cordovaCamera.getPicture(options).then(function (imageData) {                    
 
                     var options = {
                       fileKey: "image_file",
@@ -65,38 +61,37 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
                     $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
                      imageData, options).then(function(result) {
+                        $scope.datos.user_avatar= "http://micargapp.com/web"+result.response;
+                        $scope.datos.imagen = result.response;
+
                         var alertPopup = $ionicPopup.alert({
-                            title: 'ruta de la imagen',
-                            template: result
-                        });
-
-                      var datos = {
-                          propiedades_id: $rootScope.propiedadeslist2.id,
-                          imagen: result.response,
-                      }
-
+                            title: 'Perfercto',
+                            template: 'Imagen cargada'
+                        });              
                 
-                    $scope.datos.imagen = result.response
-                
-                  }, function (error) {
-                    var alertPopup = $ionicPopup.alert({
-                            title: 'Error',
-                            template: error
-                        });
-                  });
+                    }, function (error) {
+                      var alertPopup = $ionicPopup.alert({
+                              title: 'Error',
+                              template: error
+                          });
+                    });
 
-            })
-        }
+                })
+            }
 
 
 
          function onUpdate(data){
+
+            var parametros = {
+                "user_name": $scope.datos.user_name,
+                "user_phone": $scope.datos.user_phone,
+                "email": $scope.datos.email,
+                "user_avatar": $scope.datos.imagen
+            };
+
             $ionicLoading.show({});
-            var parametros = new FormData();
-            parametros.append("user_name", data.user_name);
-            parametros.append("user_phone", data.user_phone);
-            parametros.append("email", data.email);
-            parametros.append("user_avatar", $scope.datos.imagen);
+
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')
                {
