@@ -81,7 +81,7 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
 
 
           function onRegister(){
-
+            
             var parametros = {
                 "name": $scope.datos.name,
                 "email": $scope.datos.email,
@@ -117,6 +117,7 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
                 "tarjetas1": $scope.datos.tarjetas1,
                 "tarjetas2": $scope.datos.tarjetas2
               };
+
               console.log(parametros)
            RegisterService.registerUser(parametros).success(function(data){
                   if(data.validacion == 'ok')
