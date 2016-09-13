@@ -25,7 +25,6 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
          $scope.datos.latitude_origin = $stateParams.latitude_origin;   
          $scope.datos.longitude_destination = $stateParams.longitude_destination;   
          $scope.datos.longitude_origin = $stateParams.longitude_origin;            
-         console.log($stateParams.latitude_destination)  
          $ionicLoading.hide();
          contratoService.send(access_token,$scope.datos.id_contract).success(function(data) {
             if(data.validacion == 'ok')
@@ -48,7 +47,6 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
         PayService.pay(access_token,$scope.datos.id_contract).success(function(data) {
             if(data.validacion == 'ok')
                {   
-                   console.log("todo bien")
                }
             else{
                 var alertPopup = $ionicPopup.alert({
@@ -144,7 +142,7 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
                         }).error(function(data) {
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Error al enviar!',
-                                template: 'Por favor verifica tu correo!'
+                                template: 'Por favor verifica tu internet!'
                             });
                         });
 

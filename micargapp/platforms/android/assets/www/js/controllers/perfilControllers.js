@@ -3,15 +3,14 @@
     'use strict'
 angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
-    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state']
+    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state','$cordovaFileTransfer']
 
-    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state) {
+    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state,$cordovaFileTransfer) {
         $scope.update = onUpdate;
         var access_token = localStorageService.get("access_token");
 
         $scope.datos = {};
         $scope.loading = false;
-         $scope.prueba = $scope.datos.user_avatar;
          $ionicLoading.show({});
           EditPerfilService.list(access_token).success(function(data) {
             if(data.validacion == 'ok')
@@ -35,17 +34,64 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             });
         });
 
-        $scope.isString = function (data){
-          console.log(typeof data);
-          return  typeof data == "string" ? true : false;
-        }
+
+        $scope.choosePhoto = function () {
+
+              var options = {
+                  quality: 50,
+                  destinationType: Camera.DestinationType.FILE_URI,
+                  sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                  allowEdit: true,
+                  encodingType: Camera.EncodingType.JPEG,
+                  targetWidth: 100,
+                  targetHeight: 100,
+                  popoverOptions: CameraPopoverOptions,
+                  saveToPhotoAlbum: false,
+                correctOrientation:true
+                };
+
+                $cordovaCamera.getPicture(options).then(function (imageData) {                    
+
+                    var options = {
+                      fileKey: "image_file",
+                      fileName: imageData,
+                      chunkedMode: false,
+                      mimeType: "image/jpeg"
+                    };
+
+                    $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
+                     imageData, options).then(function(result) {
+                        $scope.datos.user_avatar= "http://micargapp.com/web"+result.response;
+                        $scope.datos.imagen = result.response;
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Perfercto',
+                            template: 'Imagen cargada'
+                        });              
+                
+                    }, function (error) {
+                      var alertPopup = $ionicPopup.alert({
+                              title: 'Error',
+                              template: error
+                          });
+                    });
+
+                })
+            }
+
+
+
          function onUpdate(data){
+
+            var parametros = {
+                "user_name": $scope.datos.user_name,
+                "user_phone": $scope.datos.user_phone,
+                "email": $scope.datos.email,
+                "user_avatar": $scope.datos.imagen
+            };
+
             $ionicLoading.show({});
-            var parametros = new FormData();
-            parametros.append("user_name", data.user_name);
-            parametros.append("user_phone", data.user_phone);
-            parametros.append("email", data.email);
-            parametros.append("user_avatar", data.avatar);
+
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')
                {
