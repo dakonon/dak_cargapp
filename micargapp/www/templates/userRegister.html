@@ -42,14 +42,18 @@
         </section>
         <section id="reference-data">
           <section id="vehicle-reference">
-            <div class="form-item list">
+
+            <div class="form-item list" ng-controller="vehiclesCtrl">
               <label class="item item-input">
                 <select class="form-field col" ng-model="datos.vehicletype">
                   <option value="">Tipo de Vehículo.</option>
-                  <option value="camion">Camion</option>
+                  <option ng-repeat="option in data" value="{{option.pkvehicletype}}">{{option.vehicletype_name}}</option>
+                    
                 </select>
               </label>
             </div>
+
+
             <div class="form-item list">
               <label class="item item-input">
                 <input placeholder="Capacidad max. de carga" type="text" class="form-field" ng-model="datos.vehicle_bodywork">
