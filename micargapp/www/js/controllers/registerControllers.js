@@ -11,6 +11,7 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
          $scope.register = onRegister;
 
          $scope.choosePhoto = function (id) {
+          $ionicLoading.show();
           console.log(id);
             var options = {
                 quality: 75,
@@ -26,7 +27,7 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
 
             $cordovaCamera.getPicture(options).then(function (imageData) {            
                 var options = {
-                      fileKey: "sello1",
+                      fileKey: "image_file",
                       fileName: imageData,
                       chunkedMode: false,
                       mimeType: "image/jpeg"
@@ -35,37 +36,39 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
                     $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
                      imageData, options).then(function(result) {
                         if(id==1)
-                          $scope.datos.avatar = result.response;
+                        $scope.datos.avatar = JSON.stringify(result.response);
                         if(id==2)
-                          $scope.datos.cedula1 = result.response;
+                          $scope.datos.cedula1 = JSON.stringify(result.response);
                         if(id==3)
-                          $scope.datos.cedula2 = result.response;
+                          $scope.datos.cedula2 = JSON.stringify(result.response);
                         if(id==4)
-                          $scope.datos.tarj_prop1 = result.response;
+                          $scope.datos.tarj_prop1 = JSON.stringify(result.response);
                         if(id==5)
-                          $scope.datos.tarj_prop2 = result.response;
+                          $scope.datos.tarj_prop2 = JSON.stringify(result.response);
                         if(id==6)
-                          $scope.datos.licencia1 = result.response;
+                          $scope.datos.licencia1 = JSON.stringify(result.response);
                         if(id==7)
-                          $scope.datos.licencia2 = result.response;
+                          $scope.datos.licencia2 = JSON.stringify(result.response);
                         if(id==8)
-                          $scope.datos.revision1 = result.response;
+                          $scope.datos.revision1 = JSON.stringify(result.response);
                         if(id==9)
-                          $scope.datos.revision2 = result.response;
+                          $scope.datos.revision2 = JSON.stringify(result.response);
                         if(id==10)
-                          $scope.datos.soat1 = result.response;
+                          $scope.datos.soat1 = JSON.stringify(result.response);
                         if(id==11)
-                          $scope.datos.soat2 = result.response;
+                          $scope.datos.soat2 = JSON.stringify(result.response);
                         if(id==12)
-                          $scope.datos.tarjetas1 = result.response;
+                          $scope.datos.tarjetas1 = JSON.stringify(result.response);
                         if(id==13)
-                          $scope.datos.tarjetas2 = result.response;
+                          $scope.datos.tarjetas2 = JSON.stringify(result.response);
+                        $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Perfercto',
                             template: 'Imagen cargada'
                         });              
                 
                     }, function (error) {
+                       $ionicLoading.hide();
                       var alertPopup = $ionicPopup.alert({
                               title: 'Error',
                               template: error
@@ -81,7 +84,7 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
 
 
           function onRegister(){
-            
+            $ionicLoading.show();
             var parametros = {
                 "name": $scope.datos.name,
                 "email": $scope.datos.email,
@@ -118,27 +121,29 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
                 "tarjetas2": $scope.datos.tarjetas2
               };
 
-              console.log(parametros)
+
            RegisterService.registerUser(parametros).success(function(data){
                   if(data.validacion == 'ok')
                          {   
-
+                            $ionicLoading.hide();
                               var alertPopup = $ionicPopup.alert({
-                                  title: 'Datos enviados!',
-                                  template: data.mensaje + '!',
+                                  title: 'Perfecto',
+                                  template: JSON.stringify(data.mensaje),
                               });
                               $state.go('home');
                          }
-                      else{                        
+                      else{   
+                          $ionicLoading.hide();                     
                           var alertPopup = $ionicPopup.alert({
-                              title: 'Error al entrar!',
-                              template: data.mensaje + '!'
+                              title: 'Error',
+                              template: 'Agregue todos los campos'
                           });
                       }
                   }).error(function(data){
+                    $ionicLoading.hide();
                   var alertPopup = $ionicPopup.alert({
                       title: 'Error',
-                      template: ''
+                      template: JSON.stringify(data)
                   });
                });
           }

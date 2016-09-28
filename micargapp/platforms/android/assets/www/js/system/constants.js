@@ -23,7 +23,7 @@ function constantsService() {
     self.geo = {};
     self.notificaciones = {};
     self.pay = {};
-    
+    self.vehicles = {};
     /* URL to Login */
 
     self.login.getToken = function () {
@@ -188,6 +188,11 @@ function constantsService() {
 
     self.pay.transporte = function () {
         var url = URL_BASE + 'cotizar/transporterpayment';
+        return url;
+    };
+
+    self.vehicles.get = function () {
+        var url = URL_BASE + 'account/vehicles';
         return url;
     };
 }

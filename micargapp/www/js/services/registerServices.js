@@ -19,9 +19,8 @@ function RegisterService($http, $q,constants) {
           
          
             var url= constants.register.register();
-            $http.post(url, parametros, {headers: {"Content-type": undefined}, transformRequest: angular.indentity}).success(function(data){
-              if(data) {
-                console.log("nada")                
+            $http.post(url, parametros).success(function(data){
+              if(data) {        
                 deferred.resolve(data);
                 deferred.resolve('Welcome ' + name + '!');
               } 

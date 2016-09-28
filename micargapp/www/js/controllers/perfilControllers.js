@@ -3,9 +3,9 @@
     'use strict'
 angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
-    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state','$cordovaFileTransfer']
+    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state','$cordovaCamera','$cordovaFileTransfer']
 
-    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state,$cordovaFileTransfer) {
+    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state,$cordovaCamera,$cordovaFileTransfer) {
         $scope.update = onUpdate;
         var access_token = localStorageService.get("access_token");
 
@@ -18,6 +18,10 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                     $ionicLoading.hide();
                     $scope.datos= data.perfil;
                     $scope.datos.user_avatar= "http://micargapp.com/web"+data.perfil.user_avatar;
+                     var alertPopup = $ionicPopup.alert({
+                              title: 'Prueba',
+                              template: $scope.datos.user_avatar
+                          });
                }
             else{
                 $ionicLoading.hide();
@@ -36,7 +40,7 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
 
         $scope.choosePhoto = function () {
-
+          $ionicLoading.show({});
               var options = {
                   quality: 50,
                   destinationType: Camera.DestinationType.FILE_URI,
@@ -60,16 +64,17 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                     };
 
                     $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
-                     imageData, options).then(function(result) {
-                        $scope.datos.user_avatar= "http://micargapp.com/web"+result.response;
+                     imageData, options).then(function(result) {                                           
+                        $scope.datos.user_avatar= result.response;
                         $scope.datos.imagen = result.response;
-
+                        $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Perfercto',
                             template: 'Imagen cargada'
                         });              
                 
                     }, function (error) {
+                      $ionicLoading.hide();
                       var alertPopup = $ionicPopup.alert({
                               title: 'Error',
                               template: error
@@ -82,15 +87,15 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
 
          function onUpdate(data){
-
-            var parametros = {
+            $ionicLoading.show({});
+            var parametros  = {
                 "user_name": $scope.datos.user_name,
                 "user_phone": $scope.datos.user_phone,
                 "email": $scope.datos.email,
                 "user_avatar": $scope.datos.imagen
             };
 
-            $ionicLoading.show({});
+            
 
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')
@@ -109,15 +114,15 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                         else{
                              $ionicLoading.hide();
                             var alertPopup = $ionicPopup.alert({
-                                title: 'Error al entrar!',
-                                template: data.mensaje + '!'
+                                title: 'Error listar',
+                                template: data + '!'
                             });
                         }
                     }).error(function(data) {
                          $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
-                            title: 'Error al enviar!',
-                            template: 'Por favor verifica tu correo!'
+                            title: 'Error listar 2',
+                            template: data
                         });
                     });
 
@@ -127,15 +132,20 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             else{
                  $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
-                    title: 'Error al entrar!',
-                    template: data.mensaje + '!'
+                    title: 'Error al actualizar!',
+                    template: JSON.stringify(data.error)
                 });
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error al actualizar2 ',
+                    template: JSON.stringify(data)
+                });
+                
             }
             }).error(function(data) {
                  $ionicLoading.hide();
                 var alertPopup = $ionicPopup.alert({
-                    title: 'Error al entrar!',
-                    template: 'Por favor verifica tus credenciales!'
+                    title: 'Error al actualizar!',
+                    template: data.error
                 });
             });
           }

@@ -32,6 +32,7 @@ angular.module('app')
     function config($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
       $ionicConfigProvider.tabs.position("bottom");
       $ionicConfigProvider.navBar.alignTitle("center");
+      $ionicConfigProvider.scrolling.jsScrolling(false);
 
      $stateProvider
       .state('home', {
