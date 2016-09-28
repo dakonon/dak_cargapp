@@ -67,33 +67,33 @@ angular.module('app.Controllers').controller('contratoCtrl', contratoCtrl);
             $ionicLoading.show({});
 
             navigator.geolocation.getCurrentPosition(function(pos) {
-              var miUbicacion = {}
+                var miUbicacion = {}
                 miUbicacion.lat = pos.coords.latitude;
                 miUbicacion.lng = pos.coords.longitude;
 
                  var parametros = {"contract_id": 1,                  
-                                   "latitude":  miUbicacion.lat,
+                                      "latitude":  miUbicacion.lat,
                                    "longitude": miUbicacion.lng
                                    }
 
-                   geoService.send(access_token,parametros).success(function(data) {
-                            console.log("prueba");
-            
-                            console.log(data);
-                            if(data.validacion == 'ok')
-                               {   
-                                     $ionicLoading.hide();
-                                   var alertPopup = $ionicPopup.alert({
-                                        title: 'Perfecto',
-                                        template: data.mensaje
-                                    });
-                               }
-                            else{
-                                var alertPopup = $ionicPopup.alert({
-                                    title: 'Error al entrar!',
-                                    template: data.mensaje + '!'
+                geoService.send(access_token,parametros).success(function(data) {
+                        console.log("prueba");
+        
+                        console.log(data);
+                        if(data.validacion == 'ok')
+                           {   
+                                 $ionicLoading.hide();
+                               var alertPopup = $ionicPopup.alert({
+                                    title: 'Perfecto',
+                                    template: data.mensaje
                                 });
-                            }
+                           }
+                        else{
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Error al entrar!',
+                                template: data.mensaje + '!'
+                            });
+                        }
                         }).error(function(data) {
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Error al enviar!',

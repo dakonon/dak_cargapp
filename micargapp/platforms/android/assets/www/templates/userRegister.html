@@ -33,8 +33,12 @@
           </div>
 
             <button class="button button-full button-calm button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.avatar"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(1)">
                 Subir Foto
               </button>
@@ -42,14 +46,18 @@
         </section>
         <section id="reference-data">
           <section id="vehicle-reference">
-            <div class="form-item list">
+
+            <div class="form-item list" ng-controller="vehiclesCtrl">
               <label class="item item-input">
                 <select class="form-field col" ng-model="datos.vehicletype">
                   <option value="">Tipo de Vehículo.</option>
-                  <option value="camion">Camion</option>
+                  <option ng-repeat="option in data" value="{{option.pkvehicletype}}">{{option.vehicletype_name}}</option>
+                    
                 </select>
               </label>
             </div>
+
+
             <div class="form-item list">
               <label class="item item-input">
                 <input placeholder="Capacidad max. de carga" type="text" class="form-field" ng-model="datos.vehicle_bodywork">
@@ -137,8 +145,12 @@
             </div>
             <div class="col-lg-6 col-sm-6 col-12">
               <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.cedula1"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(2)">
                 Cédula -CARA 1
               </button>
@@ -147,8 +159,12 @@
             
             <div class="col-lg-6 col-sm-6 col-12">
               <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.cedula2"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(3)">
                 Cédula -CARA 2
               </button>
@@ -156,16 +172,24 @@
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.tarj_prop1"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(4)">
                 Tarjeta de propiedad -CARA 
               </button>
             </div>
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.tarj_prop2"
+=======
+                    class="upload"                    
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(5)">
                 Tarjeta de propiedad -CARA 2
               </button>
@@ -173,16 +197,24 @@
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.licencia1"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(6)">
                 Licencia de conducción -CARA 1
               </button>
             </div>           
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.licencia2"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(7)">
                 Licencia de conducción -CARA 2
               </button>
@@ -190,16 +222,24 @@
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.revision1"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(8)">
                 Revision Tecnicomecanica -CARA 1
               </button>
             </div>            
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.revision2"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(9)">
                 Revision Tecnicomecanica -CARA 2
               </button>
@@ -207,8 +247,12 @@
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.soat1"
+=======
+                    class="upload"                     
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(10)">
                 SOAT -CARA 1
               </button>
@@ -216,7 +260,10 @@
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
                     class="upload" 
+<<<<<<< HEAD
                     uploader-model="datos.soat2"
+=======
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(11)">
                 SOAT -CARA 2
               </button>
@@ -224,16 +271,24 @@
             <br>
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.tarjetas1"
+=======
+                    class="upload"                 
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(12)">
                 Tarjeta empresa -CARA 1
               </button>
             </div>            
             <div class="col-lg-6 col-sm-6 col-12">
                 <button class="button button-full button-balanced button_borde" 
+<<<<<<< HEAD
                     class="upload" 
                     uploader-model="datos.tarjetas2"
+=======
+                    class="upload"                 
+>>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                     ng-click="choosePhoto(13)">
                 Tarjeta empresa -CARA 2
               </button>
