@@ -9,6 +9,7 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
          $scope.datos = {};
 
          $scope.register = onRegister;
+         $scope.modal = onModal;
 
          $scope.choosePhoto = function (id) {
           $ionicLoading.show();

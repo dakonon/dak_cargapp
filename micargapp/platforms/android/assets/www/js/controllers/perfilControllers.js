@@ -3,15 +3,9 @@
     'use strict'
 angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
-<<<<<<< HEAD
-    EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state','$cordovaFileTransfer']
-
-    function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state,$cordovaFileTransfer) {
-=======
     EditPerfilCtrl.$inject = ['$scope','$ionicLoading','localStorageService','EditPerfilService','$ionicPopup','$state','$cordovaCamera','$cordovaFileTransfer']
 
     function EditPerfilCtrl($scope,$ionicLoading,localStorageService,EditPerfilService,$ionicPopup,$state,$cordovaCamera,$cordovaFileTransfer) {
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
         $scope.update = onUpdate;
         var access_token = localStorageService.get("access_token");
 
@@ -46,11 +40,7 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
 
         $scope.choosePhoto = function () {
-<<<<<<< HEAD
-
-=======
           $ionicLoading.show({});
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
               var options = {
                   quality: 50,
                   destinationType: Camera.DestinationType.FILE_URI,
@@ -74,27 +64,17 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
                     };
 
                     $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
-<<<<<<< HEAD
-                     imageData, options).then(function(result) {
-                        $scope.datos.user_avatar= "http://micargapp.com/web"+result.response;
-                        $scope.datos.imagen = result.response;
-
-=======
                      imageData, options).then(function(result) {                                           
                         $scope.datos.user_avatar= result.response;
                         $scope.datos.imagen = result.response;
                         $ionicLoading.hide();
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                         var alertPopup = $ionicPopup.alert({
                             title: 'Perfercto',
                             template: 'Imagen cargada'
                         });              
                 
                     }, function (error) {
-<<<<<<< HEAD
-=======
                       $ionicLoading.hide();
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
                       var alertPopup = $ionicPopup.alert({
                               title: 'Error',
                               template: error
@@ -107,17 +87,7 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
 
          function onUpdate(data){
-
-            var parametros = {
-                "user_name": $scope.datos.user_name,
-                "user_phone": $scope.datos.user_phone,
-                "email": $scope.datos.email,
-                "user_avatar": $scope.datos.imagen
-            };
-
             $ionicLoading.show({});
-<<<<<<< HEAD
-=======
             var parametros  = {
                 "user_name": $scope.datos.user_name,
                 "user_phone": $scope.datos.user_phone,
@@ -126,7 +96,6 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
             };
 
             
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
 
             EditPerfilService.update(access_token,parametros).success(function(data) {
             if(data.validacion == 'ok')

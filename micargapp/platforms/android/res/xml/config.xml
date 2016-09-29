@@ -3,21 +3,13 @@
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
-<<<<<<< HEAD
-=======
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
     <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
         <param name="onload" value="true" />
     </feature>
-<<<<<<< HEAD
-    <feature name="FileTransfer">
-        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
-    </feature>
-=======
     <allow-navigation href="cdvfile:*" />
     <feature name="FileTransfer">
         <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
@@ -41,7 +33,6 @@
         <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
     </feature>
->>>>>>> 2c009ea67d7db343e3a1d200fc8c807b0daafa5a
     <name>Mi cargapp</name>
     <description>
         An Ionic Framework and Cordova project.
