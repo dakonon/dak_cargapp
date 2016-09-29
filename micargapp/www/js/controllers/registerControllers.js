@@ -82,6 +82,100 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
 
         }
 
+        $scope.takePhoto = function (id) {
+          $ionicLoading.show();
+          console.log(id);
+            var options = {
+                quality: 75,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 300,
+                targetHeight: 300,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false
+            };
+
+            $cordovaCamera.getPicture(options).then(function (imageData) {            
+                var options = {
+                      fileKey: "image_file",
+                      fileName: imageData,
+                      chunkedMode: false,
+                      mimeType: "image/jpeg"
+                    };
+
+                    $cordovaFileTransfer.upload("http://micargapp.com/rest/v1/account/uploadpicture",
+                     imageData, options).then(function(result) {
+                        if(id==1)
+                        $scope.datos.avatar = JSON.stringify(result.response);
+                        if(id==2)
+                          $scope.datos.cedula1 = JSON.stringify(result.response);
+                        if(id==3)
+                          $scope.datos.cedula2 = JSON.stringify(result.response);
+                        if(id==4)
+                          $scope.datos.tarj_prop1 = JSON.stringify(result.response);
+                        if(id==5)
+                          $scope.datos.tarj_prop2 = JSON.stringify(result.response);
+                        if(id==6)
+                          $scope.datos.licencia1 = JSON.stringify(result.response);
+                        if(id==7)
+                          $scope.datos.licencia2 = JSON.stringify(result.response);
+                        if(id==8)
+                          $scope.datos.revision1 = JSON.stringify(result.response);
+                        if(id==9)
+                          $scope.datos.revision2 = JSON.stringify(result.response);
+                        if(id==10)
+                          $scope.datos.soat1 = JSON.stringify(result.response);
+                        if(id==11)
+                          $scope.datos.soat2 = JSON.stringify(result.response);
+                        if(id==12)
+                          $scope.datos.tarjetas1 = JSON.stringify(result.response);
+                        if(id==13)
+                          $scope.datos.tarjetas2 = JSON.stringify(result.response);
+                        $ionicLoading.hide();
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Perfercto',
+                            template: 'Imagen cargada'
+                        });              
+                
+                    }, function (error) {
+                       $ionicLoading.hide();
+                      var alertPopup = $ionicPopup.alert({
+                              title: 'Error',
+                              template: error
+                          });
+                    });
+
+
+              }, function (error) {
+                console.log(error);
+              });
+
+        }
+
+
+         function onModal(id){   
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Suba su imagen',
+                template: 'Seleccione una opcion',
+                buttons: [
+                 { text: 'Galeria',
+                 onTap: function(e) {
+                    $scope.choosePhoto(id);
+                  }              
+                },
+                 {
+                   text: '<b>Camara</b>',
+                   type: 'button-positive',
+                   onTap: function(e) {
+                    $scope.takePhoto(id);
+                  }
+                 },
+               ]
+              });
+          }  
+
 
           function onRegister(){
             $ionicLoading.show();
