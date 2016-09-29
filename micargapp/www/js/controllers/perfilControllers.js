@@ -88,6 +88,19 @@ angular.module('app.Controllers').controller('EditPerfilCtrl', EditPerfilCtrl);
 
          function onUpdate(data){
             $ionicLoading.show({});
+            if (
+              $scope.datos.user_name == undefined || $scope.datos.user_name == ""
+              || $scope.datos.user_phone == undefined || $scope.datos.user_phone == ""
+              || $scope.datos.email == undefined || $scope.datos.email == ""
+              || $scope.datos.imagen == undefined || $scope.datos.imagen == ""
+              ){
+              $ionicLoading.hide();
+              var alertPopup = $ionicPopup.alert({
+                  title: 'Error',
+                  template: "Por favor llene los campos restantes",
+              });
+              return false;
+            }
             var parametros  = {
                 "user_name": $scope.datos.user_name,
                 "user_phone": $scope.datos.user_phone,

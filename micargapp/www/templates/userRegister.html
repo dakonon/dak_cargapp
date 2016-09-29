@@ -4,11 +4,11 @@
   </ion-nav-bar>
   <ion-content class="has-header" padding="true" ng-controller="UserRegisterCtrl">
     <div class="col responsive-sm col-80 col-offset-10">
-      <form class="list " id="userRegister">
+      <form class="list " name="myForm" id="userRegister">
         <section id="driver-data">
           <div class="form-item list">
             <label class="item item-input">
-              <input placeholder="Nombre" type="text" class="form-field" ng-model="datos.name">
+              <input placeholder="Nombre" type="text" class="form-field" ng-model="datos.name" >
             </label>
           </div>
           <div class="form-item list">
@@ -243,8 +243,9 @@
               </button>
             </div>
             </section>
+          <span>Llenar todos los campos para enviar el formulario</span>
           <section id="op-buttons">
-            <button ng-click="register()" class="button button-positive  button-block button-round" id="userRegister-button1">Registrarme</button>
+            <button ng-click="register()" class="button button-positive  button-block button-round" id="userRegister-button1" >Registrarme</button>
           </sections>
         </form>
     </div>
