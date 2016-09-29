@@ -179,6 +179,59 @@ angular.module('app.Controllers').controller('UserRegisterCtrl', UserRegisterCtr
 
           function onRegister(){
             $ionicLoading.show();
+            if (
+              $scope.datos.password == undefined || $scope.datos.password == ""
+              || $scope.datos.password_repeat == undefined || $scope.datos.password_repeat == ""
+              || $scope.datos.password != $scope.datos.password_repeat
+            ){
+              $ionicLoading.hide();
+              var alertPopup = $ionicPopup.alert({
+                  title: 'Error',
+                  template: "Las contraseñas no coinciden",
+              });
+              return false;
+            }
+            if (
+              $scope.datos.name == undefined || $scope.datos.name == ""
+              || $scope.datos.email == undefined || $scope.datos.email == ""
+              || $scope.datos.phone == undefined || $scope.datos.phone == ""
+              || $scope.datos.avatar == undefined || $scope.datos.avatar == ""
+              || $scope.datos.cedula1 == undefined || $scope.datos.cedula1 == ""
+              || $scope.datos.cedula2 == undefined || $scope.datos.cedula2 == ""
+              || $scope.datos.tarj_prop1 == undefined || $scope.datos.tarj_prop1 == ""
+              || $scope.datos.tarj_prop2 == undefined || $scope.datos.tarj_prop2 == ""
+              || $scope.datos.licencia1 == undefined || $scope.datos.licencia1 == ""
+              || $scope.datos.licencia2 == undefined || $scope.datos.licencia2 == ""
+              || $scope.datos.revision1 == undefined || $scope.datos.revision1 == ""
+              || $scope.datos.revision2 == undefined || $scope.datos.revision2 == ""
+              || $scope.datos.soat1 == undefined || $scope.datos.soat1 == ""
+              || $scope.datos.soat2 == undefined || $scope.datos.soat2 == ""
+              || $scope.datos.tarjetas1 == undefined || $scope.datos.tarjetas1 == ""
+              || $scope.datos.tarjetas2 == undefined || $scope.datos.tarjetas2 == ""
+              || $scope.datos.vehicletype == undefined || $scope.datos.vehicletype == ""
+              || $scope.datos.vehicle_bodywork == undefined || $scope.datos.vehicle_bodywork == ""
+              || $scope.datos.vehicle_licenceplate == undefined || $scope.datos.vehicle_licenceplate == ""
+              || $scope.datos.vehicle_brand == undefined || $scope.datos.vehicle_brand == ""
+              || $scope.datos.vehicle_model == undefined || $scope.datos.vehicle_model == ""
+              || $scope.datos.vehicle_color == undefined || $scope.datos.vehicle_color == ""
+              || $scope.datos.reference_comertial_name == undefined || $scope.datos.reference_comertial_name == ""
+              || $scope.datos.reference_comertial_address == undefined || $scope.datos.reference_comertial_address == ""
+              || $scope.datos.reference_comertial_phone == undefined || $scope.datos.reference_comertial_phone == ""
+              || $scope.datos.reference_personal1_name == undefined || $scope.datos.reference_personal1_name == ""
+              || $scope.datos.reference_personal1_address == undefined || $scope.datos.reference_personal1_address == ""
+              || $scope.datos.reference_personal1_phone == undefined || $scope.datos.reference_personal1_phone == ""
+              || $scope.datos.reference_personal2_name == undefined || $scope.datos.reference_personal2_name == ""
+              || $scope.datos.reference_personal2_address == undefined || $scope.datos.reference_personal2_address == ""
+              || $scope.datos.reference_personal2_phone == undefined || $scope.datos.reference_personal2_phone == ""
+              ){
+              $ionicLoading.hide();
+              var alertPopup = $ionicPopup.alert({
+                  title: 'Error',
+                  template: "Por favor llene los campos restantes",
+              });
+              return false;
+            }
+          
             var parametros = {
                 "name": $scope.datos.name,
                 "email": $scope.datos.email,
